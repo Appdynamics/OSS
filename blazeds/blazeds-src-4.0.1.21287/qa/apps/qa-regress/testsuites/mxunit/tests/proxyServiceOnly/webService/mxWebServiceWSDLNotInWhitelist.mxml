@@ -1,0 +1,99 @@
+<?xml version="1.0" ?>
+<!--
+/*************************************************************************
+ *
+ * ADOBE CONFIDENTIAL
+ * ___________________
+ *
+ *  Copyright 2008 Adobe Systems Incorporated
+ *  All Rights Reserved.
+ *
+ * NOTICE:  All information contained herein is, and remains
+ * the property of Adobe Systems Incorporated and its suppliers,
+ * if any.  The intellectual and technical concepts contained
+ * herein are proprietary to Adobe Systems Incorporated and its
+ * suppliers and may be covered by U.S. and Foreign Patents,
+ * patents in process, and are protected by trade secret or copyright law.
+ * Dissemination of this information or reproduction of this material
+ * is strictly forbidden unless prior written permission is obtained
+ * from Adobe Systems Incorporated.
+ **************************************************************************/
+
+-->
+
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:qa="http://www.adobe.com/2006/flexqa"
+creationComplete="run()">
+	
+	<mx:WebService id="_service" wsdl="http://api.google.com/GoogleSearch.wsdl"
+		load="onServiceLoad(event)"
+        fault="onServiceFault(event)"
+        useProxy="true"
+        destination="echoService">
+   		<mx:operation name="echoInteger" fault="onFault(event)" result="onResult(event)"/>
+    </mx:WebService>
+
+	<mx:Script>
+	<![CDATA[
+        import mx.rpc.events.FaultEvent;
+        import mx.rpc.events.ResultEvent;
+
+        import qa.mxunit.Assert;
+        import qa.mxunit.MXUnitManager;
+
+        private var fault:Object;
+        private var result:Object;
+        private var events:Array = [];
+
+        private function onServiceLoad(event:Event):void {}
+
+        private function onServiceFault(event:FaultEvent):void {
+            fault = event.fault;
+            events.push("service fault");
+        }
+
+        private function onFault(event:FaultEvent):void {
+            fault = event.fault;
+            events.push("operation fault");
+        }
+
+        private function onResult(event:ResultEvent):void {
+            result = event.result;
+            trace("***" + result);
+            events.push("operation result");
+        }
+
+		private function run():void {
+            events = new Array();
+
+            MXUnitManager.delay = 3000;
+            MXUnitManager.addTests(this,["Test1"],10000);
+		}
+
+        public function Test1():void {
+			var noFault:Boolean = true;
+            var faultstring:String = "";
+            var operationSucceeded:Boolean = true;
+            var actual:Object;
+            var expected:uint = 109;
+
+            if (fault != null) {
+                noFault = false;
+                faultstring = fault.faultString;
+            }
+            if (result == null) {
+                operationSucceeded = false;
+            } else {
+                actual = result;
+            }
+
+            Assert.assertFalse("fault not thrown!", noFault);
+            Assert.assertContains("wrong fault", "is not allowed by the selected destination", faultstring);
+
+            if (events.length > 1) {
+    		    Assert.fail("More than one event fired - " + events.toString());
+    	    }
+		}
+
+	]]>
+	</mx:Script>
+</mx:Application>

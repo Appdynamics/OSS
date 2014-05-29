@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:qa="*" creationComplete="ready()">
+
+    
+
+    <!-- http://venture.corp.adobe.com:9080/services/getEmployeeInfo?wsdl -->
+    <mx:WebService id="getEmployeeInfo" 
+            wsdl="lc.wsdl"  
+            useProxy="true" 
+            load="onServiceLoad(event)"
+            result="wsResult(event)"
+            fault="onServiceFault(event)"> 
+
+        <mx:operation name="synchronousInvoke" resultFormat="object" fault="onFault(event)" result="onResult(event)"> 
+            <mx:request> 
+                <user_id>vyadav</user_id> 
+                <user_pernr></user_pernr> 
+            </mx:request> 
+        </mx:operation> 
+    </mx:WebService> 
+
+
+    <mx:Script>
+    <![CDATA[
+        import mx.rpc.events.FaultEvent;
+        import mx.utils.ObjectUtil;
+        import qa.mxunit.Assert;
+        import qa.mxunit.MXUnitManager;
+        import mx.rpc.events.*;
+
+        private var port:int;
+        
+        public function ready():void {
+            getEmployeeInfo.endpointURI = "http://localhost:8400/qa-regress/testsuites/mxunit/tests/proxyServiceOnly/webService/bugs/179193/lc.xml";
+            run();
+        }
+
+        private function callIt():void {
+            getEmployeeInfo.synchronousInvoke.resultFormat = resultFormatCB.selectedItem as String;
+            getEmployeeInfo.synchronousInvoke.send();
+        }
+        public var fault:Object;
+        public var result:Object;
+        public var events:Array = [];
+
+        private function onServiceLoad(event:Event):void {
+            events.push("service load");
+            output.text += "-> Service load.\n";
+        }
+
+        private function onServiceFault(event:FaultEvent):void {
+            fault = event.fault;
+            events.push("service fault");
+            output.text += "-> Service fault: " + event.fault.faultCode + " - " + event.fault.faultString + ".\n";
+        }
+
+        private function onFault(event:FaultEvent):void {
+            fault = event.fault;
+            events.push("operation fault");
+            output.text += "-> Operation fault: " + event.fault.faultCode + " - " + event.fault.faultString + ".\n";
+        }
+
+        private function onResult(event:ResultEvent):void {
+            result = event.result;
+            events.push("operation result");
+            output.text += "-> Result: " + event.result + ".\n";
+        }
+
+        private function wsLoad(event:Event):void {
+            log("WS Load");
+        }
+
+        private function wsResult(event:Event):void {
+            log("WS Result");
+        }
+
+        private function wsFault(event:FaultEvent):void {
+            log("WS Fault - " + event.fault.faultCode + " : " + event.fault.faultString);
+        }
+
+        private function log(message:String):void {
+            output.text += message + "\n";
+        }
+        private function run():void {
+            callIt();
+            MXUnitManager.delay = 6000;
+            MXUnitManager.addTests(this,["Test1"], 5000);
+        }
+
+
+        public function Test1():void {
+            var noFault:Boolean = true;
+            var faultstring:String = "";
+            var operationSucceeded:Boolean = true;
+
+            if (fault != null) {
+                noFault = false;
+                faultstring = fault.faultString;
+            }
+            if (result == null) {
+                operationSucceeded = false;
+            }
+
+            Assert.assertTrue("fault thrown " + faultstring, noFault);
+            Assert.assertTrue("operation did not return a result", operationSucceeded);
+            Assert.assertEquals("operation result", "Sr Application Developer", getEmployeeInfo.synchronousInvoke.lastResult.emp_title);
+
+        }
+
+    ]]>
+    </mx:Script>
+
+    <mx:ComboBox id="resultFormatCB" > 
+        <mx:dataProvider>
+            <mx:Array>
+                <mx:String>object</mx:String>
+                <mx:String>xml</mx:String>                
+                <mx:String>e4x</mx:String>
+            </mx:Array>
+        </mx:dataProvider>
+    </mx:ComboBox>
+
+    <mx:Button label="call it" click="callIt()" />
+
+    <mx:TextInput width="300" text="{getEmployeeInfo.synchronousInvoke.lastResult}" />
+    <mx:TextInput width="300" text="{getEmployeeInfo.synchronousInvoke.lastResult.emp_title}" />
+    <mx:TextArea id="output" height="200" percentWidth="80" />
+    <mx:TraceTarget level="8"/>
+
+</mx:Application>

@@ -1,0 +1,14 @@
+@namespace mx "library://ns.adobe.com/flex/mx";
+
+mx|Application { 
+	padding-top: 16;
+	padding-bottom: 16;
+	padding-left: 16;
+	padding-right: 16;
+	vertical-gap: 4;
+}
+mx|Panel
+{
+	borderColor: #006699;
+	borderAlpha: 0.6;
+}

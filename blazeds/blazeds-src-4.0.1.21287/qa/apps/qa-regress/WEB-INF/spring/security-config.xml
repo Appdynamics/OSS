@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+    xmlns:beans="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+                        http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.0.xsd">
+
+    <http entry-point-ref="entryPoint">
+        <anonymous enabled="false"/>
+    </http>
+    
+    <beans:bean id="entryPoint" class="org.springframework.security.web.authentication.Http403ForbiddenEntryPoint"/>
+    
+    <authentication-manager>
+       <authentication-provider>
+           <user-service>
+            <user name="samplesmanageronly" password="samplepassword" authorities="samplemanagers" />
+            <user name="samplemanager" password="samplepassword" authorities="sampleusers,samplemanagers" />
+            <user name="employee" password="employee" authorities="employees"/>
+            <user name="café" password="café" authorities="sampleusers,samplemanagers"/>
+            <user name="supervisor" password="supervisor" authorities="supervisors"/>
+            <user name="accountant" password="accountant" authorities="accountants"/>
+            <user name="manager" password="manager1" authorities="managers,manager"/>
+            <user name="sampleuser" password="samplepassword" authorities="sampleusers"/>
+            <user name="admin" password="admin" authorities="admin"/>
+            <user name="guest" password="guest123" authorities="guests"/>
+           </user-service>
+       </authentication-provider>
+    </authentication-manager>
+
+</beans:beans>

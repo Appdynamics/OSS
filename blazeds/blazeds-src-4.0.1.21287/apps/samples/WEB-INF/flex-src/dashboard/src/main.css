@@ -1,0 +1,19 @@
+@namespace mx "library://ns.adobe.com/flex/mx";
+
+mx|Application {
+    paddingTop: 12;
+    verticalGap: 12;
+}
+
+mx|Panel {
+    cornerRadius: 6;
+    panelBorderStyle: "roundCorners";
+}
+
+mx|Button {
+	cornerRadius: 4;	
+}
+
+mx|HSlider {
+	showTrackHighlight: true;
+}

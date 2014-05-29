@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:flex="http://www.springframework.org/schema/flex"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/flex 
+        http://www.springframework.org/schema/flex/spring-flex-1.0.xsd">
+ 
+    <flex:message-broker>
+        <flex:message-service
+            default-channels="qa-polling-amf-ac" />
+        <flex:secured />
+    </flex:message-broker>
+
+  <!--  <flex:message-destination id="MyTopic"                                  
+              channels="qa-polling-amf-ac,qa-polling-amf,qa-rtpush-http,qa-rtpush-amf,qa-streaming-amf"
+    subscription-timeout-minutes="0"
+    message-time-to-live="0"
+    />
+
+<flex:message-destination id="MyTopic_MultiTopic"
+    channels="qa-polling-amf-ac,qa-polling-amf,qa-rtpush-http,qa-rtpush-amf,qa-streaming-amf"
+    allow-subtopics="true"
+    />
+
+
+<flex:message-destination id="topic_auth_send"
+    channels="qa-polling-amf,qa-polling-amf,qa-http-polling,qa-streaming-amf,qa-streaming-http"
+    send-security-constraint="sample-users"
+    />
+
+<flex:message-destination id="topic_auth_subscribe"
+    channels="qa-polling-amf,qa-polling-amf,qa-http-polling,qa-streaming-amf,qa-streaming-http"
+    allow-subtopics="true"
+    subscribe-security-constraint="sample-users"
+    />
+
+<flex:message-destination id="topic_auth_send_and_subscribe"
+    channels="qa-polling-amf,qa-polling-amf,qa-http-polling,qa-streaming-amf,qa-streaming-http"
+    send-security-constraint="sample-users"
+    subscribe-security-constraint="sample-users"
+    />
+
+<flex:message-destination id="DynamicDestinationColonSeparatorAMF"
+    channels="qa-polling-amf-ac"
+    allow-subtopics="true"
+    subtopic-separator=":"
+    />
+
+<flex:message-destination id="MyTopic_Throttle_Inbound"
+    channels="qa-polling-amf-ac,qa-polling-amf,qa-rtpush-http,qa-rtpush-amf,qa-streaming-amf"
+    message-time-to-live="0"
+    throttle-inbound-max-frequency="2"
+    throttle-inbound-policy="ERROR"
+    throttle-outbound-max-frequency="0"
+    throttle-outbound-policy="IGNORE"
+    />
+
+<flex:message-destination id="MyTopic_Throttle_Outbound"
+    channels="qa-polling-amf-ac,qa-polling-amf,qa-rtpush-http,qa-rtpush-amf,qa-streaming-amf"
+    message-time-to-live="0"
+    throttle-inbound-max-frequency="0"
+    throttle-inbound-policy="ERROR"
+    throttle-outbound-max-frequency="2"
+    throttle-outbound-policy="IGNORE"
+    />
+
+<bean id="qa.echoservice.Echo" class="blazeds.qa.remotingService.Echo">
+    <flex:remoting-destination />
+</bean> -->
+
+
+</beans>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <soapenv:Body>
+        <synchronousInvokeResponse xmlns="http://adobe.com/workflow/services/getEmployeeInfo">
+            <e_msgtype>S</e_msgtype>
+            <e_msgtxt>Successful</e_msgtxt>
+            <work_schedule>40HRS</work_schedule>
+            <valid_status>valid</valid_status>
+            <semi_mon_hours>86.67 </semi_mon_hours>
+            <sabbatical_date>04/18/2006</sabbatical_date>
+            <personnel_area_code>ADUS</personnel_area_code>
+            <personnel_area>United States</personnel_area>
+            <payroll_number xsi:nil="true"/>
+            <next_level_mgr_ind xsi:nil="true"/>
+            <manalev>28</manalev>
+            <location_code>WASE</location_code>
+            <location>Seattle</location>
+            <exmpt>1</exmpt>
+            <emp_user_id>vyadav</emp_user_id>
+            <emp_title>Sr Application Developer</emp_title>
+            <emp_sub_group_cd>SN</emp_sub_group_cd>
+            <emp_sub_group>Salaried - No OT</emp_sub_group>
+            <emp_phone>206-675-7828</emp_phone>
+            <emp_pay_curr>USD</emp_pay_curr>
+            <emp_number>5855</emp_number>
+            <emp_mgr_userid>mkakalec</emp_mgr_userid>
+            <emp_mgr_name>Michael Kakalec Jr</emp_mgr_name>
+            <emp_manalev xsi:nil="true"/>
+            <emp_group_cd>1</emp_group_cd>
+            <emp_group>Regular</emp_group>
+            <emp_full_name>Mr Venkatesh Yadav</emp_full_name>
+            <emp_last_name>Yadav</emp_last_name>
+            <emp_first_name>Venkatesh</emp_first_name>
+            <emp_fax xsi:nil="true"/>
+            <emp_mail>vyadav@adobe.com</emp_mail>
+            <department>Information Services</department>
+            <country>US</country>
+            <cost_center_manager>Lynn Furuta</cost_center_manager>
+            <cost_center>100224</cost_center>
+            <company_curr>USD</company_curr>
+            <company_code>ADUS</company_code>
+            <business_unit>CMED</business_unit>
+            <processID xsi:type="xsd:long">40830</processID>
+        </synchronousInvokeResponse>
+    </soapenv:Body>
+</soapenv:Envelope>

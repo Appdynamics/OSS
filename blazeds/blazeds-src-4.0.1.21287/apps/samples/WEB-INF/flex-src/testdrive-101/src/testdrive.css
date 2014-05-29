@@ -1,0 +1,19 @@
+@namespace mx "library://ns.adobe.com/flex/mx";
+
+mx|Application {
+	background-color: #E57000;
+	themeColor: #E57000;
+}
+
+mx|TileList {
+	selection-color: #FFCC33;
+	roll-over-color: #FFCC99;
+}
+
+mx|Panel {
+	roundedBottomCorners: true;
+}
+
+.price {
+	color: #E57000;
+}

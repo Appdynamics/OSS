@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<tomcat-users>
+  <role rolename="sampleusers"/>
+  <role rolename="guests"/>
+  <role rolename="employees"/>
+  <role rolename="accountants"/>
+  <role rolename="supervisors"/>
+  <role rolename="samplemanagers"/>
+  <role rolename="manager"/>
+  <role rolename="admin"/>
+  <role rolename="managers"/>
+  <user username="samplesmanageronly" password="samplepassword" roles="samplemanagers"/>
+  <user username="samplemanager" password="samplepassword" roles="sampleusers,samplemanagers"/>
+  <user username="employee" password="employee" roles="employees"/>
+  <user username="café" password="café" roles="sampleusers,samplemanagers"/>
+  <user username="supervisor" password="supervisor" roles="supervisors"/>
+  <user username="accountant" password="accountant" roles="accountants"/>
+  <user username="jmsuser" password="jmsuser"/>
+  <user username="manager" password="manager1" roles="managers,manager"/>
+  <user username="sampleuser" password="samplepassword" roles="sampleusers"/>
+  <user username="admin" password="admin" roles="admin"/>
+  <user username="guest" password="guest123" roles="guests"/>
+</tomcat-users>
