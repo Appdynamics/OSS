@@ -1,0 +1,7 @@
+	<module name='sun-javamail'
+		licenseType='cddl'
+		version='1.4'
+		projectHome='https://glassfish.dev.java.net/javaee5/mail/'
+		description='JavaMail APIs from glashfish(http://wiki.java.net/bin/view/Projects/GlassFishCodeDependencies)'>
+		<jar name='mail.jar' />
+	</module>
