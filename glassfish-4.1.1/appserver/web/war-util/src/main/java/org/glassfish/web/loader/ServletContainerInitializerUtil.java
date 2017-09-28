@@ -36,8 +36,11 @@
  * and therefore, elected the GPL Version 2 license, then the option applies
  * only if the new code is made subject to such option by the copyright
  * holder.
+ *
+ * Portions Copyright 2016 AppDynamics Inc.
+ * Source code for this software is provided at https://github.com/Appdynamics/OSS.
+ * AppDynamics Inc. elects to include this software in this distribution under the CDDL license.
  */
-
 package org.glassfish.web.loader;
 
 import org.glassfish.deployment.common.ClassDependencyBuilder;
@@ -458,22 +461,27 @@ public class ServletContainerInitializerUtil {
 
             Set<Class<?>> resultSet = new HashSet<Class<?>>();
             if (type instanceof AnnotationType) {
-                for (AnnotatedElement ae : ((AnnotationType) type).allAnnotatedTypes()) {
-                    if (ae instanceof Member) {
-                        ae = ((Member) ae).getDeclaringType();
-                    } else if (ae instanceof Parameter) {
-                        ae = ((Parameter) ae).getMethod().getDeclaringType();
-                    }
-                    if (ae instanceof Type) {
-                        try {
-                            resultSet.add(cl.loadClass(ae.getName()));
-                        } catch (Throwable t) {
-                            if (log.isLoggable(Level.WARNING)) {
-                                log.log(Level.WARNING,
-                                    CLASS_LOADING_ERROR,
-                                    new Object[] {ae.getName(), t.toString()});
+                // Returns a synchronized set
+                Collection<AnnotatedElement> elements = ((AnnotationType) type).allAnnotatedTypes();
+                // Need to explicitly synchronize on set in order to iterate over elements
+                synchronized (elements) {
+                    for (AnnotatedElement ae : elements) {
+                        if (ae instanceof Member) {
+                            ae = ((Member) ae).getDeclaringType();
+                        } else if (ae instanceof Parameter) {
+                            ae = ((Parameter) ae).getMethod().getDeclaringType();
+                        }
+                        if (ae instanceof Type) {
+                            try {
+                                resultSet.add(cl.loadClass(ae.getName()));
+                            } catch (Throwable t) {
+                                if (log.isLoggable(Level.WARNING)) {
+                                    log.log(Level.WARNING,
+                                            CLASS_LOADING_ERROR,
+                                            new Object[]{ae.getName(), t.toString()});
+                                }
                             }
-                        }     
+                        }
                     }
                 }
             } else {

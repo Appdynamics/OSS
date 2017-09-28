@@ -36,29 +36,27 @@
  * and therefore, elected the GPL Version 2 license, then the option applies
  * only if the new code is made subject to such option by the copyright
  * holder.
+ *
+ * Portions Copyright 2016 AppDynamics Inc.
+ * Source code for this software is provided at https://github.com/Appdynamics/OSS.
+ * AppDynamics Inc. elects to include this software in this distribution under the CDDL license.
  */
-
 package com.sun.enterprise.v3.server;
 
-import org.glassfish.hk2.api.ServiceLocator;
-import org.glassfish.hk2.classmodel.reflect.*;
-import javax.inject.Inject;
-import org.jvnet.hk2.annotations.Service;
-import org.glassfish.api.deployment.DeploymentContext;
+import com.sun.enterprise.util.LocalStringManagerImpl;
 import org.glassfish.api.container.Sniffer;
-import org.glassfish.api.deployment.archive.ReadableArchive;
+import org.glassfish.api.deployment.DeploymentContext;
 import org.glassfish.api.deployment.archive.ArchiveHandler;
 import org.glassfish.api.deployment.archive.ArchiveType;
+import org.glassfish.api.deployment.archive.ReadableArchive;
+import org.glassfish.hk2.api.ServiceLocator;
+import org.glassfish.hk2.classmodel.reflect.*;
 import org.glassfish.internal.deployment.SnifferManager;
-import com.sun.enterprise.util.LocalStringManagerImpl;
+import org.jvnet.hk2.annotations.Service;
 
-import java.lang.annotation.Annotation;
+import javax.inject.Inject;
 import java.net.URI;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 /**
  * Provide convenience methods to deal with {@link Sniffer}s in the system.
@@ -168,17 +166,22 @@ public class SnifferManagerImpl implements SnifferManager {
               if (types != null) {
                 Type type = types.getBy(annotationName);
                 if (type instanceof AnnotationType) {
+                    // Returns a synchronized set
                     Collection<AnnotatedElement> elements = ((AnnotationType) type).allAnnotatedTypes();
-                    for (AnnotatedElement element : elements) {
-                        if (checkPath) {
-                            Type t = (element instanceof Member?((Member) element).getDeclaringType():(Type) element);
-                            if (t.wasDefinedIn(uris)) {
+                    // Need to explicitly synchronize on set in order to iterate over elements
+                    synchronized (elements) {
+                        for (AnnotatedElement element : elements) {
+                            if (checkPath) {
+                                Type t = (element instanceof Member
+                                        ? ((Member) element).getDeclaringType() : (Type) element);
+                                if (t.wasDefinedIn(uris)) {
+                                    result.add(sniffer);
+                                    break;
+                                }
+                            } else {
                                 result.add(sniffer);
                                 break;
                             }
-                        } else {
-                            result.add(sniffer);
-                            break;
                         }
                     }
                 }

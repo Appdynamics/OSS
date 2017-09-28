@@ -36,34 +36,26 @@
  * and therefore, elected the GPL Version 2 license, then the option applies
  * only if the new code is made subject to such option by the copyright
  * holder.
+ *
+ * Portions Copyright 2016 AppDynamics Inc.
+ * Source code for this software is provided at https://github.com/Appdynamics/OSS.
+ * AppDynamics Inc. elects to include this software in this distribution under the CDDL license.
  */
-
 package com.sun.enterprise.deployment.util;
 
 import com.sun.enterprise.deployment.annotation.introspection.AnnotationScanner;
 import com.sun.enterprise.deployment.annotation.introspection.ClassFile;
 import com.sun.enterprise.deployment.annotation.introspection.ConstantPoolInfo;
-import com.sun.enterprise.deployment.util.DOLUtils;
 import org.glassfish.api.deployment.archive.ReadableArchive;
 import org.glassfish.hk2.classmodel.reflect.*;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.File;
-import java.io.FileFilter;
+import java.net.URI;
 import java.nio.channels.Channels;
 import java.nio.channels.ReadableByteChannel;
-import java.util.Enumeration;
-import java.util.jar.JarFile;
-import java.util.jar.JarEntry;
-import java.util.Collection;
-import java.util.Set;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.logging.Logger;
+import java.util.*;
 import java.util.logging.Level;
-import java.net.URI;
-import java.net.URL;
 
 /**
  * Abstract superclass for specific types of annotation detectors.
@@ -116,11 +108,15 @@ public class AnnotationDetector {
              // we never found anyone using that type
             if (type==null) continue;
             if (type instanceof AnnotationType) {
+                // Returns a synchronized set
                 Collection<AnnotatedElement> elements = ((AnnotationType) type).allAnnotatedTypes();
-                for (AnnotatedElement element : elements) {
-                    Type t = (element instanceof Member?((Member) element).getDeclaringType():(Type) element);
-                    if (t.wasDefinedIn(uris)) {
-                        return true;
+                // Need to explicitly synchronize on set in order to iterate over elements
+                synchronized (elements) {
+                    for (AnnotatedElement element : elements) {
+                        Type t = (element instanceof Member ? ((Member) element).getDeclaringType() : (Type) element);
+                        if (t.wasDefinedIn(uris)) {
+                            return true;
+                        }
                     }
                 }
             }

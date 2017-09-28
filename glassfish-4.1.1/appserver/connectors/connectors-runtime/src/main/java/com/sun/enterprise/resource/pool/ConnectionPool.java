@@ -36,6 +36,11 @@
  * and therefore, elected the GPL Version 2 license, then the option applies
  * only if the new code is made subject to such option by the copyright
  * holder.
+ *
+ * Portions Copyright 2016 AppDynamics Inc.
+ * Source code for this software is provided at https://github.com/Appdynamics/OSS.
+ * AppDynamics Inc. elects to include this software in this distribution under the CDDL license.
+ *
  */
 
 package com.sun.enterprise.resource.pool;
@@ -430,21 +435,20 @@ public class ConnectionPool implements ResourcePool, ConnectionLeakListener,
                         try {
                             logFine("Resource Pool: getting on wait queue");
                             waitMonitor.wait(remainingWaitTime);
-
                         } catch (InterruptedException ex) {
-                            //Could be system shutdown.
-                            break;
-                        }
-
-                        //try to remove in case that the monitor has timed
-                        // out.  We dont expect the queue to grow to great numbers
-                        // so the overhead for removing inexistant objects is low.
-                        if (_logger.isLoggable(Level.FINE)) {
-                            _logger.log(Level.FINE, "removing wait monitor from queue: " + waitMonitor);
-                        }
-                        if (waitQueue.removeFromQueue(waitMonitor)) {
-                            if (poolLifeCycleListener != null) {
-                                poolLifeCycleListener.connectionRequestDequeued();
+                            // Could be system shutdown
+                            throw new RuntimeException(ex);
+                        } finally {
+                            // Try to remove in case that the monitor has timed out.
+                            // We don't expect the queue to grow to great numbers
+                            // so the overhead for removing non-existing objects is low.
+                            if (_logger.isLoggable(Level.FINE)) {
+                                _logger.log(Level.FINE, "removing wait monitor from queue: " + waitMonitor);
+                            }
+                            if (waitQueue.removeFromQueue(waitMonitor)) {
+                                if (poolLifeCycleListener != null) {
+                                    poolLifeCycleListener.connectionRequestDequeued();
+                                }
                             }
                         }
                     }
@@ -460,22 +464,24 @@ public class ConnectionPool implements ResourcePool, ConnectionLeakListener,
                                 reconfigWaitMonitor.wait(reconfigWaitTime);
                             }
                         } catch (InterruptedException ex) {
-                            //Could be system shutdown.
-                            break;
-                        }
-                        //try to remove in case that the monitor has timed
-                        // out.  We don't expect the queue to grow to great numbers
-                        // so the overhead for removing inexistent objects is low.
-                        if(_logger.isLoggable(Level.FINEST)) {
-                            _logger.log(Level.FINEST, "[DRC] removing wait monitor from reconfig-wait-queue: " +
-                                reconfigWaitMonitor);
+                            // Could be system shutdown
+                            throw new RuntimeException(ex);
+                        } finally {
+                            // Try to remove in case that the monitor has timed out.
+                            // We don't expect the queue to grow to great numbers
+                            // so the overhead for removing non-existing objects is low.
+                            if (_logger.isLoggable(Level.FINEST)) {
+                                _logger.log(Level.FINEST, "[DRC] removing wait monitor from reconfig-wait-queue: " +
+                                        reconfigWaitMonitor);
+                            }
+
+                            reconfigWaitQueue.removeFromQueue(reconfigWaitMonitor);
+
+                            if (_logger.isLoggable(Level.FINEST)) {
+                                _logger.log(Level.FINEST, "[DRC] throwing Retryable-Unavailable-Exception");
+                            }
                         }
 
-                        reconfigWaitQueue.removeFromQueue(reconfigWaitMonitor);
-
-                        if(_logger.isLoggable(Level.FINEST)) {
-                            _logger.log(Level.FINEST, "[DRC] throwing Retryable-Unavailable-Exception");
-                        }
                         RetryableUnavailableException rue = new RetryableUnavailableException("Pool Reconfigured, " +
                                 "Connection Factory can retry the lookup");
                         rue.setErrorCode(BadConnectionEventListener.POOL_RECONFIGURED_ERROR_CODE);
@@ -972,8 +978,11 @@ public class ConnectionPool implements ResourcePool, ConnectionLeakListener,
                 leakDetector.stopConnectionLeakTracing(resourceHandle, this);
             if (poolLifeCycleListener != null) {
                 poolLifeCycleListener.connectionDestroyed(resourceHandle.getId());
-
-                if (resourceHandle.getResourceState().isBusy()) {
+                if(resourceHandle.getResourceState().hasCleanupFailed()) {
+                    //Destroying a connection on which clean up has failed before being put back to pool
+                    //It must be a busy connection and thus decrementing the busy count
+                    poolLifeCycleListener.decrementConnectionUsed(resourceHandle.getId());
+                } else if (resourceHandle.getResourceState().isBusy()) {
                     //Destroying a Connection due to error
                     poolLifeCycleListener.decrementConnectionUsed(resourceHandle.getId());
                     if(!resourceHandle.isMarkedForReclaim()) {
@@ -1068,10 +1077,10 @@ public class ConnectionPool implements ResourcePool, ConnectionLeakListener,
                     poolLifeCycleListener.incrementNumConnFree(false, steadyPoolSize);
                 }
             }
-            //for both the cases of free.add and maxConUsageOperation, a free resource is added.
-            // Hence notify waiting threads
-            notifyWaitingThreads();
         }
+        //for all cases, a free resource is added.
+        //Hence notify waiting threads
+        notifyWaitingThreads();
     }
     
     protected boolean cleanupResource(ResourceHandle handle) {
@@ -1084,6 +1093,7 @@ public class ConnectionPool implements ResourcePool, ConnectionLeakListener,
             Object[] params = new Object[]{poolInfo, ex};
             _logger.log(Level.WARNING, "cleanup.resource.failed", params);
             cleanupSuccessful = false;
+            handle.getResourceState().setCleanupFailed();
             resourceErrorOccurred(handle);
         }
         return cleanupSuccessful;

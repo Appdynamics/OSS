@@ -36,6 +36,10 @@
  * and therefore, elected the GPL Version 2 license, then the option applies
  * only if the new code is made subject to such option by the copyright
  * holder.
+ *
+ * Portions Copyright 2016 AppDynamics Inc.
+ * Source code for this software is provided at https://github.com/Appdynamics/OSS.
+ * AppDynamics Inc. elects to include this software in this distribution under the CDDL license.
  */
 
 package com.sun.enterprise.resource.pool.datastructure;
@@ -114,27 +118,29 @@ public class RWLockDataStructure implements DataStructure {
      */
     public ResourceHandle getResource() {
         readLock.lock();
-        for(int i=0; i<resources.size(); i++){
-            ResourceHandle h = resources.get(i);
-            if (!h.isBusy()) {
-                readLock.unlock();
-                writeLock.lock();
-                try {
-                    if (!h.isBusy()) {
-                        h.setBusy(true);
-                        return h;
-                    } else {
+        try {
+            for (int i = 0; i < resources.size(); i++) {
+                ResourceHandle handle = resources.get(i);
+                if (!handle.isBusy()) {
+                    readLock.unlock();
+                    try {
+                        writeLock.lock();
+                        try {
+                            if (!handle.isBusy()) {
+                                handle.setBusy(true);
+                                return handle;
+                            }
+                        } finally {
+                            writeLock.unlock();
+                        }
+                    } finally {
                         readLock.lock();
-                        continue;
                     }
-                }finally {
-                    writeLock.unlock();
                 }
-            } else {
-                continue;
             }
+        } finally {
+            readLock.unlock();
         }
-        readLock.unlock();
         return null;
     }
 
@@ -198,10 +204,10 @@ public class RWLockDataStructure implements DataStructure {
                 handler.deleteResource((ResourceHandle) it.next());
                 it.remove();
             }
+            resources.clear();
         } finally {
             writeLock.unlock();
         }
-        resources.clear();
     }
 
     /**

@@ -8,7 +8,7 @@ echo $BUILD_NAME
 mvn --batch-mode || succeeded=false
 
 git tag -m 'Preserve all Glassfish 4.1.1 builds, as these are infrequent and almost always tied to a Controller release' Glassfish-$BUILD_NAME $BUILD_NAME
-git push origin Glassfish-$BUILD_NAME
+git push ssh://jenkins4@gerrit.corp.appdynamics.com:29418/$GERRIT_PROJECT.git Glassfish-$BUILD_NAME
 
 $succeeded
 

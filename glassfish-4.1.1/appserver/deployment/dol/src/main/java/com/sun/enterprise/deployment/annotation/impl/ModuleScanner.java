@@ -36,39 +36,30 @@
  * and therefore, elected the GPL Version 2 license, then the option applies
  * only if the new code is made subject to such option by the copyright
  * holder.
+ *
+ * Portions Copyright 2016 AppDynamics Inc.
+ * Source code for this software is provided at https://github.com/Appdynamics/OSS.
+ * AppDynamics Inc. elects to include this software in this distribution under the CDDL license.
  */
-
 package com.sun.enterprise.deployment.annotation.impl;
 
-import com.sun.enterprise.deployment.annotation.introspection.ClassFile;
-import com.sun.enterprise.deployment.annotation.introspection.ConstantPoolInfo;
 import com.sun.enterprise.deployment.annotation.introspection.DefaultAnnotationScanner;
 import com.sun.enterprise.deployment.BundleDescriptor;
 import com.sun.enterprise.deployment.util.DOLUtils;
-import java.io.ByteArrayOutputStream;
-import java.util.Enumeration;
-import java.util.jar.JarFile;
+import java.util.*;
 import java.util.zip.ZipException;
 import org.glassfish.apf.Scanner;
 import org.glassfish.apf.impl.JavaEEScanner;
 import org.glassfish.hk2.classmodel.reflect.*;
 import javax.inject.Inject;
-import org.glassfish.deployment.common.DeploymentUtils;
 import org.glassfish.api.deployment.archive.ReadableArchive;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.net.URI;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.jar.JarEntry;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.logging.LogRecord;
-import java.net.URL;
 import java.util.concurrent.*;
 
 import org.glassfish.logging.annotation.LogMessageInfo;
@@ -79,9 +70,6 @@ import org.glassfish.logging.annotation.LogMessageInfo;
  * @author Shing Wai Chan
  */
 public abstract class ModuleScanner<T> extends JavaEEScanner implements Scanner<T> {
-
-    private static final int DEFAULT_ENTRY_BUFFER_SIZE = 8192;
-
     @Inject
     DefaultAnnotationScanner defaultScanner;
 
@@ -170,28 +158,32 @@ public abstract class ModuleScanner<T> extends JavaEEScanner implements Scanner<
 
             // is it an annotation
             if (type instanceof AnnotationType) {
-                AnnotationType at = (AnnotationType) type;
-                for (AnnotatedElement ae : at.allAnnotatedTypes()) {
-                    // if it is a member (field, method), let's retrieve the declaring type
-                    // otherwise, use the annotated type directly.
-                    Type t = (ae instanceof Member?((Member) ae).getDeclaringType():(Type) ae);
-                    if (t.wasDefinedIn(scannedURI)) {
-                        if (shouldLog) {
-                          if (Level.INFO.equals(logLevel)) {
-                            deplLogger.log(Level.INFO,
-                                           ANNOTATION_ADDED,
-                                           new Object[] { t.getName(),
-                                                          ae.getName(),
-                                                          at.getName() });
-                          } else {
-                            deplLogger.log(Level.FINE, "Adding " + t.getName()
-                                           + " since " + ae.getName() + " is annotated with " + at.getName());
-                          }
+                AnnotationType annotationType = (AnnotationType) type;
+                // Returns a synchronized set
+                Collection<AnnotatedElement> elements = annotationType.allAnnotatedTypes();
+                // Need to explicitly synchronize on set in order to iterate over elements
+                synchronized (elements) {
+                    for (AnnotatedElement element : elements) {
+                        // if it is a member (field, method), let's retrieve the declaring type
+                        // otherwise, use the annotated type directly.
+                        Type t = (element instanceof Member ? ((Member) element).getDeclaringType() : (Type) element);
+                        if (t.wasDefinedIn(scannedURI)) {
+                            if (shouldLog) {
+                                if (Level.INFO.equals(logLevel)) {
+                                    deplLogger.log(Level.INFO,
+                                            ANNOTATION_ADDED,
+                                            new Object[]{t.getName(),
+                                                    element.getName(),
+                                                    annotationType.getName()});
+                                } else {
+                                    deplLogger.log(Level.FINE, "Adding " + t.getName() + " since " + element.getName()
+                                            + " is annotated with " + annotationType.getName());
+                                }
+                            }
+                            entries.add(t.getName());
                         }
-                        entries.add(t.getName());
                     }
                 }
-
             } else
             // or is it an interface ?
             if (type instanceof InterfaceModel) {
