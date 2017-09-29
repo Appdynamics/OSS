@@ -37,7 +37,7 @@
  * only if the new code is made subject to such option by the copyright
  * holder.
  *
- * Portions Copyright 2016 AppDynamics Inc.
+ * Portions Copyright 2016-2017 AppDynamics Inc.
  * Source code for this software is provided at https://github.com/Appdynamics/OSS.
  * AppDynamics Inc. elects to include this software in this distribution under the CDDL license.
  */
