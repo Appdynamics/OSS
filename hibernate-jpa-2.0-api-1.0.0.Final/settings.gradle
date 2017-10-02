@@ -1,0 +1,3 @@
+// this is expected to be moved into the build file prior
+// to Gradle 1.0, but needs to be here for now
+rootProject.name = 'hibernate-jpa-2.0-api'
