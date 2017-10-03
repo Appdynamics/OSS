@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Implementation-Title: JAXB Implementation
+Major-Version: 2.2.11
+Implementation-Version: 2.2.11
+Built-By: yaroska
+Git-Revision: f92ac5110f00752578034111d2f8a10bb0c466e3
+Created-By: Apache Maven
+Git-Url: scm:git:git://java.net/jaxb~v2/jaxb-jxc
+Implementation-Vendor: Oracle
+Implementation-Vendor-Id: com.oracle
+Build-Jdk: 1.6.0_65
+Build-Version: JAXB RI 2.2.11
+Specification-Title: Java Architecture for XML Binding
+Specification-Version: 2.2
+Build-Id: 2.2.11
+Archiver-Version: Plexus Archiver
+
