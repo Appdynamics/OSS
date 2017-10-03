@@ -1,0 +1,8 @@
+// $ANTLR : sql-stmt.g -> SqlStatementParserTokenTypes.txt$
+SqlStatementParser    // output token vocab name
+NOT_STMT_END=4
+QUOTED_STRING=5
+STMT_END=6
+ESCqs=7
+LINE_COMMENT=8
+MULTILINE_COMMENT=9
