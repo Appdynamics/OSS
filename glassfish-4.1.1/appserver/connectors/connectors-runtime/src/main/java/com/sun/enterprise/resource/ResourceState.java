@@ -36,11 +36,6 @@
  * and therefore, elected the GPL Version 2 license, then the option applies
  * only if the new code is made subject to such option by the copyright
  * holder.
- *
- * Portions Copyright 2016-2017 AppDynamics Inc.
- * Source code for this software is provided at https://github.com/Appdynamics/OSS.
- * AppDynamics Inc. elects to include this software in this distribution under the CDDL license.
- *
  */
 
 package com.sun.enterprise.resource;
@@ -49,7 +44,6 @@ public class ResourceState {
     private boolean enlisted;
     private boolean busy;
     private long timestamp;
-    private boolean cleanupFailed;
 
     public boolean isEnlisted() {
         return enlisted;
@@ -81,14 +75,6 @@ public class ResourceState {
 
     public void touchTimestamp() {
         timestamp = System.currentTimeMillis();
-    }
-
-    public boolean hasCleanupFailed() {
-        return cleanupFailed;
-    }
-
-    public void setCleanupFailed() {
-        cleanupFailed = true;
     }
 
     public ResourceState() {
