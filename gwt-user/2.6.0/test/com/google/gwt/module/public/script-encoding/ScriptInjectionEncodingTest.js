@@ -1,3 +1,0 @@
-function scriptEncoding() {
-  return "à";
-}

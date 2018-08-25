@@ -1,6 +1,0 @@
-<module type="fileset">
-  <inherits name="com.google.gwt.event.EventBase" />
-
-  <source path="shared" />
-  <public path="public" />
-</module>
