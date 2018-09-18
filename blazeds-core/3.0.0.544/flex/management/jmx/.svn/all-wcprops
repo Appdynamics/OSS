@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/management/jmx
+END
+MBeanOperationInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/management/jmx/MBeanOperationInfo.java
+END
+MBeanParameterInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/management/jmx/MBeanParameterInfo.java
+END
+MBeanAttributeInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/management/jmx/MBeanAttributeInfo.java
+END
+Attribute.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/management/jmx/Attribute.java
+END
+MBeanConstructorInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/management/jmx/MBeanConstructorInfo.java
+END
+ObjectName.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/management/jmx/ObjectName.java
+END
+MBeanServerGateway.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/management/jmx/MBeanServerGateway.java
+END
+ObjectInstance.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/management/jmx/ObjectInstance.java
+END
+MBeanInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/management/jmx/MBeanInfo.java
+END

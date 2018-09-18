@@ -1,0 +1,107 @@
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/messages
+END
+AsyncMessageExt.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/messages/AsyncMessageExt.java
+END
+CommandMessageExt.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/messages/CommandMessageExt.java
+END
+SOAPMessage.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/messages/SOAPMessage.java
+END
+AbstractMessage.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/messages/AbstractMessage.java
+END
+AcknowledgeMessageExt.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/messages/AcknowledgeMessageExt.java
+END
+BatchableMessage.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/messages/BatchableMessage.java
+END
+SmallMessage.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/messages/SmallMessage.java
+END
+AsyncMessage.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/messages/AsyncMessage.java
+END
+MessagePerformanceInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/messages/MessagePerformanceInfo.java
+END
+CommandMessage.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/messages/CommandMessage.java
+END
+HTTPMessage.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/messages/HTTPMessage.java
+END
+Message.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/messages/Message.java
+END
+MessagePerformanceUtils.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/messages/MessagePerformanceUtils.java
+END
+AcknowledgeMessage.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/messages/AcknowledgeMessage.java
+END
+RPCMessage.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/messages/RPCMessage.java
+END
+RemotingMessage.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/messages/RemotingMessage.java
+END
+ErrorMessage.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/messages/ErrorMessage.java
+END

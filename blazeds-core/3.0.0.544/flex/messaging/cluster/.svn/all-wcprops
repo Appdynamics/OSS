@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/cluster
+END
+BroadcastHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/cluster/BroadcastHandler.java
+END
+ClusterException.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/cluster/ClusterException.java
+END
+Cluster.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/cluster/Cluster.java
+END
+ClusterMembershipListener.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/cluster/ClusterMembershipListener.java
+END
+ClusterNode.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/cluster/ClusterNode.java
+END
+RemoveNodeListener.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/cluster/RemoveNodeListener.java
+END
+JGroupsCluster.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/cluster/JGroupsCluster.java
+END
+ClusterManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/cluster/ClusterManager.java
+END

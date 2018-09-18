@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/services
+END
+ServiceException.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/services/ServiceException.java
+END
+AuthenticationService.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/services/AuthenticationService.java
+END
+Service.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/services/Service.java
+END
+ServiceAdapter.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/services/ServiceAdapter.java
+END
+AbstractBootstrapService.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/services/AbstractBootstrapService.java
+END
+AbstractService.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/services/AbstractService.java
+END
+MessageService.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/services/MessageService.java
+END

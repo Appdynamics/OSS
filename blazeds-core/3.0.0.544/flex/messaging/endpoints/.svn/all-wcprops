@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/endpoints
+END
+BasePollingHTTPEndpoint.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/endpoints/BasePollingHTTPEndpoint.java
+END
+Endpoint.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/endpoints/Endpoint.java
+END
+HTTPEndpoint.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/endpoints/HTTPEndpoint.java
+END
+SecureStreamingHTTPEndpoint.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/endpoints/SecureStreamingHTTPEndpoint.java
+END
+Endpoint2.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/endpoints/Endpoint2.java
+END
+AMFEndpoint.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/endpoints/AMFEndpoint.java
+END
+AbstractEndpoint.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/endpoints/AbstractEndpoint.java
+END
+BaseStreamingHTTPEndpoint.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/endpoints/BaseStreamingHTTPEndpoint.java
+END
+SecureStreamingAMFEndpoint.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/endpoints/SecureStreamingAMFEndpoint.java
+END
+SecureHTTPEndpoint.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/endpoints/SecureHTTPEndpoint.java
+END
+StreamingHTTPEndpoint.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/endpoints/StreamingHTTPEndpoint.java
+END
+BaseHTTPEndpoint.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/endpoints/BaseHTTPEndpoint.java
+END
+SecureAMFEndpoint.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/endpoints/SecureAMFEndpoint.java
+END
+StreamingAMFEndpoint.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/endpoints/StreamingAMFEndpoint.java
+END

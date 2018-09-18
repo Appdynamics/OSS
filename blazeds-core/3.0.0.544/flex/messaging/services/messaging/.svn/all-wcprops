@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/services/messaging
+END
+RemoteMessageClient.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/services/messaging/RemoteMessageClient.java
+END
+SubscriptionManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/services/messaging/SubscriptionManager.java
+END
+ThrottleManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/services/messaging/ThrottleManager.java
+END
+Subtopic.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/services/messaging/Subtopic.java
+END
+MessagingConstants.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/services/messaging/MessagingConstants.java
+END
+RemoteSubscriptionManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/services/messaging/RemoteSubscriptionManager.java
+END

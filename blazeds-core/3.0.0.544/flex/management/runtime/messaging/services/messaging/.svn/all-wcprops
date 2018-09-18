@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/management/runtime/messaging/services/messaging
+END
+SubscriptionManagerControl.java
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/management/runtime/messaging/services/messaging/SubscriptionManagerControl.java
+END
+ThrottleManagerControl.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/management/runtime/messaging/services/messaging/ThrottleManagerControl.java
+END
+SubscriptionManagerControlMBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/management/runtime/messaging/services/messaging/SubscriptionManagerControlMBean.java
+END
+ThrottleManagerControlMBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/management/runtime/messaging/services/messaging/ThrottleManagerControlMBean.java
+END

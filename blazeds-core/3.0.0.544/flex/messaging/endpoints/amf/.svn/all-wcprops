@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/endpoints/amf
+END
+MessageBrokerFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/endpoints/amf/MessageBrokerFilter.java
+END
+SerializationFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/endpoints/amf/SerializationFilter.java
+END
+BatchProcessFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/endpoints/amf/BatchProcessFilter.java
+END
+AMFFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/endpoints/amf/AMFFilter.java
+END
+SessionFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/endpoints/amf/SessionFilter.java
+END
+LegacyFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/endpoints/amf/LegacyFilter.java
+END

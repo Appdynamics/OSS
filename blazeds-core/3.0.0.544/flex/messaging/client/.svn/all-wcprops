@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/client
+END
+EndpointPushNotifier.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/client/EndpointPushNotifier.java
+END
+FlushResult.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/client/FlushResult.java
+END
+PollWaitListener.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/client/PollWaitListener.java
+END
+AsyncPollHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/client/AsyncPollHandler.java
+END
+FlexClientOutboundQueueProcessor.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/client/FlexClientOutboundQueueProcessor.java
+END
+FlexClientListener.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/client/FlexClientListener.java
+END
+FlexClientAttributeListener.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/client/FlexClientAttributeListener.java
+END
+PollFlushResult.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/client/PollFlushResult.java
+END
+FlexClientManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/client/FlexClientManager.java
+END
+FlexClientBindingEvent.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/client/FlexClientBindingEvent.java
+END
+FlexClient.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/client/FlexClient.java
+END
+EndpointPushHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/client/EndpointPushHandler.java
+END
+FlexClientBindingListener.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/client/FlexClientBindingListener.java
+END
+UserAgentSettings.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/client/UserAgentSettings.java
+END
