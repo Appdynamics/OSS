@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/management/runtime/messaging/services/messaging/adapters
+END
+ActionScriptAdapterControl.java
+K 25
+svn:wc:ra_dav:version-url
+V 163
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/management/runtime/messaging/services/messaging/adapters/ActionScriptAdapterControl.java
+END
+ActionScriptAdapterControlMBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 168
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/management/runtime/messaging/services/messaging/adapters/ActionScriptAdapterControlMBean.java
+END
+JMSAdapterControl.java
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/management/runtime/messaging/services/messaging/adapters/JMSAdapterControl.java
+END
+JMSAdapterControlMBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/management/runtime/messaging/services/messaging/adapters/JMSAdapterControlMBean.java
+END

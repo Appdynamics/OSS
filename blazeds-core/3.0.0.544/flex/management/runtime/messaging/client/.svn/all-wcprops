@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/management/runtime/messaging/client
+END
+FlexClientManagerControl.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/management/runtime/messaging/client/FlexClientManagerControl.java
+END
+FlexClientManagerControlMBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/management/runtime/messaging/client/FlexClientManagerControlMBean.java
+END

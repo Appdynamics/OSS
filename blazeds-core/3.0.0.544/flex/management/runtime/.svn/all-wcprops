@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/management/runtime
+END
+AdminConsoleTypes.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/management/runtime/AdminConsoleTypes.java
+END
+AdminConsoleDisplayRegistrar.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/management/runtime/AdminConsoleDisplayRegistrar.java
+END
+AdminConsoleDisplayRegistrarMBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/management/runtime/AdminConsoleDisplayRegistrarMBean.java
+END

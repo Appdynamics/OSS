@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/management/runtime/messaging/endpoints
+END
+StreamingAMFEndpointControl.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/management/runtime/messaging/endpoints/StreamingAMFEndpointControl.java
+END
+EndpointControl.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/management/runtime/messaging/endpoints/EndpointControl.java
+END
+HTTPEndpointControl.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/management/runtime/messaging/endpoints/HTTPEndpointControl.java
+END
+StreamingAMFEndpointControlMBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/management/runtime/messaging/endpoints/StreamingAMFEndpointControlMBean.java
+END
+EndpointControlMBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/management/runtime/messaging/endpoints/EndpointControlMBean.java
+END
+HTTPEndpointControlMBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/management/runtime/messaging/endpoints/HTTPEndpointControlMBean.java
+END
+AMFEndpointControl.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/management/runtime/messaging/endpoints/AMFEndpointControl.java
+END
+AMFEndpointControlMBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/management/runtime/messaging/endpoints/AMFEndpointControlMBean.java
+END
+StreamingEndpointControl.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/management/runtime/messaging/endpoints/StreamingEndpointControl.java
+END
+StreamingHTTPEndpointControl.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/management/runtime/messaging/endpoints/StreamingHTTPEndpointControl.java
+END
+StreamingEndpointControlMBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/management/runtime/messaging/endpoints/StreamingEndpointControlMBean.java
+END
+StreamingHTTPEndpointControlMBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/management/runtime/messaging/endpoints/StreamingHTTPEndpointControlMBean.java
+END

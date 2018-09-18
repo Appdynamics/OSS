@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/security
+END
+AppServerLoginCommand.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/security/AppServerLoginCommand.java
+END
+LoginManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/security/LoginManager.java
+END
+MessagingSecurity.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/security/MessagingSecurity.java
+END
+SecurityException.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/security/SecurityException.java
+END
+LoginCommand.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/security/LoginCommand.java
+END
+LoginCommandExt.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/security/LoginCommandExt.java
+END

@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/services/messaging/selector
+END
+NumericValue.java
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/services/messaging/selector/NumericValue.java
+END
+JMSSelectorException.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/services/messaging/selector/JMSSelectorException.java
+END
+PropertyValueComparator.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/services/messaging/selector/PropertyValueComparator.java
+END
+JMSSelector.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/services/messaging/selector/JMSSelector.java
+END
+SQLParser.jj
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/services/messaging/selector/SQLParser.jj
+END
+build.xml
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/services/messaging/selector/build.xml
+END

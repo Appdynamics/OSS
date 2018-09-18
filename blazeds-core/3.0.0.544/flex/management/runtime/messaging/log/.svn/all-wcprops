@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/management/runtime/messaging/log
+END
+LogControl.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/management/runtime/messaging/log/LogControl.java
+END
+LogControlMBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/management/runtime/messaging/log/LogControlMBean.java
+END
+LogManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/management/runtime/messaging/log/LogManager.java
+END

@@ -1,0 +1,125 @@
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/services/messaging/adapters
+END
+JMSMessageEvent.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/services/messaging/adapters/JMSMessageEvent.java
+END
+JMSQueueProducer.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/services/messaging/adapters/JMSQueueProducer.java
+END
+ActionScriptAdapter.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/services/messaging/adapters/ActionScriptAdapter.java
+END
+JMSMessageListener.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/services/messaging/adapters/JMSMessageListener.java
+END
+JMSTopicConsumer.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/services/messaging/adapters/JMSTopicConsumer.java
+END
+MessagingSecurityConstraintManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/services/messaging/adapters/MessagingSecurityConstraintManager.java
+END
+JMSConsumer.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/services/messaging/adapters/JMSConsumer.java
+END
+SyncMessageReceiver.java
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/services/messaging/adapters/SyncMessageReceiver.java
+END
+AsyncMessageReceiver.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/services/messaging/adapters/AsyncMessageReceiver.java
+END
+MessageReceiver.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/services/messaging/adapters/MessageReceiver.java
+END
+JMSExceptionEvent.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/services/messaging/adapters/JMSExceptionEvent.java
+END
+JMSQueueConsumer.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/services/messaging/adapters/JMSQueueConsumer.java
+END
+JMSSettings.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/services/messaging/adapters/JMSSettings.java
+END
+JMSConfigConstants.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/services/messaging/adapters/JMSConfigConstants.java
+END
+MessagingAdapter.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/services/messaging/adapters/MessagingAdapter.java
+END
+JMSExceptionListener.java
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/services/messaging/adapters/JMSExceptionListener.java
+END
+JMSAdapter.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/services/messaging/adapters/JMSAdapter.java
+END
+JMSProxy.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/services/messaging/adapters/JMSProxy.java
+END
+JMSTopicProducer.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/services/messaging/adapters/JMSTopicProducer.java
+END
+JMSProducer.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/opensource/!svn/ver/623/blazeds/tags/3.0.0/modules/core/src/java/flex/messaging/services/messaging/adapters/JMSProducer.java
+END
