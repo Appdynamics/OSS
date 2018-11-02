@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+    Copyright (c) 2014-2015 Oracle and/or its affiliates. All rights reserved.
+
+    The contents of this file are subject to the terms of either the GNU
+    General Public License Version 2 only ("GPL") or the Common Development
+    and Distribution License("CDDL") (collectively, the "License").  You
+    may not use this file except in compliance with the License.  You can
+    obtain a copy of the License at
+    http://glassfish.java.net/public/CDDL+GPL_1_1.html
+    or packager/legal/LICENSE.txt.  See the License for the specific
+    language governing permissions and limitations under the License.
+
+    When distributing the software, include this License Header Notice in each
+    file and include the License file at packager/legal/LICENSE.txt.
+
+    GPL Classpath Exception:
+    Oracle designates this particular file as subject to the "Classpath"
+    exception as provided by Oracle in the GPL Version 2 section of the License
+    file that accompanied this code.
+
+    Modifications:
+    If applicable, add the following below the License Header, with the fields
+    enclosed by brackets [] replaced by your own identifying information:
+    "Portions Copyright [year] [name of copyright owner]"
+
+    Contributor(s):
+    If you wish your version of this file to be governed by only the CDDL or
+    only the GPL Version 2, indicate your decision by adding "[Contributor]
+    elects to include this software in this distribution under the [CDDL or GPL
+    Version 2] license."  If you don't indicate a single choice of license, a
+    recipient has the option to distribute your version of this file under
+    either the CDDL, the GPL Version 2 or to extend the choice of license to
+    its licensees as provided above.  However, if you add GPL Version 2 code
+    and therefore, elected the GPL Version 2 license, then the option applies
+    only if the new code is made subject to such option by the copyright
+    holder.
+-->
+<!--
+  Configuration file for FindBugs exclusion filter.
+
+  When a file, class or rule (detector) is matched, it is not reported as a potential problem by FindBugs.
+
+  Note that this configuration file is not used by default in the maven build (mvn site), as FindBugs maven plugin
+  handles the paths as relative to a module root and would require to have such file in each module separately.
+  To use this exclusion configuration, run build with:
+  mvn site -Dfindbugs.exclude=[jersey_project_root]/etc/config/findbugs-exclude.xml
+  -->
+<FindBugsFilter>
+    <!-- skip FindBugs analysis in examples -->
+    <Match>
+        <Package name="~org\.glassfish\.jersey\.examples.*" />
+    </Match>
+
+    <!-- skip FindBugs analysis in tests -->
+    <Match>
+        <Package name="~org\.glassfish\.jersey\.tests.*" />
+    </Match>
+    <Match>
+        <Class name="~.*\.*Test" />
+    </Match>
+
+    <!-- skip analysis in repackaged libraries -->
+    <Match>
+        <Package name="~jersey\.repackaged.*" />
+    </Match>
+
+    <!-- skip analysis in the spec package -->
+    <Match>
+        <Package name="~javax\.ws\.rs.*" />
+    </Match>
+
+    <!-- do not report issues found in bundles -->
+    <Match>
+        <Source name="~.*bundles.*" />
+    </Match>
+
+    <!--
+    ignore warnings coming from VO_VOLATILE_INCREMENT, there is a known bug which causes false positives:
+    http://sourceforge.net/p/findbugs/bugs/1032/
+    -->
+    <Match>
+        <Bug pattern="VO_VOLATILE_INCREMENT" />
+    </Match>
+
+    <!-- ignore irrelevant additional GlassFish logging detectors -->
+    <Match>
+        <Bug pattern="GF_INVALID_MSG_ID_PATTERN,GF_MISSING_LOGGER_INFO_ANNOTATION,GF_MISSING_LOGMESSAGE_INFO_ANNOTATION" />
+    </Match>
+
+    <!-- individual ad-hoc ignores -->
+    <!-- ServerScopeProvider.getFilteringScopes() - returned object would be identical -->
+    <Match>
+        <Class name="org.glassfish.jersey.message.filtering.ServerScopeProvider" />
+        <Method name="getFilteringScopes" />
+        <Bug pattern="RV_RETURN_VALUE_OF_PUTIFABSENT_IGNORED" />
+    </Match>
+
+    <!-- used as fallback, can be ignored here -->
+    <Match>
+        <Bug pattern="DM_DEFAULT_ENCODING" />
+        <Class name="~.*.Base64" />
+    </Match>
+
+    <!-- There are few cases in the codebase -->
+    <Match>
+        <Bug pattern="CN_IMPLEMENTS_CLONE_BUT_NOT_CLONEABLE" />
+    </Match>
+
+    <Match>
+        <Bug pattern="REC_CATCH_EXCEPTION" />
+        <Class name="~.*.VfsSchemeResourceFinderFactory" />
+    </Match>
+
+    <!-- TODOs - those are the FindBugs warnings not resolved yet -->
+    <!-- Those exclusions should either be fixed or, after evaluation moved outside of this "TODO" section -->
+    <Match>
+        <Bug pattern="DM_DEFAULT_ENCODING" />
+        <Or>
+            <Class name="~.*.AbstractTemplateProcessor" />
+            <Class name="~.*.HmaSha1Method" />
+            <Class name="~.*.RsaSha1Method" />
+            <Class name="~.*.ConsumerCredentials" />
+            <Class name="~.*.AccessToken" />
+            <Class name="~.*.ClientIdentifier" />
+            <Class name="~.*.ChunkedInput" />
+            <Class name="~.*.ChunkedOutput" />
+        </Or>
+    </Match>
+
+    <Match>
+        <Class name="org.glassfish.jersey.apache.connector.ApacheConnector" />
+    </Match>
+
+    <!-- CDI extension observer methods are called by CDI bean manager at runtime -->
+    <Match>
+        <Class name="org.glassfish.jersey.ext.cdi1x.internal.CdiComponentProvider" />
+        <Bug pattern="UPM_UNCALLED_PRIVATE_METHOD" />
+        <Or>
+          <Method name="processAnnotatedType" />
+          <Method name="afterTypeDiscovery" />
+          <Method name="beforeTypeDiscovery" />
+          <Method name="processInjectionTarget" />
+          <Method name="afterDiscoveryObserver" />
+        </Or>
+    </Match>
+
+</FindBugsFilter>

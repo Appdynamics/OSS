@@ -1,0 +1,133 @@
+<html>
+<head>
+    <style>
+        .app H3 {
+            clear: none;
+        }
+
+        .axial {
+            display: none;
+        }
+
+        #apphead {
+            display: none;
+        }
+
+        #helptext {
+            display: none;
+        }
+
+        #searchbox {
+            display: none;
+        }
+
+        #download-icon {
+            text-align: center;
+            padding-top: 1em;
+            padding-bottom: 1em;
+            background-color: white;
+        }
+
+	#subprojects {
+		display: none;
+	}
+
+        .floatbox {
+            width: 190px;
+
+        / / background : rgb ( 254, 236, 219 );
+            background: rgb( 238, 238, 238 );
+            margin-top: 1em;
+            padding: 5px;
+        / / border : 1 px solid rgb ( 252, 142, 37 );
+            border: 1px solid rgb( 170, 170, 170 );
+        }
+
+        #creditfooter IMG {
+            display: none;
+        }
+
+    </style>
+    <title>MIME pull - Efficient handling of MIME attachments</title>
+</head>
+<body>
+
+    <div align="left">
+        <table valign="middle" class="directory" border="0">
+            <tbody>
+                <tr>
+                    <table border="0" class="icon"><tbody>
+                        <tr>
+                            <td>
+                                    <a href="https://maven.java.net/content/repositories/releases/org/jvnet/mimepull/mimepull/"><img src="images/download.png" class="logo"></a>
+                            </td>
+                            <td>
+                                    <a href="http://java.net/projects/mimepull/lists"><img src="images/communicate.gif" class="logo"></a>
+                            </td>
+                            <td>
+                                    <a href="http://java.net/projects/mimepull/sources/svn/show/trunk"><img src="images/extend.gif" class="logo"></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: center; font-weight: bold">
+                                    <a href="https://maven.java.net/content/repositories/releases/org/jvnet/mimepull/mimepull/"><div class="title">Download</div></a>
+                            </td>
+                            <td style="text-align: center; font-weight: bold">
+                                    <a href="http://java.net/projects/mimepull/lists"><div class="title">Communicate</div></a>
+                            </td>
+                            <td style="text-align: center; font-weight: bold">
+                                    <a href="http://java.net/projects/mimepull/sources/svn/show/trunk"><div class="title">Contribute</div></a>
+                            </td>
+                        </tr>
+                    </tbody></table>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class=app>
+        <p>Welcome to the Mimepull project. This project provides a streaming API to access attachments parts in a MIME message. 
+            Often times, a large MIME message cannot be loaded into memory. Hence the whole message or attachment parts 
+            are written to a file system and access to the attachment parts is provided using those files.
+        </p>
+        <p>However, in some cases, the attachment parts can be accessed by applications in a streaming fashion, provided: 
+            - The parts are accessed in the same order as they appear in the stream 
+            - The parts are accessed only once. In such situations, the parts need not be written to file system (no matter how large message it is !)
+        </p>
+        <ul>
+            <li><strong>License:</strong> <a href="http://glassfish.java.net/public/CDDL+GPL_1_1.html"> CDDL v1.1 and GPL v2</a></li>
+            <li><strong>Status:</strong> Production Quality
+            <li><strong>Governance:</strong> <a href="http://glassfish.java.net/public/GovernancePolicy.html">Same as Project GlassFish</a></li>
+        </ul>
+        <p>
+            <h2>Sample Usage</h2>
+            <pre>
+// Parts are accessed in order. The data is accessed using readOnce()
+// and there shouldn't be any data stored in temp files.
+public void testOrder() {
+    InputStream in = ...
+    String boundary = ...
+    MIMEConfig config = ...
+    MIMEMessage mm = new MIMEMessage(in, boundary, config);
+
+    MIMEPart partA = mm.getPart(&quot;partA&quot;);
+    InputStream ais = partA.readOnce();
+
+    MIMEPart partB = mm.getPart(&quot;partB&quot;);
+    InputStream bis = partB.readOnce()
+
+    MIMEPart partC = mm.getPart(&quot;partC&quot;);
+    InputStream cis = partC.readOnce()
+}</pre>
+        <p><h2>Implementation</h2></p>
+        <p>MIME message parsing is done using pull-parsing, much similar to 
+        <a href="http://www.jcp.org/en/jsr/detail?id=173"><tt>StAX</tt></a> in XML world. The MIMEParts 
+        are constructed lazily, and parsing is triggered by applications while reading the attachment parts. 
+        MIMEConfig provides various configuration options to control parsing and storing MIME parts. 
+        It is also possible to read MIME parts in any order and multiple times, but doing so may create 
+        attachment parts on the file system.
+        The latest implementations provide also Content-Encoding support.</p>            
+        </p>
+    </div>
+</body>
+</html>
