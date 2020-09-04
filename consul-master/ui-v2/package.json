@@ -104,7 +104,7 @@
     "jsonlint": "^1.6.3",
     "lint-staged": "^7.0.0",
     "loader.js": "^4.2.3",
-    "node-sass": "^4.9.3",
+    "node-sass": "^4.13.1",
     "prettier": "^1.10.2",
     "svgo": "^1.0.5",
     "text-encoding": "^0.6.4"
