@@ -1,0 +1,31 @@
+package javax.transaction;
+
+/**
+ *  This exception is thrown to report that a heuristic decision was made and
+ *  that some some parts of the transaction have been committed while other
+ *  parts have been rolled back. 
+ *
+ *  @version $Revision$
+ */
+public class HeuristicMixedException extends Exception
+{
+
+    /**
+     *  Creates a new <code>HeuristicMixedException</code> without a
+     *  detail message.
+     */
+    public HeuristicMixedException()
+    {
+    }
+
+    /**
+     *  Constructs an <code>HeuristicMixedException</code> with the
+     *  specified detail message.
+     *
+     *  @param msg the detail message.
+     */
+    public HeuristicMixedException(String msg)
+    {
+        super(msg);
+    }
+}
