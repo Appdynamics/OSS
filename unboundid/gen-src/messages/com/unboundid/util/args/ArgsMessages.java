@@ -1,0 +1,1673 @@
+/*
+ * Copyright 2021 Ping Identity Corporation
+ * All Rights Reserved.
+ */
+/*
+ * Copyright 2020-2021 Ping Identity Corporation
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/*
+ * Copyright (C) 2021 Ping Identity Corporation
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License (GPLv2 only)
+ * or the terms of the GNU Lesser General Public License (LGPLv2.1 only)
+ * as published by the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, see <http://www.gnu.org/licenses>.
+ */
+package com.unboundid.util.args;
+
+
+
+import java.text.MessageFormat;
+import java.util.ResourceBundle;
+import java.util.concurrent.ConcurrentHashMap;
+
+
+
+/**
+ * This enum defines a set of message keys for messages in the
+ * com.unboundid.util.args package, which correspond to messages in the
+ * unboundid-ldapsdk-args.properties properties file.
+ * <BR><BR>
+ * This source file was generated from the properties file.
+ * Do not edit it directly.
+ */
+enum ArgsMessages
+{
+  /**
+   * Argument ''{0}'' is already registered with an argument parser and cannot be registered a second time or with a different parser.
+   */
+  ERR_ARG_ALREADY_REGISTERED("Argument ''{0}'' is already registered with an argument parser and cannot be registered a second time or with a different parser."),
+
+
+
+  /**
+   * Value ''{0}'' configured as a default value is not allowed for argument ''{1}''.
+   */
+  ERR_ARG_DEFAULT_VALUE_NOT_ALLOWED("Value ''{0}'' configured as a default value is not allowed for argument ''{1}''."),
+
+
+
+  /**
+   * The provided description was null.
+   */
+  ERR_ARG_DESCRIPTION_NULL("The provided description was null."),
+
+
+
+  /**
+   * The set of identifiers for argument ''{0}'' cannot be altered because the argument has already been registered with an argument parser.
+   */
+  ERR_ARG_ID_CHANGE_AFTER_REGISTERED("The set of identifiers for argument ''{0}'' cannot be altered because the argument has already been registered with an argument parser."),
+
+
+
+  /**
+   * The value ''{0}'' provided for argument ''{1}'' is not acceptable because it was rejected by the associated argument parser:  {2}
+   */
+  ERR_ARG_LIST_INVALID_VALUE("The value ''{0}'' provided for argument ''{1}'' is not acceptable because it was rejected by the associated argument parser:  {2}"),
+
+
+
+  /**
+   * The value ''{0}'' provided for argument ''{1}'' is not a properly-formed argument list:  {2}
+   */
+  ERR_ARG_LIST_MALFORMED_VALUE("The value ''{0}'' provided for argument ''{1}'' is not a properly-formed argument list:  {2}"),
+
+
+
+  /**
+   * The ''{0}'' argument was provided more than the maximum allowed number of times for that argument.
+   */
+  ERR_ARG_MAX_OCCURRENCES_EXCEEDED("The ''{0}'' argument was provided more than the maximum allowed number of times for that argument."),
+
+
+
+  /**
+   * A value placeholder must be provided for the ''{0}'' argument.
+   */
+  ERR_ARG_MUST_TAKE_VALUE("A value placeholder must be provided for the ''{0}'' argument."),
+
+
+
+  /**
+   * At least one of the short and long identifiers must be non-null.
+   */
+  ERR_ARG_NO_IDENTIFIERS("At least one of the short and long identifiers must be non-null."),
+
+
+
+  /**
+   * Argument {0} does not have any non-hidden long or short identifiers.
+   */
+  ERR_ARG_NO_NON_HIDDEN_IDENTIFIER("Argument {0} does not have any non-hidden long or short identifiers."),
+
+
+
+  /**
+   * The provided value ''{0}'' is not allowed for argument ''{1}'' because it does not match regular expression ''{2}''.
+   */
+  ERR_ARG_VALUE_DOES_NOT_MATCH_PATTERN_WITHOUT_EXPLANATION("The provided value ''{0}'' is not allowed for argument ''{1}'' because it does not match regular expression ''{2}''."),
+
+
+
+  /**
+   * The provided value ''{0}'' is not allowed for argument ''{1}'' because it does not match regular expression ''{2}''.  {3}
+   */
+  ERR_ARG_VALUE_DOES_NOT_MATCH_PATTERN_WITH_EXPLANATION("The provided value ''{0}'' is not allowed for argument ''{1}'' because it does not match regular expression ''{2}''.  {3}"),
+
+
+
+  /**
+   * The provided value ''{0}'' is not allowed for argument ''{1}''.  Allowed values include:  {2}.
+   */
+  ERR_ARG_VALUE_NOT_ALLOWED("The provided value ''{0}'' is not allowed for argument ''{1}''.  Allowed values include:  {2}."),
+
+
+
+  /**
+   * Value ''{0}'' provided for argument ''{1}'' is not a valid attribute name:  {2}
+   */
+  ERR_ATTR_NAME_VALIDATOR_INVALID_VALUE("Value ''{0}'' provided for argument ''{1}'' is not a valid attribute name:  {2}"),
+
+
+
+  /**
+   * Value ''{0}'' provided for argument ''{1}'' is not valid because attribute type ''{2}'' is not defined in the schema.
+   */
+  ERR_ATTR_NAME_VALIDATOR_TYPE_NOT_DEFINED("Value ''{0}'' provided for argument ''{1}'' is not valid because attribute type ''{2}'' is not defined in the schema."),
+
+
+
+  /**
+   * The ''{0}'' argument does not take a value.
+   */
+  ERR_BOOLEAN_VALUES_NOT_ALLOWED("The ''{0}'' argument does not take a value."),
+
+
+
+  /**
+   * Value ''{0}'' provided for argument ''{1}'' cannot be parsed as a control definition because ''{2}'' is not a valid base64-encoded value.
+   */
+  ERR_CONTROL_ARG_INVALID_BASE64_VALUE("Value ''{0}'' provided for argument ''{1}'' cannot be parsed as a control definition because ''{2}'' is not a valid base64-encoded value."),
+
+
+
+  /**
+   * Value ''{0}'' provided for argument ''{1}'' cannot be parsed as a control definition because ''{2}'' is not a valid criticality.
+   */
+  ERR_CONTROL_ARG_INVALID_CRITICALITY("Value ''{0}'' provided for argument ''{1}'' cannot be parsed as a control definition because ''{2}'' is not a valid criticality."),
+
+
+
+  /**
+   * Value ''{0}'' provided for argument ''{1}'' cannot be parsed as a control definition because ''{2}'' is not a valid numeric OID.
+   */
+  ERR_CONTROL_ARG_INVALID_OID("Value ''{0}'' provided for argument ''{1}'' cannot be parsed as a control definition because ''{2}'' is not a valid numeric OID."),
+
+
+
+  /**
+   * DNS host name component ''{0}'' contains an invalid character at position {1,number,0}.  Host name components must only contain ASCII letters, digits, and dashes, and must start with a letter or digit.
+   */
+  ERR_DNS_NAME_VALIDATOR_COMPONENT_ILLEGAL_ASCII_CHARACTER("DNS host name component ''{0}'' contains an invalid character at position {1,number,0}.  Host name components must only contain ASCII letters, digits, and dashes, and must start with a letter or digit."),
+
+
+
+  /**
+   * DNS host name component ''{0}'' contains a non-ASCII character at position {1,number,0}.  Host names with non-ASCII characters must be encoded using the punycode representation described in RFC 3492.
+   */
+  ERR_DNS_NAME_VALIDATOR_COMPONENT_NON_ASCII_CHARACTER("DNS host name component ''{0}'' contains a non-ASCII character at position {1,number,0}.  Host names with non-ASCII characters must be encoded using the punycode representation described in RFC 3492."),
+
+
+
+  /**
+   * DNS host name component ''{0}'' starts with a dash.  Although host name components may contain dashes, they must start with an ASCII letter or digit.
+   */
+  ERR_DNS_NAME_VALIDATOR_COMPONENT_STARTS_WITH_HYPHEN("DNS host name component ''{0}'' starts with a dash.  Although host name components may contain dashes, they must start with an ASCII letter or digit."),
+
+
+
+  /**
+   * DNS host name components must exceed 63 characters in length, but component ''{0}'' contains {1,number,0} characters.
+   */
+  ERR_DNS_NAME_VALIDATOR_COMPONENT_TOO_LONG("DNS host name components must exceed 63 characters in length, but component ''{0}'' contains {1,number,0} characters."),
+
+
+
+  /**
+   * DNS host names must not contain consecutive periods.
+   */
+  ERR_DNS_NAME_VALIDATOR_CONSECUTIVE_PERIODS("DNS host names must not contain consecutive periods."),
+
+
+
+  /**
+   * Value ''{0}'' provided for argument ''{1}'' is not a valid DNS host name:  {2}
+   */
+  ERR_DNS_NAME_VALIDATOR_INVALID_ARG_VALUE("Value ''{0}'' provided for argument ''{1}'' is not a valid DNS host name:  {2}"),
+
+
+
+  /**
+   * The provided value was a numeric IP address, but only DNS host names are allowed.
+   */
+  ERR_DNS_NAME_VALIDATOR_IP_ADDRESS("The provided value was a numeric IP address, but only DNS host names are allowed."),
+
+
+
+  /**
+   * DNS host names must not exceed 255 characters in length, but the provided value contained {0,number,0} characters.
+   */
+  ERR_DNS_NAME_VALIDATOR_NAME_TOO_LONG("DNS host names must not exceed 255 characters in length, but the provided value contained {0,number,0} characters."),
+
+
+
+  /**
+   * The provided host name was unqualified, but only fully qualified names will be accepted.
+   */
+  ERR_DNS_NAME_VALIDATOR_NOT_QUALIFIED("The provided host name was unqualified, but only fully qualified names will be accepted."),
+
+
+
+  /**
+   * The provided host name appears to have a valid syntax, but it could not be resolved to an IP address.
+   */
+  ERR_DNS_NAME_VALIDATOR_NOT_RESOLVABLE("The provided host name appears to have a valid syntax, but it could not be resolved to an IP address."),
+
+
+
+  /**
+   * DNS host names must not be null or empty.
+   */
+  ERR_DNS_NAME_VALIDATOR_NULL_OR_EMPTY("DNS host names must not be null or empty."),
+
+
+
+  /**
+   * DNS host names must not start with a period.
+   */
+  ERR_DNS_NAME_VALIDATOR_STARTS_WITH_PERIOD("DNS host names must not start with a period."),
+
+
+
+  /**
+   * The provided value ''{0}'' for argument ''{1}'' could not be parsed as a distinguished name:  {2}
+   */
+  ERR_DN_VALUE_NOT_DN("The provided value ''{0}'' for argument ''{1}'' could not be parsed as a distinguished name:  {2}"),
+
+
+
+  /**
+   * The value for argument ''{0}'' is not acceptable because it represents a duration above the upper bound of {1}.
+   */
+  ERR_DURATION_ABOVE_UPPER_BOUND("The value for argument ''{0}'' is not acceptable because it represents a duration above the upper bound of {1}."),
+
+
+
+  /**
+   * The value for argument ''{0}'' is not acceptable because it represents a duration below the lower bound of {1}.
+   */
+  ERR_DURATION_BELOW_LOWER_BOUND("The value for argument ''{0}'' is not acceptable because it represents a duration below the lower bound of {1}."),
+
+
+
+  /**
+   * If a default value is defined for duration argument ''{0}'', then a default value unit must also be specified.
+   */
+  ERR_DURATION_DEFAULT_REQUIRES_UNIT("If a default value is defined for duration argument ''{0}'', then a default value unit must also be specified."),
+
+
+
+  /**
+   * The value is an empty string.
+   */
+  ERR_DURATION_EMPTY_VALUE("The value is an empty string."),
+
+
+
+  /**
+   * Argument ''{0}'' is invalid because the defined lower bound of {1} is greater than the defined upper bound of {2}.
+   */
+  ERR_DURATION_LOWER_GT_UPPER("Argument ''{0}'' is invalid because the defined lower bound of {1} is greater than the defined upper bound of {2}."),
+
+
+
+  /**
+   * If a lower bound value is defined for duration argument ''{0}'', then a lower bound unit must also be specified.
+   */
+  ERR_DURATION_LOWER_REQUIRES_UNIT("If a lower bound value is defined for duration argument ''{0}'', then a lower bound unit must also be specified."),
+
+
+
+  /**
+   * Value ''{0}'' is not valid for argument ''{1}'':  {2}
+   */
+  ERR_DURATION_MALFORMED_VALUE("Value ''{0}'' is not valid for argument ''{1}'':  {2}"),
+
+
+
+  /**
+   * The provided string did not include a numeric portion.
+   */
+  ERR_DURATION_NO_DIGIT("The provided string did not include a numeric portion."),
+
+
+
+  /**
+   * The provided string did not include a time unit.
+   */
+  ERR_DURATION_NO_UNIT("The provided string did not include a time unit."),
+
+
+
+  /**
+   * ''{0}'' is not a recognized time unit.
+   */
+  ERR_DURATION_UNRECOGNIZED_UNIT("''{0}'' is not a recognized time unit."),
+
+
+
+  /**
+   * Lower bound time unit ''{0}'' is not supported.
+   */
+  ERR_DURATION_UNSUPPORTED_LOWER_BOUND_UNIT("Lower bound time unit ''{0}'' is not supported."),
+
+
+
+  /**
+   * Upper bound time unit ''{0}'' is not supported.
+   */
+  ERR_DURATION_UNSUPPORTED_UPPER_BOUND_UNIT("Upper bound time unit ''{0}'' is not supported."),
+
+
+
+  /**
+   * If an upper bound value is defined for duration argument ''{0}'', then an upper bound unit must also be specified.
+   */
+  ERR_DURATION_UPPER_REQUIRES_UNIT("If an upper bound value is defined for duration argument ''{0}'', then an upper bound unit must also be specified."),
+
+
+
+  /**
+   * File argument ''{0}'' is configured to require values to be both files and directories.  This is not allowed.
+   */
+  ERR_FILE_CANNOT_BE_FILE_AND_DIRECTORY("File argument ''{0}'' is configured to require values to be both files and directories.  This is not allowed."),
+
+
+
+  /**
+   * Unable to fully read the contents of file ''{0}'' specified as the value for argument ''{1}''.
+   */
+  ERR_FILE_CANNOT_READ_FULLY("Unable to fully read the contents of file ''{0}'' specified as the value for argument ''{1}''."),
+
+
+
+  /**
+   * The file ''{0}'' specified as the value for argument ''{1}'' does not exist.
+   */
+  ERR_FILE_DOESNT_EXIST("The file ''{0}'' specified as the value for argument ''{1}'' does not exist."),
+
+
+
+  /**
+   * The file ''{0}'' specified as the value for argument ''{1}'' does not exist, and its parent also does not exist or is not a directory.
+   */
+  ERR_FILE_PARENT_DOESNT_EXIST("The file ''{0}'' specified as the value for argument ''{1}'' does not exist, and its parent also does not exist or is not a directory."),
+
+
+
+  /**
+   * The value for file argument ''{0}'' resolves to path ''{1}'' which exists but is not a directory.
+   */
+  ERR_FILE_VALUE_NOT_DIRECTORY("The value for file argument ''{0}'' resolves to path ''{1}'' which exists but is not a directory."),
+
+
+
+  /**
+   * The value for file argument ''{0}'' resolves to path ''{1}'' which exists but is not a file.
+   */
+  ERR_FILE_VALUE_NOT_FILE("The value for file argument ''{0}'' resolves to path ''{1}'' which exists but is not a file."),
+
+
+
+  /**
+   * The provided value ''{0}'' for argument ''{1}'' could not be parsed as a search filter:  {2}
+   */
+  ERR_FILTER_VALUE_NOT_FILTER("The provided value ''{0}'' for argument ''{1}'' could not be parsed as a search filter:  {2}"),
+
+
+
+  /**
+   * Argument ''{0}'' does not allow the empty string to be used as a value.
+   */
+  ERR_IA5_STRING_VALIDATOR_EMPTY_STRING("Argument ''{0}'' does not allow the empty string to be used as a value."),
+
+
+
+  /**
+   * Value ''{0}'' provided for argument ''{1}'' is not valid because it includes non-ASCII character ''{2}'' at position {3,number,0}.  Values for the ''{1}'' argument are only allowed to contain ASCII characters.
+   */
+  ERR_IA5_STRING_VALIDATOR_ILLEGAL_CHAR("Value ''{0}'' provided for argument ''{1}'' is not valid because it includes non-ASCII character ''{2}'' at position {3,number,0}.  Values for the ''{1}'' argument are only allowed to contain ASCII characters."),
+
+
+
+  /**
+   * The provided value {0,number,0} for argument ''{1}'' was larger than the upper bound of {2,number,0}.
+   */
+  ERR_INTEGER_VALUE_ABOVE_UPPER_BOUND("The provided value {0,number,0} for argument ''{1}'' was larger than the upper bound of {2,number,0}."),
+
+
+
+  /**
+   * The provided value {0,number,0} for argument ''{1}'' was smaller than the lower bound of {2,number,0}.
+   */
+  ERR_INTEGER_VALUE_BELOW_LOWER_BOUND("The provided value {0,number,0} for argument ''{1}'' was smaller than the lower bound of {2,number,0}."),
+
+
+
+  /**
+   * The provided value ''{0}'' for argument ''{1}'' could not be parsed as an integer.
+   */
+  ERR_INTEGER_VALUE_NOT_INT("The provided value ''{0}'' for argument ''{1}'' could not be parsed as an integer."),
+
+
+
+  /**
+   * Value ''{0}'' provided for argument ''{1}'' is not acceptable because it is suspected to be an IPv4 address but contains ''{0}'' that is not allowed to appear in IPv4 addresses.
+   */
+  ERR_IP_VALIDATOR_ILLEGAL_IPV4_CHAR("Value ''{0}'' provided for argument ''{1}'' is not acceptable because it is suspected to be an IPv4 address but contains ''{0}'' that is not allowed to appear in IPv4 addresses."),
+
+
+
+  /**
+   * Value ''{0}'' provided for argument ''{1}'' is not acceptable because it is suspected to be an IPv6 address but contains ''{0}'' that is not allowed to appear in IPv6 addresses.
+   */
+  ERR_IP_VALIDATOR_ILLEGAL_IPV6_CHAR("Value ''{0}'' provided for argument ''{1}'' is not acceptable because it is suspected to be an IPv6 address but contains ''{0}'' that is not allowed to appear in IPv6 addresses."),
+
+
+
+  /**
+   * Value ''{0}'' provided for argument ''{1}'' appears to be an IPv4 address but only IPv6 addresses are accepted.
+   */
+  ERR_IP_VALIDATOR_IPV4_NOT_ACCEPTED("Value ''{0}'' provided for argument ''{1}'' appears to be an IPv4 address but only IPv6 addresses are accepted."),
+
+
+
+  /**
+   * Value ''{0}'' provided for argument ''{1}'' appears to be an IPv6 address but only IPv4 addresses are accepted.
+   */
+  ERR_IP_VALIDATOR_IPV6_NOT_ACCEPTED("Value ''{0}'' provided for argument ''{1}'' appears to be an IPv6 address but only IPv4 addresses are accepted."),
+
+
+
+  /**
+   * Value ''{0}'' provided for argument ''{1}'' is not a valid IP address.
+   */
+  ERR_IP_VALIDATOR_MALFORMED("Value ''{0}'' provided for argument ''{1}'' is not a valid IP address."),
+
+
+
+  /**
+   * LDAP URL ''{0}''provided for argument ''{1}'' does not include the required attributes element.
+   */
+  ERR_LDAP_URL_VALIDATOR_MISSING_ATTRIBUTES("LDAP URL ''{0}''provided for argument ''{1}'' does not include the required attributes element."),
+
+
+
+  /**
+   * LDAP URL ''{0}''provided for argument ''{1}'' does not include the required base DN element.
+   */
+  ERR_LDAP_URL_VALIDATOR_MISSING_BASE_DN("LDAP URL ''{0}''provided for argument ''{1}'' does not include the required base DN element."),
+
+
+
+  /**
+   * LDAP URL ''{0}''provided for argument ''{1}'' does not include the required filter element.
+   */
+  ERR_LDAP_URL_VALIDATOR_MISSING_FILTER("LDAP URL ''{0}''provided for argument ''{1}'' does not include the required filter element."),
+
+
+
+  /**
+   * LDAP URL ''{0}''provided for argument ''{1}'' does not include the required host element.
+   */
+  ERR_LDAP_URL_VALIDATOR_MISSING_HOST("LDAP URL ''{0}''provided for argument ''{1}'' does not include the required host element."),
+
+
+
+  /**
+   * LDAP URL ''{0}''provided for argument ''{1}'' does not include the required port element.
+   */
+  ERR_LDAP_URL_VALIDATOR_MISSING_PORT("LDAP URL ''{0}''provided for argument ''{1}'' does not include the required port element."),
+
+
+
+  /**
+   * LDAP URL ''{0}''provided for argument ''{1}'' does not include the required scope element.
+   */
+  ERR_LDAP_URL_VALIDATOR_MISSING_SCOPE("LDAP URL ''{0}''provided for argument ''{1}'' does not include the required scope element."),
+
+
+
+  /**
+   * Value ''{0}'' provided for argument ''{1}'' cannot be parsed as a valid LDAP URL:  {2}
+   */
+  ERR_LDAP_URL_VALIDATOR_VALUE_NOT_LDAP_URL("Value ''{0}'' provided for argument ''{1}'' cannot be parsed as a valid LDAP URL:  {2}"),
+
+
+
+  /**
+   * Invalid value provided for argument {0}:  {1}
+   */
+  ERR_OID_VALIDATOR_INVALID_VALUE("Invalid value provided for argument {0}:  {1}"),
+
+
+
+  /**
+   * The subcommand argument parser (for subcommand ''{0}'') cannot have its own subcommands.
+   */
+  ERR_PARSER_CANNOT_CREATE_NESTED_SUBCOMMAND("The subcommand argument parser (for subcommand ''{0}'') cannot have its own subcommands."),
+
+
+
+  /**
+   * Unable to open argument properties file {0}:  {1}
+   */
+  ERR_PARSER_CANNOT_OPEN_PROP_FILE("Unable to open argument properties file {0}:  {1}"),
+
+
+
+  /**
+   * The provided command description was null.
+   */
+  ERR_PARSER_COMMAND_DESCRIPTION_NULL("The provided command description was null."),
+
+
+
+  /**
+   * The provided command name was null.
+   */
+  ERR_PARSER_COMMAND_NAME_NULL("The provided command name was null."),
+
+
+
+  /**
+   * Conflicting subcommands:  ''{0}'' and ''{1}''.
+   */
+  ERR_PARSER_CONFLICTING_SUBCOMMANDS("Conflicting subcommands:  ''{0}'' and ''{1}''."),
+
+
+
+  /**
+   * If argument ''{0}'' is provided, then at least one of the following arguments must also be given:  {1}.
+   */
+  ERR_PARSER_DEPENDENT_CONFLICT_MULTIPLE("If argument ''{0}'' is provided, then at least one of the following arguments must also be given:  {1}."),
+
+
+
+  /**
+   * If argument ''{0}'' is provided, then argument ''{1}'' must also be given.
+   */
+  ERR_PARSER_DEPENDENT_CONFLICT_SINGLE("If argument ''{0}'' is provided, then argument ''{1}'' must also be given."),
+
+
+
+  /**
+   * An error occurred while reading from properties file {0}:  {1}
+   */
+  ERR_PARSER_ERROR_READING_PROP_FILE("An error occurred while reading from properties file {0}:  {1}"),
+
+
+
+  /**
+   * Arguments ''{0}'' and ''{1}'' are not allowed to be used together.
+   */
+  ERR_PARSER_EXCLUSIVE_CONFLICT("Arguments ''{0}'' and ''{1}'' are not allowed to be used together."),
+
+
+
+  /**
+   * An error occurred while attempting to open file ''{0}'' for writing:  {1}
+   */
+  ERR_PARSER_GEN_PROPS_CANNOT_OPEN_FILE("An error occurred while attempting to open file ''{0}'' for writing:  {1}"),
+
+
+
+  /**
+   * Argument ''--{0}'' does not take a value.
+   */
+  ERR_PARSER_LONG_ARG_DOESNT_TAKE_VALUE("Argument ''--{0}'' does not take a value."),
+
+
+
+  /**
+   * Argument ''--{0}'' requires a value.
+   */
+  ERR_PARSER_LONG_ARG_MISSING_VALUE("Argument ''--{0}'' requires a value."),
+
+
+
+  /**
+   * Another argument is already registered with a long identifier of ''{0}''.
+   */
+  ERR_PARSER_LONG_ID_CONFLICT("Another argument is already registered with a long identifier of ''{0}''."),
+
+
+
+  /**
+   * An argument with a long identifier of ''{0}'' is already registered with subcommand ''{1}''.
+   */
+  ERR_PARSER_LONG_ID_CONFLICT_WITH_SUBCOMMAND("An argument with a long identifier of ''{0}'' is already registered with subcommand ''{1}''."),
+
+
+
+  /**
+   * Properties file {0} contains a malformed property definition at or near line {1} that does not include a space or an equal sign to separate the property name from the value.  The malformed line is:  {2}
+   */
+  ERR_PARSER_MALFORMED_PROP_LINE("Properties file {0} contains a malformed property definition at or near line {1} that does not include a space or an equal sign to separate the property name from the value.  The malformed line is:  {2}"),
+
+
+
+  /**
+   * Properties file {0} contains a property definition at or near line {1} with a malformed Unicode escape sequence that starts with a backslash followed by a letter u but that is not then followed by four hexadecimal digits.
+   */
+  ERR_PARSER_MALFORMED_UNICODE_ESCAPE("Properties file {0} contains a property definition at or near line {1} with a malformed Unicode escape sequence that starts with a backslash followed by a letter u but that is not then followed by four hexadecimal digits."),
+
+
+
+  /**
+   * Argument ''{0}'' is required to be present but was not provided and does not have a default value.
+   */
+  ERR_PARSER_MISSING_REQUIRED_ARG("Argument ''{0}'' is required to be present but was not provided and does not have a default value."),
+
+
+
+  /**
+   * Command ''{0}'' requires a subcommand, but none was provided.
+   */
+  ERR_PARSER_MISSING_SUBCOMMAND("Command ''{0}'' requires a subcommand, but none was provided."),
+
+
+
+  /**
+   * Not enough unnamed trailing arguments were provided.  The ''{0}'' tool requires at least {1,number,0} trailing argument(s), with a usage of ''{2}''.
+   */
+  ERR_PARSER_NOT_ENOUGH_TRAILING_ARGS("Not enough unnamed trailing arguments were provided.  The ''{0}'' tool requires at least {1,number,0} trailing argument(s), with a usage of ''{2}''."),
+
+
+
+  /**
+   * Unknown argument ''-{0}'' referenced in string ''{1}''.
+   */
+  ERR_PARSER_NO_SUBSEQUENT_SHORT_ARG("Unknown argument ''-{0}'' referenced in string ''{1}''."),
+
+
+
+  /**
+   * Unknown argument ''--{0}''
+   */
+  ERR_PARSER_NO_SUCH_LONG_ID("Unknown argument ''--{0}''"),
+
+
+
+  /**
+   * The {0} argument was provided to indicate that argument values should be obtained from properties file {1}, but either that file does not exist or the path exists but does not refer to a file.
+   */
+  ERR_PARSER_NO_SUCH_PROPERTIES_FILE("The {0} argument was provided to indicate that argument values should be obtained from properties file {1}, but either that file does not exist or the path exists but does not refer to a file."),
+
+
+
+  /**
+   * Unknown argument ''-{0}''
+   */
+  ERR_PARSER_NO_SUCH_SHORT_ID("Unknown argument ''-{0}''"),
+
+
+
+  /**
+   * Subcommand ''{0}'' is not supported for command ''{1}''.
+   */
+  ERR_PARSER_NO_SUCH_SUBCOMMAND("Subcommand ''{0}'' is not supported for command ''{1}''."),
+
+
+
+  /**
+   * Missing the expected continuation of a property definition at or near line {0} in properties file {1}.
+   */
+  ERR_PARSER_PROP_FILE_MISSING_CONTINUATION("Missing the expected continuation of a property definition at or near line {0} in properties file {1}."),
+
+
+
+  /**
+   * Properties file {0} has an unexpected leading space at line {1,number,0}.
+   */
+  ERR_PARSER_PROP_FILE_UNEXPECTED_LEADING_SPACE("Properties file {0} has an unexpected leading space at line {1,number,0}."),
+
+
+
+  /**
+   * At least one of the following arguments is required to be present:  {0}.
+   */
+  ERR_PARSER_REQUIRED_CONFLICT("At least one of the following arguments is required to be present:  {0}."),
+
+
+
+  /**
+   * Argument ''-{0}'' requires a value.
+   */
+  ERR_PARSER_SHORT_ARG_MISSING_VALUE("Argument ''-{0}'' requires a value."),
+
+
+
+  /**
+   * Another argument is already registered with a short identifier of ''{0}''.
+   */
+  ERR_PARSER_SHORT_ID_CONFLICT("Another argument is already registered with a short identifier of ''{0}''."),
+
+
+
+  /**
+   * An argument with a short identifier of ''{0}'' is already registered with subcommand ''{1}''.
+   */
+  ERR_PARSER_SHORT_ID_CONFLICT_WITH_SUBCOMMAND("An argument with a short identifier of ''{0}'' is already registered with subcommand ''{1}''."),
+
+
+
+  /**
+   * The provided subcommand has already been registered with an argument parser.
+   */
+  ERR_PARSER_SUBCOMMAND_ALREADY_REGISTERED_WITH_PARSER("The provided subcommand has already been registered with an argument parser."),
+
+
+
+  /**
+   * Argument ''-{0}'' referenced in string ''{1}'' requires a value, but arguments which take values cannot be referenced by their short identifier in a single string containing other arguments referenced by their short identifiers.
+   */
+  ERR_PARSER_SUBSEQUENT_SHORT_ARG_TAKES_VALUE("Argument ''-{0}'' referenced in string ''{1}'' requires a value, but arguments which take values cannot be referenced by their short identifier in a single string containing other arguments referenced by their short identifiers."),
+
+
+
+  /**
+   * Argument ''{0}'' is not acceptable because command ''{1}'' does not allow more than {2} unnamed trailing argument(s).
+   */
+  ERR_PARSER_TOO_MANY_TRAILING_ARGS("Argument ''{0}'' is not acceptable because command ''{1}'' does not allow more than {2} unnamed trailing argument(s)."),
+
+
+
+  /**
+   * The argument parser was configured to require at least {0,number,0} unnamed trailing arguments, which conflicts with the configured maximum of {1,number,0} trailing arguments.
+   */
+  ERR_PARSER_TRAILING_ARGS_COUNT_MISMATCH("The argument parser was configured to require at least {0,number,0} unnamed trailing arguments, which conflicts with the configured maximum of {1,number,0} trailing arguments."),
+
+
+
+  /**
+   * Argument ''{0}'' is not acceptable because command ''{1}'' does not allow unnamed trailing arguments.
+   */
+  ERR_PARSER_TRAILING_ARGS_NOT_ALLOWED("Argument ''{0}'' is not acceptable because command ''{1}'' does not allow unnamed trailing arguments."),
+
+
+
+  /**
+   * The argument parser was configured to allow unnamed trailing arguments, but the trailing args placeholder was null.
+   */
+  ERR_PARSER_TRAILING_ARGS_PLACEHOLDER_NULL("The argument parser was configured to allow unnamed trailing arguments, but the trailing args placeholder was null."),
+
+
+
+  /**
+   * Unexpected lone ''-'' character in argument list.
+   */
+  ERR_PARSER_UNEXPECTED_DASH("Unexpected lone ''-'' character in argument list."),
+
+
+
+  /**
+   * An argument parser that allows unnamed trailing arguments cannot have subcommands.
+   */
+  ERR_PARSER_WITH_TRAILING_ARGS_CANNOT_HAVE_SUBCOMMANDS("An argument parser that allows unnamed trailing arguments cannot have subcommands."),
+
+
+
+  /**
+   * The provided encryption passphrase is incorrect.  Please enter the correct passphrase used to encrypt properties file ''{0}'':
+   */
+  ERR_PARSER_WRONG_PROP_FILE_ENC_PW("The provided encryption passphrase is incorrect.  Please enter the correct passphrase used to encrypt properties file ''{0}'':"),
+
+
+
+  /**
+   * Value ''{0}'' provided for argument ''{1}'' is below prohibited subtree ''{2}''.
+   */
+  ERR_PROHIBIT_DN_IN_SUBTREE_VALIDATOR_VALUE_IN_SUBTREE("Value ''{0}'' provided for argument ''{1}'' is below prohibited subtree ''{2}''."),
+
+
+
+  /**
+   * Value ''{0}'' provided for argument ''{1}'' cannot be parsed as a valid DN.
+   */
+  ERR_PROHIBIT_DN_IN_SUBTREE_VALIDATOR_VALUE_NOT_DN("Value ''{0}'' provided for argument ''{1}'' cannot be parsed as a valid DN."),
+
+
+
+  /**
+   * Value ''{0}'' provided for argument ''{1}'' cannot be parsed as a valid regular expression.
+   */
+  ERR_REGEX_VALIDATOR_VALUE_NOT_REGEX("Value ''{0}'' provided for argument ''{1}'' cannot be parsed as a valid regular expression."),
+
+
+
+  /**
+   * Value ''{0}'' provided for argument ''{1}'' cannot be parsed as a valid DN.
+   */
+  ERR_REQUIRE_DN_IN_SUBTREE_VALIDATOR_VALUE_NOT_DN("Value ''{0}'' provided for argument ''{1}'' cannot be parsed as a valid DN."),
+
+
+
+  /**
+   * Value ''{0}'' provided for argument ''{1}'' is not below the required subtree ''{2}''.
+   */
+  ERR_REQUIRE_DN_IN_SUBTREE_VALIDATOR_VALUE_NOT_IN_SUBTREE("Value ''{0}'' provided for argument ''{1}'' is not below the required subtree ''{2}''."),
+
+
+
+  /**
+   * Value ''{0}'' provided for argument ''{1}'' is not below any of the following permitted subtrees:  {2}.
+   */
+  ERR_REQUIRE_DN_IN_SUBTREE_VALIDATOR_VALUE_NOT_IN_SUBTREES("Value ''{0}'' provided for argument ''{1}'' is not below any of the following permitted subtrees:  {2}."),
+
+
+
+  /**
+   * The value ''{0}'' provided for argument ''{1}'' is not acceptable because it does not represent a recognized search scope.  Search scope values should be one of ''base'', ''one'', ''sub'', or ''subordinate''.
+   */
+  ERR_SCOPE_VALUE_NOT_VALID("The value ''{0}'' provided for argument ''{1}'' is not acceptable because it does not represent a recognized search scope.  Search scope values should be one of ''base'', ''one'', ''sub'', or ''subordinate''."),
+
+
+
+  /**
+   * The subcommand description must not be null or empty.
+   */
+  ERR_SUBCOMMAND_DESCRIPTION_NULL_OR_EMPTY("The subcommand description must not be null or empty."),
+
+
+
+  /**
+   * Subcommand name ''{0}'' is already in use.
+   */
+  ERR_SUBCOMMAND_NAME_ALREADY_IN_USE("Subcommand name ''{0}'' is already in use."),
+
+
+
+  /**
+   * Subcommand names must not be null or empty.
+   */
+  ERR_SUBCOMMAND_NAME_NULL_OR_EMPTY("Subcommand names must not be null or empty."),
+
+
+
+  /**
+   * The subcommand argument parser must not allow unnamed trailing arguments.
+   */
+  ERR_SUBCOMMAND_PARSER_ALLOWS_TRAILING_ARGS("The subcommand argument parser must not allow unnamed trailing arguments."),
+
+
+
+  /**
+   * The subcommand argument parser must not have subcommands.
+   */
+  ERR_SUBCOMMAND_PARSER_HAS_SUBCOMMANDS("The subcommand argument parser must not have subcommands."),
+
+
+
+  /**
+   * The subcommand argument parser must not be null.
+   */
+  ERR_SUBCOMMAND_PARSER_NULL("The subcommand argument parser must not be null."),
+
+
+
+  /**
+   * Unable to parse the provided value ''{0}'' as a timestamp using any of the supported formats.
+   */
+  ERR_TIMESTAMP_PARSE_ERROR("Unable to parse the provided value ''{0}'' as a timestamp using any of the supported formats."),
+
+
+
+  /**
+   * The provided value ''{0}'' for argument ''{1}'' is not acceptable because it is newer than the most recent allowed timestamp value of ''{2}''.
+   */
+  ERR_TIMESTAMP_RANGE_VALIDATOR_TOO_NEW("The provided value ''{0}'' for argument ''{1}'' is not acceptable because it is newer than the most recent allowed timestamp value of ''{2}''."),
+
+
+
+  /**
+   * The provided value ''{0}'' for argument ''{1}'' is not acceptable because it is earlier than the oldest allowed timestamp value of ''{2}''.
+   */
+  ERR_TIMESTAMP_RANGE_VALIDATOR_TOO_OLD("The provided value ''{0}'' for argument ''{1}'' is not acceptable because it is earlier than the oldest allowed timestamp value of ''{2}''."),
+
+
+
+  /**
+   * The provided value ''{0}'' for argument ''{1}'' could not be parsed as a valid timestamp in any of the supported formats.
+   */
+  ERR_TIMESTAMP_VALUE_NOT_TIMESTAMP("The provided value ''{0}'' for argument ''{1}'' could not be parsed as a valid timestamp in any of the supported formats."),
+
+
+
+  /**
+   * Value ''{0}'' provided for argument ''{1}'' cannot be parsed as a valid URL because it does not contain a scheme.
+   */
+  ERR_URL_VALIDATOR_MISSING_SCHEME("Value ''{0}'' provided for argument ''{1}'' cannot be parsed as a valid URL because it does not contain a scheme."),
+
+
+
+  /**
+   * Value ''{0}'' provided for argument ''{1}'' is not acceptable because ''{2}'' is not a supported scheme.
+   */
+  ERR_URL_VALIDATOR_UNACCEPTABLE_SCHEME("Value ''{0}'' provided for argument ''{1}'' is not acceptable because ''{2}'' is not a supported scheme."),
+
+
+
+  /**
+   * Value ''{0}'' provided for argument ''{1}'' cannot be parsed as a valid URL:  {2}
+   */
+  ERR_URL_VALIDATOR_VALUE_NOT_URL("Value ''{0}'' provided for argument ''{1}'' cannot be parsed as a valid URL:  {2}"),
+
+
+
+  /**
+   * Write an empty properties file that may be used to specify default values for arguments.
+   */
+  INFO_ARG_DESCRIPTION_GEN_PROP_FILE("Write an empty properties file that may be used to specify default values for arguments."),
+
+
+
+  /**
+   * Do not obtain any argument values from a properties file.
+   */
+  INFO_ARG_DESCRIPTION_NO_PROP_FILE("Do not obtain any argument values from a properties file."),
+
+
+
+  /**
+   * The path to a properties file used to specify default values for arguments not supplied on the command line.
+   */
+  INFO_ARG_DESCRIPTION_PROP_FILE_PATH("The path to a properties file used to specify default values for arguments not supplied on the command line."),
+
+
+
+  /**
+   * Suppress output listing the arguments obtained from a properties file.
+   */
+  INFO_ARG_DESCRIPTION_SUPPRESS_PROP_FILE_COMMENT("Suppress output listing the arguments obtained from a properties file."),
+
+
+
+  /**
+   * A provided value must be a string representation of a valid argument list that meets the constraints of the associated argument parser.
+   */
+  INFO_ARG_LIST_CONSTRAINTS("A provided value must be a string representation of a valid argument list that meets the constraints of the associated argument parser."),
+
+
+
+  /**
+   * Argument List
+   */
+  INFO_ARG_LIST_TYPE_NAME("Argument List"),
+
+
+
+  /**
+   * This argument is not allowed to have a value.  If this argument is included in a set of arguments, then it will be assumed to have a value of ''true''.  If it is absent from a set of arguments, then it will be assumed to have a value of ''false''.
+   */
+  INFO_BOOLEAN_CONSTRAINTS("This argument is not allowed to have a value.  If this argument is included in a set of arguments, then it will be assumed to have a value of ''true''.  If it is absent from a set of arguments, then it will be assumed to have a value of ''false''."),
+
+
+
+  /**
+   * Boolean
+   */
+  INFO_BOOLEAN_TYPE_NAME("Boolean"),
+
+
+
+  /**
+   * A provided value should be either ''true'' or ''false''.
+   */
+  INFO_BOOLEAN_VALUE_CONSTRAINTS("A provided value should be either ''true'' or ''false''."),
+
+
+
+  /**
+   * Boolean
+   */
+  INFO_BOOLEAN_VALUE_TYPE_NAME("Boolean"),
+
+
+
+  /**
+   * A provided value must be a string representation of a valid LDAP control in the form '{'oid'}'[:'{'criticality'}'[:'{'stringValue'}'|::'{'base64Value'}']].
+   */
+  INFO_CONTROL_CONSTRAINTS("A provided value must be a string representation of a valid LDAP control in the form '{'oid'}'[:'{'criticality'}'[:'{'stringValue'}'|::'{'base64Value'}']]."),
+
+
+
+  /**
+   * Control
+   */
+  INFO_CONTROL_TYPE_NAME("Control"),
+
+
+
+  /**
+   * A provided value must be able to be parsed as an LDAP distinguished name as described in RFC 4514.
+   */
+  INFO_DN_CONSTRAINTS("A provided value must be able to be parsed as an LDAP distinguished name as described in RFC 4514."),
+
+
+
+  /**
+   * LDAP Distinguished Name
+   */
+  INFO_DN_TYPE_NAME("LDAP Distinguished Name"),
+
+
+
+  /**
+   * The provided value must contain an integer followed by a unit of ''ns'' (for nanoseconds), ''us'' (for microseconds), ''ms'' (for milliseconds), ''s'' (for seconds), ''m'' (for minutes), ''h'' (for hours), ''d'' (for days), or ''w'' (for weeks).
+   */
+  INFO_DURATION_CONSTRAINTS_FORMAT("The provided value must contain an integer followed by a unit of ''ns'' (for nanoseconds), ''us'' (for microseconds), ''ms'' (for milliseconds), ''s'' (for seconds), ''m'' (for minutes), ''h'' (for hours), ''d'' (for days), or ''w'' (for weeks)."),
+
+
+
+  /**
+   * The specified duration must not be less than {0} or greater than {1}.
+   */
+  INFO_DURATION_CONSTRAINTS_LOWER_AND_UPPER_BOUND("The specified duration must not be less than {0} or greater than {1}."),
+
+
+
+  /**
+   * The specified duration must not be less than {0}.
+   */
+  INFO_DURATION_CONSTRAINTS_LOWER_BOUND("The specified duration must not be less than {0}."),
+
+
+
+  /**
+   * The specified duration must not be greater than {0}.
+   */
+  INFO_DURATION_CONSTRAINTS_UPPER_BOUND("The specified duration must not be greater than {0}."),
+
+
+
+  /**
+   * Duration
+   */
+  INFO_DURATION_TYPE_NAME("Duration"),
+
+
+
+  /**
+   * The specified path must refer to a directory that may or may not exist.
+   */
+  INFO_FILE_CONSTRAINTS_DIR_MAY_EXIST("The specified path must refer to a directory that may or may not exist."),
+
+
+
+  /**
+   * The specified path must refer to a directory that exists.
+   */
+  INFO_FILE_CONSTRAINTS_DIR_MUST_EXIST("The specified path must refer to a directory that exists."),
+
+
+
+  /**
+   * The specified path must refer to a directory which may or may not exist, but whose parent directory must exist.
+   */
+  INFO_FILE_CONSTRAINTS_DIR_PARENT_MUST_EXIST("The specified path must refer to a directory which may or may not exist, but whose parent directory must exist."),
+
+
+
+  /**
+   * The specified path must refer to a file that may or may not exist.
+   */
+  INFO_FILE_CONSTRAINTS_FILE_MAY_EXIST("The specified path must refer to a file that may or may not exist."),
+
+
+
+  /**
+   * The specified path must refer to a file that exists.
+   */
+  INFO_FILE_CONSTRAINTS_FILE_MUST_EXIST("The specified path must refer to a file that exists."),
+
+
+
+  /**
+   * The specified path must refer to a file which may or may not exist, but whose parent directory must exist.
+   */
+  INFO_FILE_CONSTRAINTS_FILE_PARENT_MUST_EXIST("The specified path must refer to a file which may or may not exist, but whose parent directory must exist."),
+
+
+
+  /**
+   * Non-absolute paths will be relative to directory ''{0}''.
+   */
+  INFO_FILE_CONSTRAINTS_RELATIVE_PATH_SPECIFIED_ROOT("Non-absolute paths will be relative to directory ''{0}''."),
+
+
+
+  /**
+   * Directory Path
+   */
+  INFO_FILE_TYPE_PATH_DIRECTORY("Directory Path"),
+
+
+
+  /**
+   * File Path
+   */
+  INFO_FILE_TYPE_PATH_FILE("File Path"),
+
+
+
+  /**
+   * A provided value must be able to be parsed as an LDAP search filter as described in RFC 4515.
+   */
+  INFO_FILTER_CONSTRAINTS("A provided value must be able to be parsed as an LDAP search filter as described in RFC 4515."),
+
+
+
+  /**
+   * LDAP Search Filter
+   */
+  INFO_FILTER_TYPE_NAME("LDAP Search Filter"),
+
+
+
+  /**
+   * The specified value must not be less than {0} or greater than {1}.
+   */
+  INFO_INTEGER_CONSTRAINTS_LOWER_AND_UPPER_BOUND("The specified value must not be less than {0} or greater than {1}."),
+
+
+
+  /**
+   * Integer
+   */
+  INFO_INTEGER_TYPE_NAME("Integer"),
+
+
+
+  /**
+   * This file may be used to specify default values to use for {0} arguments that were not provided by the command line.  Note that although it was generated for the {0} tool, it may contain default values for any number of other tools that use the same arguments.  This allows a single properties file to be used in conjunction with multiple tools.  The should be encoded using the ISO 8859-1 character set.  Any characters that cannot be directly represented in that character set may be encoded as a backslash followed by a lowercase letter u and the four hexadecimal digits that make up the Unicode representation of that character (for example, \u0000 for the Unicode null character).
+   */
+  INFO_PARSER_GEN_PROPS_HEADER_1("This file may be used to specify default values to use for {0} arguments that were not provided by the command line.  Note that although it was generated for the {0} tool, it may contain default values for any number of other tools that use the same arguments.  This allows a single properties file to be used in conjunction with multiple tools.  The should be encoded using the ISO 8859-1 character set.  Any characters that cannot be directly represented in that character set may be encoded as a backslash followed by a lowercase letter u and the four hexadecimal digits that make up the Unicode representation of that character (for example, \u0000 for the Unicode null character)."),
+
+
+
+  /**
+   * When invoking an applicable tool like {0}, you may indicate that this properties file should be used by launching the tool with the {1} argument and specifying the path to this file.  Alternately, the {2} Java property or the {3} environment variable may be set to the path to the properties file that should be used.  The {4} argument may be used to indicate that the tool should not use any properties file and that it should only use the argument values provided on the command line.
+   */
+  INFO_PARSER_GEN_PROPS_HEADER_2("When invoking an applicable tool like {0}, you may indicate that this properties file should be used by launching the tool with the {1} argument and specifying the path to this file.  Alternately, the {2} Java property or the {3} environment variable may be set to the path to the properties file that should be used.  The {4} argument may be used to indicate that the tool should not use any properties file and that it should only use the argument values provided on the command line."),
+
+
+
+  /**
+   * Each property listed in this file should be a name-value pair in which the name and the value are separated by an equal sign.  The name of the property should be the name of the argument for which you wish to specify a default value.  It may either be the argument name on its own (which will be used for any tool that offers that argument), or it may consist of the tool name, a period, and the argument name (which will only be used for the specified tool).  For example, a property name of ''toolName.argName'' will only be used to specify the value for the argName argument for the toolName tool, while a property name of ''argName'' will be used to specify the value for any tool that supports the argName argument.  Similarly, if the tool supports subcommands, then the property name may consist of the tool name, a period, the subcommand name, a period, and the argument name (e.g., ''toolName.subCommandName.argName''), and the property will only be used in conjunction with the specified subcommand.  A property that includes a subcommand name will take precedence over a property that does not include a subcommand name, and a property that includes a tool name will take precedence over a property that does not include a tool name.
+   */
+  INFO_PARSER_GEN_PROPS_HEADER_3("Each property listed in this file should be a name-value pair in which the name and the value are separated by an equal sign.  The name of the property should be the name of the argument for which you wish to specify a default value.  It may either be the argument name on its own (which will be used for any tool that offers that argument), or it may consist of the tool name, a period, and the argument name (which will only be used for the specified tool).  For example, a property name of ''toolName.argName'' will only be used to specify the value for the argName argument for the toolName tool, while a property name of ''argName'' will be used to specify the value for any tool that supports the argName argument.  Similarly, if the tool supports subcommands, then the property name may consist of the tool name, a period, the subcommand name, a period, and the argument name (e.g., ''toolName.subCommandName.argName''), and the property will only be used in conjunction with the specified subcommand.  A property that includes a subcommand name will take precedence over a property that does not include a subcommand name, and a property that includes a tool name will take precedence over a property that does not include a tool name."),
+
+
+
+  /**
+   * If an argument supports multiple values, then the same property may appear multiple times with each of the desired default values.  The values will be used in the order that they appear in the properties file.
+   */
+  INFO_PARSER_GEN_PROPS_HEADER_4("If an argument supports multiple values, then the same property may appear multiple times with each of the desired default values.  The values will be used in the order that they appear in the properties file."),
+
+
+
+  /**
+   * The following properties are supported for use with the ''{0}'' tool:
+   */
+  INFO_PARSER_GEN_PROPS_HEADER_5("The following properties are supported for use with the ''{0}'' tool:"),
+
+
+
+  /**
+   * Properties file ''{0}'' is encrypted.  Please enter the passphrase used to encrypt it:
+   */
+  INFO_PARSER_PROMPT_FOR_PROP_FILE_ENC_PW("Properties file ''{0}'' is encrypted.  Please enter the passphrase used to encrypt it:"),
+
+
+
+  /**
+   * '{'args'}'
+   */
+  INFO_PLACEHOLDER_ARGS("'{'args'}'"),
+
+
+
+  /**
+   * '{'oid'}'[:'{'criticality'}'[:'{'stringValue'}'|::'{'base64Value'}']]
+   */
+  INFO_PLACEHOLDER_CONTROL("'{'oid'}'[:'{'criticality'}'[:'{'stringValue'}'|::'{'base64Value'}']]"),
+
+
+
+  /**
+   * '{'dn'}'
+   */
+  INFO_PLACEHOLDER_DN("'{'dn'}'"),
+
+
+
+  /**
+   * '{'duration'}'
+   */
+  INFO_PLACEHOLDER_DURATION("'{'duration'}'"),
+
+
+
+  /**
+   * '{'filter'}'
+   */
+  INFO_PLACEHOLDER_FILTER("'{'filter'}'"),
+
+
+
+  /**
+   * '{'path'}'
+   */
+  INFO_PLACEHOLDER_PATH("'{'path'}'"),
+
+
+
+  /**
+   * '{'base|one|sub|subordinates'}'
+   */
+  INFO_PLACEHOLDER_SCOPE("'{'base|one|sub|subordinates'}'"),
+
+
+
+  /**
+   * '{'timestamp'}'
+   */
+  INFO_PLACEHOLDER_TIMESTAMP("'{'timestamp'}'"),
+
+
+
+  /**
+   * '{'true|false'}'
+   */
+  INFO_PLACEHOLDER_TRUE_FALSE("'{'true|false'}'"),
+
+
+
+  /**
+   * '{'value'}'
+   */
+  INFO_PLACEHOLDER_VALUE("'{'value'}'"),
+
+
+
+  /**
+   * The provided value should be one of ''base'', ''one'', ''sub'', or ''subordinate''.
+   */
+  INFO_SCOPE_CONSTRAINTS("The provided value should be one of ''base'', ''one'', ''sub'', or ''subordinate''."),
+
+
+
+  /**
+   * LDAP Search Scope
+   */
+  INFO_SCOPE_TYPE_NAME("LDAP Search Scope"),
+
+
+
+  /**
+   * A provided value should be one of the following:
+   */
+  INFO_STRING_CONSTRAINTS_ALLOWED_VALUE("A provided value should be one of the following:"),
+
+
+
+  /**
+   * A provided value must match regular expression ''{0}''.
+   */
+  INFO_STRING_CONSTRAINTS_REGEX_WITHOUT_EXPLANATION("A provided value must match regular expression ''{0}''."),
+
+
+
+  /**
+   * A provided value must match regular expression ''{0}'' ({1}).
+   */
+  INFO_STRING_CONSTRAINTS_REGEX_WITH_EXPLANATION("A provided value must match regular expression ''{0}'' ({1})."),
+
+
+
+  /**
+   * String
+   */
+  INFO_STRING_TYPE_NAME("String"),
+
+
+
+  /**
+   * Usage:  {0} {1}
+   */
+  INFO_SUBCOMMAND_USAGE_NOOPTIONS("Usage:  {0} {1}"),
+
+
+
+  /**
+   * Usage:  {0} {1} '{'options'}'
+   */
+  INFO_SUBCOMMAND_USAGE_OPTIONS("Usage:  {0} {1} '{'options'}'"),
+
+
+
+  /**
+   * A provided value must be able to be parsed as a valid generalized time (as described in RFC 4517 section 3.1.13) or as a timestamp in the local time zone using any of the formats ''YYYYMMDDhhmmss.uuu'', ''YYYYMMDDhhmmss'', or ''YYYYMMDDhhmm''.
+   */
+  INFO_TIMESTAMP_CONSTRAINTS("A provided value must be able to be parsed as a valid generalized time (as described in RFC 4517 section 3.1.13) or as a timestamp in the local time zone using any of the formats ''YYYYMMDDhhmmss.uuu'', ''YYYYMMDDhhmmss'', or ''YYYYMMDDhhmm''."),
+
+
+
+  /**
+   * Timestamp
+   */
+  INFO_TIMESTAMP_TYPE_NAME("Timestamp"),
+
+
+
+  /**
+   * Indicates the argument is required
+   */
+  INFO_USAGE_ARG_IS_REQUIRED("Indicates the argument is required"),
+
+
+
+  /**
+   * Usage:  {0}
+   */
+  INFO_USAGE_NOOPTIONS_NOTRAILING("Usage:  {0}"),
+
+
+
+  /**
+   * Usage:  {0} {1}
+   */
+  INFO_USAGE_NOOPTIONS_TRAILING("Usage:  {0} {1}"),
+
+
+
+  /**
+   * Available options include:
+   */
+  INFO_USAGE_OPTIONS_INCLUDE("Available options include:"),
+
+
+
+  /**
+   * Usage:  {0} '{'options'}'
+   */
+  INFO_USAGE_OPTIONS_NOTRAILING("Usage:  {0} '{'options'}'"),
+
+
+
+  /**
+   * Usage:  {0} '{'options'}' {1}
+   */
+  INFO_USAGE_OPTIONS_TRAILING("Usage:  {0} '{'options'}' {1}"),
+
+
+
+  /**
+   * Subcommands:
+   */
+  INFO_USAGE_SUBCOMMANDS_HEADER("Subcommands:"),
+
+
+
+  /**
+   * Usage:  {0} '{'subcommand'}' '{'options'}'
+   */
+  INFO_USAGE_SUBCOMMAND_USAGE("Usage:  {0} '{'subcommand'}' '{'options'}'"),
+
+
+
+  /**
+   * Other Arguments
+   */
+  INFO_USAGE_UNGROUPED_ARGS("Other Arguments"),
+
+
+
+  /**
+   * Usage Arguments
+   */
+  INFO_USAGE_USAGE_ARGS("Usage Arguments");
+
+
+
+  /**
+   * Indicates whether the unit tests are currently running.
+   */
+  private static final boolean IS_WITHIN_UNIT_TESTS =
+       Boolean.getBoolean("com.unboundid.ldap.sdk.RunningUnitTests") ||
+       Boolean.getBoolean("com.unboundid.directory.server.RunningUnitTests");
+
+
+
+  /**
+   * A pre-allocated array of zero objects to use for messages
+   * that do not require any arguments.
+   */
+  private static final Object[] NO_ARGS = new Object[0];
+
+
+
+  /**
+   * The resource bundle that will be used to load the properties file.
+   */
+  private static final ResourceBundle RESOURCE_BUNDLE;
+  static
+  {
+    ResourceBundle rb = null;
+    try
+    {
+      rb = ResourceBundle.getBundle("unboundid-ldapsdk-args");
+    } catch (final Exception e) {}
+    RESOURCE_BUNDLE = rb;
+  }
+
+
+
+  /**
+   * The map that will be used to hold the unformatted message strings, indexed by property name.
+   */
+  private static final ConcurrentHashMap<ArgsMessages,String> MESSAGE_STRINGS = new ConcurrentHashMap<>(100);
+
+
+
+  /**
+   * The map that will be used to hold the message format objects, indexed by property name.
+   */
+  private static final ConcurrentHashMap<ArgsMessages,MessageFormat> MESSAGES = new ConcurrentHashMap<>(100);
+
+
+
+  // The default text for this message
+  private final String defaultText;
+
+
+
+  /**
+   * Creates a new message key.
+   */
+  private ArgsMessages(final String defaultText)
+  {
+    this.defaultText = defaultText;
+  }
+
+
+
+  /**
+   * Retrieves a localized version of the message.
+   * This method should only be used for messages that do not take any
+   * arguments.
+   *
+   * @return  A localized version of the message.
+   */
+  public String get()
+  {
+    MessageFormat f = MESSAGES.get(this);
+    if (f == null)
+    {
+      if (RESOURCE_BUNDLE == null)
+      {
+        f = new MessageFormat(defaultText);
+      }
+      else
+      {
+        try
+        {
+          f = new MessageFormat(RESOURCE_BUNDLE.getString(name()));
+        }
+        catch (final Exception e)
+        {
+          f = new MessageFormat(defaultText);
+        }
+      }
+      MESSAGES.putIfAbsent(this, f);
+    }
+
+    final String formattedMessage;
+    synchronized (f)
+    {
+      formattedMessage = f.format(NO_ARGS);
+    }
+
+    if (IS_WITHIN_UNIT_TESTS)
+    {
+      if (formattedMessage.contains("{0}") ||
+          formattedMessage.contains("{0,number,0}") ||
+          formattedMessage.contains("{1}") ||
+          formattedMessage.contains("{1,number,0}") ||
+          formattedMessage.contains("{2}") ||
+          formattedMessage.contains("{2,number,0}") ||
+          formattedMessage.contains("{3}") ||
+          formattedMessage.contains("{3,number,0}") ||
+          formattedMessage.contains("{4}") ||
+          formattedMessage.contains("{4,number,0}") ||
+          formattedMessage.contains("{5}") ||
+          formattedMessage.contains("{5,number,0}") ||
+          formattedMessage.contains("{6}") ||
+          formattedMessage.contains("{6,number,0}") ||
+          formattedMessage.contains("{7}") ||
+          formattedMessage.contains("{7,number,0}") ||
+          formattedMessage.contains("{8}") ||
+          formattedMessage.contains("{8,number,0}") ||
+          formattedMessage.contains("{9}") ||
+          formattedMessage.contains("{9,number,0}") ||
+          formattedMessage.contains("{10}") ||
+          formattedMessage.contains("{10,number,0}"))
+      {
+        throw new IllegalArgumentException(
+             "Message " + getClass().getName() + '.' + name() +
+                  " contains an un-replaced token:  " + formattedMessage);
+      }
+    }
+
+    return formattedMessage;
+  }
+
+
+
+  /**
+   * Retrieves a localized version of the message.
+   *
+   * @param  args  The arguments to use to format the message.
+   *
+   * @return  A localized version of the message.
+   */
+  public String get(final Object... args)
+  {
+    MessageFormat f = MESSAGES.get(this);
+    if (f == null)
+    {
+      if (RESOURCE_BUNDLE == null)
+      {
+        f = new MessageFormat(defaultText);
+      }
+      else
+      {
+        try
+        {
+          f = new MessageFormat(RESOURCE_BUNDLE.getString(name()));
+        }
+        catch (final Exception e)
+        {
+          f = new MessageFormat(defaultText);
+        }
+      }
+      MESSAGES.putIfAbsent(this, f);
+    }
+
+    final String formattedMessage;
+    synchronized (f)
+    {
+      formattedMessage = f.format(args);
+    }
+
+    if (IS_WITHIN_UNIT_TESTS)
+    {
+      if (formattedMessage.contains("{0}") ||
+          formattedMessage.contains("{0,number,0}") ||
+          formattedMessage.contains("{1}") ||
+          formattedMessage.contains("{1,number,0}") ||
+          formattedMessage.contains("{2}") ||
+          formattedMessage.contains("{2,number,0}") ||
+          formattedMessage.contains("{3}") ||
+          formattedMessage.contains("{3,number,0}") ||
+          formattedMessage.contains("{4}") ||
+          formattedMessage.contains("{4,number,0}") ||
+          formattedMessage.contains("{5}") ||
+          formattedMessage.contains("{5,number,0}") ||
+          formattedMessage.contains("{6}") ||
+          formattedMessage.contains("{6,number,0}") ||
+          formattedMessage.contains("{7}") ||
+          formattedMessage.contains("{7,number,0}") ||
+          formattedMessage.contains("{8}") ||
+          formattedMessage.contains("{8,number,0}") ||
+          formattedMessage.contains("{9}") ||
+          formattedMessage.contains("{9,number,0}") ||
+          formattedMessage.contains("{10}") ||
+          formattedMessage.contains("{10,number,0}"))
+      {
+        throw new IllegalArgumentException(
+             "Message " + getClass().getName() + '.' + name() +
+                  " contains an un-replaced token:  " + formattedMessage);
+      }
+    }
+
+    return formattedMessage;
+  }
+
+
+
+  /**
+   * Retrieves a string representation of this message key.
+   *
+   * @return  A string representation of this message key.
+   */
+  @Override()
+  public String toString()
+  {
+    String s = MESSAGE_STRINGS.get(this);
+    if (s == null)
+    {
+      if (RESOURCE_BUNDLE == null)
+      {
+        s = defaultText;
+      }
+      else
+      {
+        try
+        {
+          s = RESOURCE_BUNDLE.getString(name());
+        }
+        catch (final Exception e)
+        {
+          s = defaultText;
+        }
+        MESSAGE_STRINGS.putIfAbsent(this, s);
+      }
+    }
+
+    return s;
+  }
+}
+

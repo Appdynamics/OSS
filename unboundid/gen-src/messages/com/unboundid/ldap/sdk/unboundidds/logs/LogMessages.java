@@ -1,0 +1,609 @@
+/*
+ * Copyright 2021 Ping Identity Corporation
+ * All Rights Reserved.
+ */
+/*
+ * Copyright 2020-2021 Ping Identity Corporation
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/*
+ * Copyright (C) 2021 Ping Identity Corporation
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License (GPLv2 only)
+ * or the terms of the GNU Lesser General Public License (LGPLv2.1 only)
+ * as published by the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, see <http://www.gnu.org/licenses>.
+ */
+package com.unboundid.ldap.sdk.unboundidds.logs;
+
+
+
+import java.text.MessageFormat;
+import java.util.ResourceBundle;
+import java.util.concurrent.ConcurrentHashMap;
+
+
+
+/**
+ * This enum defines a set of message keys for messages in the
+ * com.unboundid.ldap.sdk.unboundidds.logs package, which correspond to messages in the
+ * unboundid-ldapsdk-log.properties properties file.
+ * <BR><BR>
+ * This source file was generated from the properties file.
+ * Do not edit it directly.
+ */
+enum LogMessages
+{
+  /**
+   * Unable to parse the provided lines as an add audit log message because while the lines could be parsed as a valid LDIF change record, the change record had a change type of ''{0}'' instead of the expected change type of ''{1}''.
+   */
+  ERR_ADD_AUDIT_LOG_MESSAGE_CHANGE_TYPE_NOT_ADD("Unable to parse the provided lines as an add audit log message because while the lines could be parsed as a valid LDIF change record, the change record had a change type of ''{0}'' instead of the expected change type of ''{1}''."),
+
+
+
+  /**
+   * Unable to parse the provided lines as an add audit log message because they could not be parsed as a valid LDIF change record:  {0}
+   */
+  ERR_ADD_AUDIT_LOG_MESSAGE_LINES_NOT_CHANGE_RECORD("Unable to parse the provided lines as an add audit log message because they could not be parsed as a valid LDIF change record:  {0}"),
+
+
+
+  /**
+   * Unable to read the quoted string value of property ''{0}'' because the end of the string was reached before finding the closing quote.
+   */
+  ERR_AUDIT_LOG_MESSAGE_END_BEFORE_CLOSING_QUOTE("Unable to read the quoted string value of property ''{0}'' because the end of the string was reached before finding the closing quote."),
+
+
+
+  /**
+   * Unable to read the string value of property ''{0}'' because the end of the string was reached immediately after a backslash that was expected to escape the next character.
+   */
+  ERR_AUDIT_LOG_MESSAGE_END_BEFORE_ESCAPED("Unable to read the string value of property ''{0}'' because the end of the string was reached immediately after a backslash that was expected to escape the next character."),
+
+
+
+  /**
+   * Unable to read the string value of property ''{0}'' because the end of the string was reached before finding both hexadecimal digits following the octothorpe (#) character.
+   */
+  ERR_AUDIT_LOG_MESSAGE_END_BEFORE_HEX("Unable to read the string value of property ''{0}'' because the end of the string was reached before finding both hexadecimal digits following the octothorpe (#) character."),
+
+
+
+  /**
+   * An error occurred while trying to read the value of property ''{0}'' as a JSON object:  {1}
+   */
+  ERR_AUDIT_LOG_MESSAGE_ERROR_READING_JSON_OBJECT("An error occurred while trying to read the value of property ''{0}'' as a JSON object:  {1}"),
+
+
+
+  /**
+   * The header line contains an equal sign after a property delimiter, indicating a property with an empty name.
+   */
+  ERR_AUDIT_LOG_MESSAGE_HEADER_EMPTY_PROPERTY_NAME("The header line contains an equal sign after a property delimiter, indicating a property with an empty name."),
+
+
+
+  /**
+   * The header line ends with what appears to be a partial or complete property name (''{0}'') with no equal sign to denote the start of the property value.
+   */
+  ERR_AUDIT_LOG_MESSAGE_HEADER_ENDS_WITH_PROPERTY_NAME("The header line ends with what appears to be a partial or complete property name (''{0}'') with no equal sign to denote the start of the property value."),
+
+
+
+  /**
+   * Unable to parse the first element of the header line as a timestamp.
+   */
+  ERR_AUDIT_LOG_MESSAGE_HEADER_MALFORMED_TIMESTAMP("Unable to parse the first element of the header line as a timestamp."),
+
+
+
+  /**
+   * The header line does not contain any semicolons to separate header elements.
+   */
+  ERR_AUDIT_LOG_MESSAGE_HEADER_NO_SEMICOLONS("The header line does not contain any semicolons to separate header elements."),
+
+
+
+  /**
+   * Unable to read the string value of property ''{0}'' because the value contained an octothorpe (#) character that was not immediately followed by two valid hexadecimal digits.
+   */
+  ERR_AUDIT_LOG_MESSAGE_INVALID_HEX_DIGIT("Unable to read the string value of property ''{0}'' because the value contained an octothorpe (#) character that was not immediately followed by two valid hexadecimal digits."),
+
+
+
+  /**
+   * Unable to create an audit log message from the provided log message line list because the first line in that list (''{0}'') cannot be parsed as a valid audit log message header:  {1}
+   */
+  ERR_AUDIT_LOG_MESSAGE_LIST_CANNOT_PARSE_HEADER("Unable to create an audit log message from the provided log message line list because the first line in that list (''{0}'') cannot be parsed as a valid audit log message header:  {1}"),
+
+
+
+  /**
+   * Unable to create an audit log message from a log message line list that contains an empty line.
+   */
+  ERR_AUDIT_LOG_MESSAGE_LIST_CONTAINS_EMPTY_LINE("Unable to create an audit log message from a log message line list that contains an empty line."),
+
+
+
+  /**
+   * Unable to create an audit log message from a log message line list that does not start with a comment line that represents the log message header.
+   */
+  ERR_AUDIT_LOG_MESSAGE_LIST_DOES_NOT_START_WITH_COMMENT("Unable to create an audit log message from a log message line list that does not start with a comment line that represents the log message header."),
+
+
+
+  /**
+   * Unable to create an audit log message from a log message line list that is empty.
+   */
+  ERR_AUDIT_LOG_MESSAGE_LIST_EMPTY("Unable to create an audit log message from a log message line list that is empty."),
+
+
+
+  /**
+   * Unable to create an audit log message from a log message line list that is null.
+   */
+  ERR_AUDIT_LOG_MESSAGE_LIST_NULL("Unable to create an audit log message from a log message line list that is null."),
+
+
+
+  /**
+   * Found unexpected character ''{0}'' after reading the value of property ''{1}''.  Only spaces and a semicolon were expected.
+   */
+  ERR_AUDIT_LOG_MESSAGE_UNEXPECTED_CHAR_AFTER_PROPERTY("Found unexpected character ''{0}'' after reading the value of property ''{1}''.  Only spaces and a semicolon were expected."),
+
+
+
+  /**
+   * Unable to parse an LDIF change record out of the audit log message with lines {0}:  {1}
+   */
+  ERR_AUDIT_LOG_READER_CANNOT_PARSE_CHANGE_RECORD("Unable to parse an LDIF change record out of the audit log message with lines {0}:  {1}"),
+
+
+
+  /**
+   * Unable to create an audit log message from the data contained in lines {0} because the parsed change log had an unsupported change type of ''{1}''.
+   */
+  ERR_AUDIT_LOG_READER_UNSUPPORTED_CHANGE_RECORD("Unable to create an audit log message from the data contained in lines {0} because the parsed change log had an unsupported change type of ''{1}''."),
+
+
+
+  /**
+   * Unable to parse the provided lines as a delete audit log message because while the lines could be parsed as a valid LDIF change record, the change record had a change type of ''{0}'' instead of the expected change type of ''{1}''.
+   */
+  ERR_DELETE_AUDIT_LOG_MESSAGE_CHANGE_TYPE_NOT_DELETE("Unable to parse the provided lines as a delete audit log message because while the lines could be parsed as a valid LDIF change record, the change record had a change type of ''{0}'' instead of the expected change type of ''{1}''."),
+
+
+
+  /**
+   * Unable to create a list of revert change records for the delete of entry ''{0}'' because the audit log message did not include the contents of the entry that was deleted.  Make sure that the audit logger is configured to record changes in revertible form.
+   */
+  ERR_DELETE_AUDIT_LOG_MESSAGE_DELETED_ENTRY("Unable to create a list of revert change records for the delete of entry ''{0}'' because the audit log message did not include the contents of the entry that was deleted.  Make sure that the audit logger is configured to record changes in revertible form."),
+
+
+
+  /**
+   * Unable to parse the provided lines as a delete audit log message because they could not be parsed as a valid LDIF change record:  {0}
+   */
+  ERR_DELETE_AUDIT_LOG_MESSAGE_LINES_NOT_CHANGE_RECORD("Unable to parse the provided lines as a delete audit log message because they could not be parsed as a valid LDIF change record:  {0}"),
+
+
+
+  /**
+   * Unable to create a list of revert change records for the soft-delete of entry ''{0}'' because the audit log message did not contain the DN of the resulting soft-deleted entry.
+   */
+  ERR_DELETE_AUDIT_LOG_MESSAGE_NO_SOFT_DELETED_ENTRY_DN("Unable to create a list of revert change records for the soft-delete of entry ''{0}'' because the audit log message did not contain the DN of the resulting soft-deleted entry."),
+
+
+
+  /**
+   * Unable to create a list of revert change records for the subtree delete based at entry ''{0}'' because that audit log message in itself does not contain enough information to restore the entire subtree.  Further, even the base entry cannot be recreated because the delete audit log message is not in reversible form.
+   */
+  ERR_DELETE_AUDIT_LOG_MESSAGE_SUBTREE_DELETE_WITHOUT_ENTRY("Unable to create a list of revert change records for the subtree delete based at entry ''{0}'' because that audit log message in itself does not contain enough information to restore the entire subtree.  Further, even the base entry cannot be recreated because the delete audit log message is not in reversible form."),
+
+
+
+  /**
+   * Unable to create a list of revert change records for the subtree delete based at entry ''{0}'' because that audit log message in itself does not contain enough information to restore the entire subtree.  However, this record does have enough information to restore just the base entry, and the necessary revert change record can be manually obtained by creating an LDIF add change record from the deleted entry.
+   */
+  ERR_DELETE_AUDIT_LOG_MESSAGE_SUBTREE_DELETE_WITH_ENTRY("Unable to create a list of revert change records for the subtree delete based at entry ''{0}'' because that audit log message in itself does not contain enough information to restore the entire subtree.  However, this record does have enough information to restore just the base entry, and the necessary revert change record can be manually obtained by creating an LDIF add change record from the deleted entry."),
+
+
+
+  /**
+   * The log message string does not include a recognized access log message type.
+   */
+  ERR_LOG_MESSAGE_INVALID_ACCESS_MESSAGE_TYPE("The log message string does not include a recognized access log message type."),
+
+
+
+  /**
+   * The log message string appears to contain information about an operation for which replication assurance processing had been completed, but the message did not have a recognized operation type.
+   */
+  ERR_LOG_MESSAGE_INVALID_ASSURANCE_COMPLETE_OPERATION_TYPE("The log message string appears to contain information about an operation for which replication assurance processing had been completed, but the message did not have a recognized operation type."),
+
+
+
+  /**
+   * The log message string appears to contain an invalid escaped character in token ''{0}'' because it contains a backslash not followed by two hexadecimal digits.
+   */
+  ERR_LOG_MESSAGE_INVALID_ESCAPED_CHARACTER("The log message string appears to contain an invalid escaped character in token ''{0}'' because it contains a backslash not followed by two hexadecimal digits."),
+
+
+
+  /**
+   * The log message string appears to contain a failed forwarded operation but did not have a recognized operation type.
+   */
+  ERR_LOG_MESSAGE_INVALID_FORWARD_FAILED_OPERATION_TYPE("The log message string appears to contain a failed forwarded operation but did not have a recognized operation type."),
+
+
+
+  /**
+   * The log message string appears to contain n forwarded operation but did not have a recognized operation type.
+   */
+  ERR_LOG_MESSAGE_INVALID_FORWARD_OPERATION_TYPE("The log message string appears to contain n forwarded operation but did not have a recognized operation type."),
+
+
+
+  /**
+   * The log message string appears to contain an operation request but did not have a recognized operation type.
+   */
+  ERR_LOG_MESSAGE_INVALID_REQUEST_OPERATION_TYPE("The log message string appears to contain an operation request but did not have a recognized operation type."),
+
+
+
+  /**
+   * The log message string appears to contain an operation result but did not have a recognized operation type.
+   */
+  ERR_LOG_MESSAGE_INVALID_RESULT_OPERATION_TYPE("The log message string appears to contain an operation result but did not have a recognized operation type."),
+
+
+
+  /**
+   * The log message string does not appear to start with a valid timestamp:  {0}
+   */
+  ERR_LOG_MESSAGE_INVALID_TIMESTAMP("The log message string does not appear to start with a valid timestamp:  {0}"),
+
+
+
+  /**
+   * The log message string does not appear to start with a timestamp.
+   */
+  ERR_LOG_MESSAGE_NO_TIMESTAMP("The log message string does not appear to start with a timestamp."),
+
+
+
+  /**
+   * Unable to parse the provided lines as a modify audit log message because while the lines could be parsed as a valid LDIF change record, the change record had a change type of ''{0}'' instead of the expected change type of ''{1}''.
+   */
+  ERR_MODIFY_AUDIT_LOG_MESSAGE_CHANGE_TYPE_NOT_MODIFY("Unable to parse the provided lines as a modify audit log message because while the lines could be parsed as a valid LDIF change record, the change record had a change type of ''{0}'' instead of the expected change type of ''{1}''."),
+
+
+
+  /**
+   * Unable to parse the provided lines as a modify audit log message because they could not be parsed as a valid LDIF change record:  {0}
+   */
+  ERR_MODIFY_AUDIT_LOG_MESSAGE_LINES_NOT_CHANGE_RECORD("Unable to parse the provided lines as a modify audit log message because they could not be parsed as a valid LDIF change record:  {0}"),
+
+
+
+  /**
+   * Unable to create a list of revert change records for the modify of entry ''{0}'' because the modify audit log message included modification {1} that is not revertible.  Make sure that the audit logger is configured to record changes in reversible form.
+   */
+  ERR_MODIFY_AUDIT_LOG_MESSAGE_MOD_NOT_REVERTIBLE("Unable to create a list of revert change records for the modify of entry ''{0}'' because the modify audit log message included modification {1} that is not revertible.  Make sure that the audit logger is configured to record changes in reversible form."),
+
+
+
+  /**
+   * Unable to parse the provided lines as a modify DN audit log message because while the lines could be parsed as a valid LDIF change record, the change record had a change type of ''{0}'' instead of the expected change type of ''{1}''.
+   */
+  ERR_MODIFY_DN_AUDIT_LOG_MESSAGE_CHANGE_TYPE_NOT_MODIFY_DN("Unable to parse the provided lines as a modify DN audit log message because while the lines could be parsed as a valid LDIF change record, the change record had a change type of ''{0}'' instead of the expected change type of ''{1}''."),
+
+
+
+  /**
+   * Unable to parse the provided lines as a modify DN audit log message because they could not be parsed as a valid LDIF change record:  {0}
+   */
+  ERR_MODIFY_DN_AUDIT_LOG_MESSAGE_LINES_NOT_CHANGE_RECORD("Unable to parse the provided lines as a modify DN audit log message because they could not be parsed as a valid LDIF change record:  {0}"),
+
+
+
+  /**
+   * Unable to create a list of revert change records for the modify DN of entry ''{0}'' because either the original DN or new RDN (''{1}'') could not be parsed.
+   */
+  ERR_MODIFY_DN_CANNOT_GET_NEW_DN_WITHOUT_NEW_SUPERIOR("Unable to create a list of revert change records for the modify DN of entry ''{0}'' because either the original DN or new RDN (''{1}'') could not be parsed."),
+
+
+
+  /**
+   * Unable to create a list of revert change records for the modify DN of entry ''{0}'' because at least one of the original DN, the new RDN (''{1}''), or the new superior DN (''{2}'') could not be parsed.
+   */
+  ERR_MODIFY_DN_CANNOT_GET_NEW_DN_WITH_NEW_SUPERIOR("Unable to create a list of revert change records for the modify DN of entry ''{0}'' because at least one of the original DN, the new RDN (''{1}''), or the new superior DN (''{2}'') could not be parsed."),
+
+
+
+  /**
+   * Unable to create a list of revert change records for a modify DN that targets the root DSE.
+   */
+  ERR_MODIFY_DN_CANNOT_REVERT_NULL_DN("Unable to create a list of revert change records for a modify DN that targets the root DSE."),
+
+
+
+  /**
+   * Unable to create a list of revert change records for the modify DN of entry ''{0}'' because the log message did not include any attribute modifications, but attribute modifications are required to determine the correct deleteOldRDN value.
+   */
+  ERR_MODIFY_DN_CANNOT_REVERT_WITHOUT_NECESSARY_MODS("Unable to create a list of revert change records for the modify DN of entry ''{0}'' because the log message did not include any attribute modifications, but attribute modifications are required to determine the correct deleteOldRDN value."),
+
+
+
+  /**
+   * Unable to create a list of revert change records for the modify DN of entry ''{0}'' because the modify DN audit log message included a non-revertible {1} modification for attribute ''{2}''.  Make sure that the audit logger is configured to record changes in reversible form.
+   */
+  ERR_MODIFY_DN_MOD_NOT_REVERTIBLE("Unable to create a list of revert change records for the modify DN of entry ''{0}'' because the modify DN audit log message included a non-revertible {1} modification for attribute ''{2}''.  Make sure that the audit logger is configured to record changes in reversible form."),
+
+
+
+  /**
+   * Unable to create a list of revert change records for the modify DN of entry ''{0}'' because the modify DN audit log message did not include a set of attribute modifications.  Make sure that the audit logger is configured to record changes in reversible form.
+   */
+  ERR_MODIFY_DN_NOT_REVERTIBLE("Unable to create a list of revert change records for the modify DN of entry ''{0}'' because the modify DN audit log message did not include a set of attribute modifications.  Make sure that the audit logger is configured to record changes in reversible form.");
+
+
+
+  /**
+   * Indicates whether the unit tests are currently running.
+   */
+  private static final boolean IS_WITHIN_UNIT_TESTS =
+       Boolean.getBoolean("com.unboundid.ldap.sdk.RunningUnitTests") ||
+       Boolean.getBoolean("com.unboundid.directory.server.RunningUnitTests");
+
+
+
+  /**
+   * A pre-allocated array of zero objects to use for messages
+   * that do not require any arguments.
+   */
+  private static final Object[] NO_ARGS = new Object[0];
+
+
+
+  /**
+   * The resource bundle that will be used to load the properties file.
+   */
+  private static final ResourceBundle RESOURCE_BUNDLE;
+  static
+  {
+    ResourceBundle rb = null;
+    try
+    {
+      rb = ResourceBundle.getBundle("unboundid-ldapsdk-log");
+    } catch (final Exception e) {}
+    RESOURCE_BUNDLE = rb;
+  }
+
+
+
+  /**
+   * The map that will be used to hold the unformatted message strings, indexed by property name.
+   */
+  private static final ConcurrentHashMap<LogMessages,String> MESSAGE_STRINGS = new ConcurrentHashMap<>(100);
+
+
+
+  /**
+   * The map that will be used to hold the message format objects, indexed by property name.
+   */
+  private static final ConcurrentHashMap<LogMessages,MessageFormat> MESSAGES = new ConcurrentHashMap<>(100);
+
+
+
+  // The default text for this message
+  private final String defaultText;
+
+
+
+  /**
+   * Creates a new message key.
+   */
+  private LogMessages(final String defaultText)
+  {
+    this.defaultText = defaultText;
+  }
+
+
+
+  /**
+   * Retrieves a localized version of the message.
+   * This method should only be used for messages that do not take any
+   * arguments.
+   *
+   * @return  A localized version of the message.
+   */
+  public String get()
+  {
+    MessageFormat f = MESSAGES.get(this);
+    if (f == null)
+    {
+      if (RESOURCE_BUNDLE == null)
+      {
+        f = new MessageFormat(defaultText);
+      }
+      else
+      {
+        try
+        {
+          f = new MessageFormat(RESOURCE_BUNDLE.getString(name()));
+        }
+        catch (final Exception e)
+        {
+          f = new MessageFormat(defaultText);
+        }
+      }
+      MESSAGES.putIfAbsent(this, f);
+    }
+
+    final String formattedMessage;
+    synchronized (f)
+    {
+      formattedMessage = f.format(NO_ARGS);
+    }
+
+    if (IS_WITHIN_UNIT_TESTS)
+    {
+      if (formattedMessage.contains("{0}") ||
+          formattedMessage.contains("{0,number,0}") ||
+          formattedMessage.contains("{1}") ||
+          formattedMessage.contains("{1,number,0}") ||
+          formattedMessage.contains("{2}") ||
+          formattedMessage.contains("{2,number,0}") ||
+          formattedMessage.contains("{3}") ||
+          formattedMessage.contains("{3,number,0}") ||
+          formattedMessage.contains("{4}") ||
+          formattedMessage.contains("{4,number,0}") ||
+          formattedMessage.contains("{5}") ||
+          formattedMessage.contains("{5,number,0}") ||
+          formattedMessage.contains("{6}") ||
+          formattedMessage.contains("{6,number,0}") ||
+          formattedMessage.contains("{7}") ||
+          formattedMessage.contains("{7,number,0}") ||
+          formattedMessage.contains("{8}") ||
+          formattedMessage.contains("{8,number,0}") ||
+          formattedMessage.contains("{9}") ||
+          formattedMessage.contains("{9,number,0}") ||
+          formattedMessage.contains("{10}") ||
+          formattedMessage.contains("{10,number,0}"))
+      {
+        throw new IllegalArgumentException(
+             "Message " + getClass().getName() + '.' + name() +
+                  " contains an un-replaced token:  " + formattedMessage);
+      }
+    }
+
+    return formattedMessage;
+  }
+
+
+
+  /**
+   * Retrieves a localized version of the message.
+   *
+   * @param  args  The arguments to use to format the message.
+   *
+   * @return  A localized version of the message.
+   */
+  public String get(final Object... args)
+  {
+    MessageFormat f = MESSAGES.get(this);
+    if (f == null)
+    {
+      if (RESOURCE_BUNDLE == null)
+      {
+        f = new MessageFormat(defaultText);
+      }
+      else
+      {
+        try
+        {
+          f = new MessageFormat(RESOURCE_BUNDLE.getString(name()));
+        }
+        catch (final Exception e)
+        {
+          f = new MessageFormat(defaultText);
+        }
+      }
+      MESSAGES.putIfAbsent(this, f);
+    }
+
+    final String formattedMessage;
+    synchronized (f)
+    {
+      formattedMessage = f.format(args);
+    }
+
+    if (IS_WITHIN_UNIT_TESTS)
+    {
+      if (formattedMessage.contains("{0}") ||
+          formattedMessage.contains("{0,number,0}") ||
+          formattedMessage.contains("{1}") ||
+          formattedMessage.contains("{1,number,0}") ||
+          formattedMessage.contains("{2}") ||
+          formattedMessage.contains("{2,number,0}") ||
+          formattedMessage.contains("{3}") ||
+          formattedMessage.contains("{3,number,0}") ||
+          formattedMessage.contains("{4}") ||
+          formattedMessage.contains("{4,number,0}") ||
+          formattedMessage.contains("{5}") ||
+          formattedMessage.contains("{5,number,0}") ||
+          formattedMessage.contains("{6}") ||
+          formattedMessage.contains("{6,number,0}") ||
+          formattedMessage.contains("{7}") ||
+          formattedMessage.contains("{7,number,0}") ||
+          formattedMessage.contains("{8}") ||
+          formattedMessage.contains("{8,number,0}") ||
+          formattedMessage.contains("{9}") ||
+          formattedMessage.contains("{9,number,0}") ||
+          formattedMessage.contains("{10}") ||
+          formattedMessage.contains("{10,number,0}"))
+      {
+        throw new IllegalArgumentException(
+             "Message " + getClass().getName() + '.' + name() +
+                  " contains an un-replaced token:  " + formattedMessage);
+      }
+    }
+
+    return formattedMessage;
+  }
+
+
+
+  /**
+   * Retrieves a string representation of this message key.
+   *
+   * @return  A string representation of this message key.
+   */
+  @Override()
+  public String toString()
+  {
+    String s = MESSAGE_STRINGS.get(this);
+    if (s == null)
+    {
+      if (RESOURCE_BUNDLE == null)
+      {
+        s = defaultText;
+      }
+      else
+      {
+        try
+        {
+          s = RESOURCE_BUNDLE.getString(name());
+        }
+        catch (final Exception e)
+        {
+          s = defaultText;
+        }
+        MESSAGE_STRINGS.putIfAbsent(this, s);
+      }
+    }
+
+    return s;
+  }
+}
+
