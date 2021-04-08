@@ -170,6 +170,9 @@ final class ConnectThread
       {
         try
         {
+          final int soTimeout =
+                  Math.max(0, (int) options.getResponseTimeoutMillis());
+          socket.setSoTimeout(soTimeout);
           ((SSLSocket) s).startHandshake();
         }
         catch (final Exception e)
