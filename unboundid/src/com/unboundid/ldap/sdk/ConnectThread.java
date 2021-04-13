@@ -97,6 +97,9 @@ final class ConnectThread
   // The address to which the connection should be established.
   @NotNull private final InetAddress address;
 
+  // The maximum length of time in milliseconds that the ssl handshake attempt
+  // should be allowed to block.
+  private final int SSL_HANDSHAKE_TIMEOUT = 3000;
 
 
   /**
@@ -170,9 +173,7 @@ final class ConnectThread
       {
         try
         {
-          final int soTimeout =
-                  Math.max(0, (int) options.getResponseTimeoutMillis());
-          socket.setSoTimeout(soTimeout);
+          socket.setSoTimeout(SSL_HANDSHAKE_TIMEOUT);
           ((SSLSocket) s).startHandshake();
         }
         catch (final Exception e)
