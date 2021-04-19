@@ -99,7 +99,7 @@ final class ConnectThread
 
   // The maximum length of time in milliseconds that the ssl handshake attempt
   // should be allowed to block.
-  private final int SSL_HANDSHAKE_TIMEOUT = 3000;
+  private static final int SSL_HANDSHAKE_TIMEOUT = 3000;
 
 
   /**
