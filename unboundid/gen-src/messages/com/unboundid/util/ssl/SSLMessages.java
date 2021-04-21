@@ -1,0 +1,1085 @@
+/*
+ * Copyright 2021 Ping Identity Corporation
+ * All Rights Reserved.
+ */
+/*
+ * Copyright 2020-2021 Ping Identity Corporation
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/*
+ * Copyright (C) 2021 Ping Identity Corporation
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License (GPLv2 only)
+ * or the terms of the GNU Lesser General Public License (LGPLv2.1 only)
+ * as published by the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, see <http://www.gnu.org/licenses>.
+ */
+package com.unboundid.util.ssl;
+
+
+
+import java.text.MessageFormat;
+import java.util.ResourceBundle;
+import java.util.concurrent.ConcurrentHashMap;
+
+
+
+/**
+ * This enum defines a set of message keys for messages in the
+ * com.unboundid.util.ssl package, which correspond to messages in the
+ * unboundid-ldapsdk-ssl.properties properties file.
+ * <BR><BR>
+ * This source file was generated from the properties file.
+ * Do not edit it directly.
+ */
+enum SSLMessages
+{
+  /**
+   * Certificate {0} was not trusted by any of the configured trust managers.  The trust manager messages were:  {1}
+   */
+  ERR_AGGREGATE_TRUST_MANAGER_NONE_TRUSTED("Certificate {0} was not trusted by any of the configured trust managers.  The trust manager messages were:  {1}"),
+
+
+
+  /**
+   * Certificate {0} cannot be trusted because the end of the standard input stream was reached without finding information about whether to trust the presented certificate.
+   */
+  ERR_CERTIFICATE_REJECTED_BY_END_OF_STREAM("Certificate {0} cannot be trusted because the end of the standard input stream was reached without finding information about whether to trust the presented certificate."),
+
+
+
+  /**
+   * The user rejected certificate {0}.
+   */
+  ERR_CERTIFICATE_REJECTED_BY_USER("The user rejected certificate {0}."),
+
+
+
+  /**
+   * The presented certificate ''{0}'' did not contain any of the acceptable addresses in the CN subject attribute or in a subjectAltName extension.
+   */
+  ERR_HOSTNAME_NOT_FOUND("The presented certificate ''{0}'' did not contain any of the acceptable addresses in the CN subject attribute or in a subjectAltName extension."),
+
+
+
+  /**
+   * Unable to verify an attempt to establish a secure connection to ''{0}:{1,number,0}'' because an unexpected error was encountered during validation processing:  {2}
+   */
+  ERR_HOST_NAME_SSL_SOCKET_VERIFIER_EXCEPTION("Unable to verify an attempt to establish a secure connection to ''{0}:{1,number,0}'' because an unexpected error was encountered during validation processing:  {2}"),
+
+
+
+  /**
+   * Hostname verification failed because the expected hostname ''{0}'' was not found in peer certificate ''{1}''.
+   */
+  ERR_HOST_NAME_SSL_SOCKET_VERIFIER_HOSTNAME_NOT_FOUND("Hostname verification failed because the expected hostname ''{0}'' was not found in peer certificate ''{1}''."),
+
+
+
+  /**
+   * Unable to verify an attempt to establish a secure connection to ''{0}:{1,number,0}'' because no peer certificates are available.
+   */
+  ERR_HOST_NAME_SSL_SOCKET_VERIFIER_NO_PEER_CERTS("Unable to verify an attempt to establish a secure connection to ''{0}:{1,number,0}'' because no peer certificates are available."),
+
+
+
+  /**
+   * Unable to verify an attempt to establish a secure connection to ''{0}:{1,number,0}'' because no session information is available for the connection.
+   */
+  ERR_HOST_NAME_SSL_SOCKET_VERIFIER_NO_SESSION("Unable to verify an attempt to establish a secure connection to ''{0}:{1,number,0}'' because no session information is available for the connection."),
+
+
+
+  /**
+   * Unable to verify an attempt to establish a secure connection to ''{0}:{1,number,0}'' because the peer certificate was not an X.509 certificate.  The reported certificate type is ''{2}''.
+   */
+  ERR_HOST_NAME_SSL_SOCKET_VERIFIER_PEER_NOT_X509("Unable to verify an attempt to establish a secure connection to ''{0}:{1,number,0}'' because the peer certificate was not an X.509 certificate.  The reported certificate type is ''{2}''."),
+
+
+
+  /**
+   * Unable to locate the cacerts key store file containing the JVM''s default set of trusted issuers.
+   */
+  ERR_JVM_DEFAULT_TRUST_MANAGER_CACERTS_NOT_FOUND_NO_EXCEPTION("Unable to locate the cacerts key store file containing the JVM''s default set of trusted issuers."),
+
+
+
+  /**
+   * Unable to locate a valid key store file containing the JVM''s default set of trusted issuers.  One or more errors were encountered during processing.
+   */
+  ERR_JVM_DEFAULT_TRUST_MANAGER_CACERTS_NOT_FOUND_WITH_EXCEPTION("Unable to locate a valid key store file containing the JVM''s default set of trusted issuers.  One or more errors were encountered during processing."),
+
+
+
+  /**
+   * Unable to parse the contents of file ''{0}'' as a key store:  {1}
+   */
+  ERR_JVM_DEFAULT_TRUST_MANAGER_CANNOT_ERROR_LOADING_KEYSTORE("Unable to parse the contents of file ''{0}'' as a key store:  {1}"),
+
+
+
+  /**
+   * Unable to find a valid issuer certificate for certificate with subject ''{0}'' in the JVM-default trust store.
+   */
+  ERR_JVM_DEFAULT_TRUST_MANAGER_CANNOT_FIND_ISSUER("Unable to find a valid issuer certificate for certificate with subject ''{0}'' in the JVM-default trust store."),
+
+
+
+  /**
+   * Unable to instantiate a key store of type ''{0}'':  {1}
+   */
+  ERR_JVM_DEFAULT_TRUST_MANAGER_CANNOT_INSTANTIATE_KEYSTORE("Unable to instantiate a key store of type ''{0}'':  {1}"),
+
+
+
+  /**
+   * The presented certificate chain containing certificates {0} cannot be trusted because certificate ''{1}'' expired at {2}.
+   */
+  ERR_JVM_DEFAULT_TRUST_MANAGER_CERT_EXPIRED("The presented certificate chain containing certificates {0} cannot be trusted because certificate ''{1}'' expired at {2}."),
+
+
+
+  /**
+   * The presented certificate chain containing certificates {0} cannot be trusted because certificate ''{1}'' will not become valid until {2}.
+   */
+  ERR_JVM_DEFAULT_TRUST_MANAGER_CERT_NOT_YET_VALID("The presented certificate chain containing certificates {0} cannot be trusted because certificate ''{1}'' will not become valid until {2}."),
+
+
+
+  /**
+   * An unexpected error occurred while attempting to iterate through certificates in the key store loaded from file ''{0}'':  {1}
+   */
+  ERR_JVM_DEFAULT_TRUST_MANAGER_ERROR_ITERATING_THROUGH_CACERTS("An unexpected error occurred while attempting to iterate through certificates in the key store loaded from file ''{0}'':  {1}"),
+
+
+
+  /**
+   * System property ''{0}'' value ''{1}'' is not a valid path to a directory on the local filesystem.
+   */
+  ERR_JVM_DEFAULT_TRUST_MANAGER_INVALID_JAVA_HOME("System property ''{0}'' value ''{1}'' is not a valid path to a directory on the local filesystem."),
+
+
+
+  /**
+   * While examining file ''{0}'', the error encountered was:  {1}
+   */
+  ERR_JVM_DEFAULT_TRUST_MANAGER_LOAD_ERROR("While examining file ''{0}'', the error encountered was:  {1}"),
+
+
+
+  /**
+   * The certificate chain cannot be trusted because it was null or empty.
+   */
+  ERR_JVM_DEFAULT_TRUST_MANAGER_NO_CERTS_IN_CHAIN("The certificate chain cannot be trusted because it was null or empty."),
+
+
+
+  /**
+   * Unable to determine the location of the Java installation because the ''{0}'' system property is not defined.
+   */
+  ERR_JVM_DEFAULT_TRUST_MANAGER_NO_JAVA_HOME("Unable to determine the location of the Java installation because the ''{0}'' system property is not defined."),
+
+
+
+  /**
+   * The presented certificate chain containing certificates {0} cannot be trusted because none of the certificates in that chain were found in the JVM''s default set of trusted issuers.
+   */
+  ERR_JVM_DEFAULT_TRUST_MANGER_NO_TRUSTED_ISSUER_FOUND("The presented certificate chain containing certificates {0} cannot be trusted because none of the certificates in that chain were found in the JVM''s default set of trusted issuers."),
+
+
+
+  /**
+   * Unable to obtain key managers for key store file ''{0}'' using format ''{1}'':  {2}
+   */
+  ERR_KEYSTORE_CANNOT_GET_KEY_MANAGERS("Unable to obtain key managers for key store file ''{0}'' using format ''{1}'':  {2}"),
+
+
+
+  /**
+   * Unable to load key store ''{0}'' of type ''{1}'':  {2}
+   */
+  ERR_KEYSTORE_CANNOT_LOAD("Unable to load key store ''{0}'' of type ''{1}'':  {2}"),
+
+
+
+  /**
+   * An unexpected error occurred while attempting to validate that file ''{0}'' can be used as a valid certificate key store:  {1}
+   */
+  ERR_KEYSTORE_CANNOT_VALIDATE("An unexpected error occurred while attempting to validate that file ''{0}'' can be used as a valid certificate key store:  {1}"),
+
+
+
+  /**
+   * Unable to use the private key entry in alias ''{0}'' because its certificate chain contains certificate ''{1}'' that expired at {2}.
+   */
+  ERR_KEYSTORE_CERT_EXPIRED("Unable to use the private key entry in alias ''{0}'' because its certificate chain contains certificate ''{1}'' that expired at {2}."),
+
+
+
+  /**
+   * Unable to use the private key entry in alias ''{0}'' because its certificate chain contains certificate ''{1}'' that will not be valid until {2}.
+   */
+  ERR_KEYSTORE_CERT_NOT_YET_VALID("Unable to use the private key entry in alias ''{0}'' because its certificate chain contains certificate ''{1}'' that will not be valid until {2}."),
+
+
+
+  /**
+   * Entry ''{0}'' in key store file ''{1}'' is not a private key entry.
+   */
+  ERR_KEYSTORE_ENTRY_NOT_PRIVATE_KEY("Entry ''{0}'' in key store file ''{1}'' is not a private key entry."),
+
+
+
+  /**
+   * Key store file ''{0}'' does not contain an entry with the requested alias of ''{1}''.
+   */
+  ERR_KEYSTORE_NO_ENTRY_WITH_ALIAS("Key store file ''{0}'' does not contain an entry with the requested alias of ''{1}''."),
+
+
+
+  /**
+   * File ''{0}'' cannot be used as a certificate key store because it does not contain any private key entries.
+   */
+  ERR_KEYSTORE_NO_PRIVATE_KEY_ENTRIES("File ''{0}'' cannot be used as a certificate key store because it does not contain any private key entries."),
+
+
+
+  /**
+   * Key store file ''{0}'' does not exist.
+   */
+  ERR_KEYSTORE_NO_SUCH_FILE("Key store file ''{0}'' does not exist."),
+
+
+
+  /**
+   * File ''{0}'' cannot be used as a certificate key store because it does not contain any private key entries that are currently valid.  {1}
+   */
+  ERR_KEYSTORE_NO_VALID_PRIVATE_KEY_ENTRIES("File ''{0}'' cannot be used as a certificate key store because it does not contain any private key entries that are currently valid.  {1}"),
+
+
+
+  /**
+   * None of the configured set of enabled SSL cipher suites could be configured for use with the SSL socket.  The currently-enabled cipher suites are:  {0}.  The SSL socket indicated its supported cipher suites are:  {1}.  You may explicitly configure the enabled protocols using the {2} system property or by calling the {3} method.
+   */
+  ERR_NO_ENABLED_SSL_CIPHER_SUITES_AVAILABLE_FOR_SOCKET("None of the configured set of enabled SSL cipher suites could be configured for use with the SSL socket.  The currently-enabled cipher suites are:  {0}.  The SSL socket indicated its supported cipher suites are:  {1}.  You may explicitly configure the enabled protocols using the {2} system property or by calling the {3} method."),
+
+
+
+  /**
+   * None of the configured set of enabled SSL protocols could be configured for use with the SSL socket.  The currently-enabled protocols are:  {0}.  The SSL socket indicated its supported protocols are:  {1}.  You may explicitly configure the enabled protocols using the {2} system property or by calling the {3} method.
+   */
+  ERR_NO_ENABLED_SSL_PROTOCOLS_AVAILABLE_FOR_SOCKET("None of the configured set of enabled SSL protocols could be configured for use with the SSL socket.  The currently-enabled protocols are:  {0}.  The SSL socket indicated its supported protocols are:  {1}.  You may explicitly configure the enabled protocols using the {2} system property or by calling the {3} method."),
+
+
+
+  /**
+   * The null trust manager never trusts any certificate.
+   */
+  ERR_NULL_TRUST_MANAGER_CERT_NOT_TRUSTED("The null trust manager never trusts any certificate."),
+
+
+
+  /**
+   * An unexpected error occurred while attempting to compute a {0} fingerprint of the end entity certificate to use as the alias:  {1}
+   */
+  ERR_PEM_FILE_KEY_MANAGER_CANNOT_COMPUTE_ALIAS("An unexpected error occurred while attempting to compute a {0} fingerprint of the end entity certificate to use as the alias:  {1}"),
+
+
+
+  /**
+   * Unable to initialize a PEM file key manager because although certificate ''{0}'' was successfully read from PEM file ''{1}'', an unexpected error occurred while attempting to convert that certificate to a Java X.509 certificate: {2}
+   */
+  ERR_PEM_FILE_KEY_MANAGER_CANNOT_DECODE_CERT("Unable to initialize a PEM file key manager because although certificate ''{0}'' was successfully read from PEM file ''{1}'', an unexpected error occurred while attempting to convert that certificate to a Java X.509 certificate: {2}"),
+
+
+
+  /**
+   * Unable to initialize a PEM file key manager because while a PKCS #8 private key was successfully read from PEM file ''{0}'', an unexpected error occurred while attempting to convert it to a Java private key:  {1}
+   */
+  ERR_PEM_FILE_KEY_MANAGER_CANNOT_DECODE_KEY("Unable to initialize a PEM file key manager because while a PKCS #8 private key was successfully read from PEM file ''{0}'', an unexpected error occurred while attempting to convert it to a Java private key:  {1}"),
+
+
+
+  /**
+   * Unable to initialize a PEM file key manager because file ''{0}'' does not contain any X.509 certificates.
+   */
+  ERR_PEM_FILE_KEY_MANAGER_EMPTY_CERT_FILE("Unable to initialize a PEM file key manager because file ''{0}'' does not contain any X.509 certificates."),
+
+
+
+  /**
+   * Unable to initialize a PEM file key manager because file ''{0}'' does not contain a PKCS #8 private key.
+   */
+  ERR_PEM_FILE_KEY_MANAGER_EMPTY_KEY_FILE("Unable to initialize a PEM file key manager because file ''{0}'' does not contain a PKCS #8 private key."),
+
+
+
+  /**
+   * Unable to initialize a PEM file key manager because an error occurred while attempting to read an X.509 certificate from file ''{0}'':  {1}
+   */
+  ERR_PEM_FILE_KEY_MANAGER_ERROR_READING_CERT("Unable to initialize a PEM file key manager because an error occurred while attempting to read an X.509 certificate from file ''{0}'':  {1}"),
+
+
+
+  /**
+   * Unable to initialize a PEM file key manager because an I/O error was encountered while trying to read from file ''{0}'':  {1}
+   */
+  ERR_PEM_FILE_KEY_MANAGER_ERROR_READING_FROM_FILE("Unable to initialize a PEM file key manager because an I/O error was encountered while trying to read from file ''{0}'':  {1}"),
+
+
+
+  /**
+   * Unable to initialize a PEM file key manager because an error occurred while attempting to read a PKCS #8 private key from file ''{0}'':  {1}
+   */
+  ERR_PEM_FILE_KEY_MANAGER_ERROR_READING_KEY("Unable to initialize a PEM file key manager because an error occurred while attempting to read a PKCS #8 private key from file ''{0}'':  {1}"),
+
+
+
+  /**
+   * Unable to initialize a PEM file key manager because file ''{0}'' contains multiple private keys.
+   */
+  ERR_PEM_FILE_KEY_MANAGER_MULTIPLE_KEYS_IN_FILE("Unable to initialize a PEM file key manager because file ''{0}'' contains multiple private keys."),
+
+
+
+  /**
+   * Unable to initialize a PEM file key manager because certificate file ''{0}'' does not exist.
+   */
+  ERR_PEM_FILE_KEY_MANAGER_NO_SUCH_CERT_FILE("Unable to initialize a PEM file key manager because certificate file ''{0}'' does not exist."),
+
+
+
+  /**
+   * Unable to initialize a PEM file key manager because private key file ''{0}'' does not exist.
+   */
+  ERR_PEM_FILE_KEY_MANAGER_NO_SUCH_KEY_FILE("Unable to initialize a PEM file key manager because private key file ''{0}'' does not exist."),
+
+
+
+  /**
+   * Unable to initialize a PEM file key manager because certificate ''{0}'' read from PEM file ''{1}'' is not the issuer for the previous certificate ''{2}'' that was read.  Each subsequent certificate in the chain must be the issuer for the previous certificate.
+   */
+  ERR_PEM_FILE_KEY_MANAGER_SUBSEQUENT_CERT_NOT_ISSUER("Unable to initialize a PEM file key manager because certificate ''{0}'' read from PEM file ''{1}'' is not the issuer for the previous certificate ''{2}'' that was read.  Each subsequent certificate in the chain must be the issuer for the previous certificate."),
+
+
+
+  /**
+   * Unable to initialize a PEM file trust manager because an error occurred while preparing to generate ''{0}'' digests:  {1}
+   */
+  ERR_PEM_FILE_TRUST_MANAGER_CANNOT_GET_DIGEST("Unable to initialize a PEM file trust manager because an error occurred while preparing to generate ''{0}'' digests:  {1}"),
+
+
+
+  /**
+   * An unexpected error occurred while trying to parse certificate ''{0}'':  {1}
+   */
+  ERR_PEM_FILE_TRUST_MANAGER_CANNOT_PARSE_CERT_FROM_CHAIN("An unexpected error occurred while trying to parse certificate ''{0}'':  {1}"),
+
+
+
+  /**
+   * Certificate ''{0}'' is not the issuer for the previous certificate ''{1}'' in the chain.
+   */
+  ERR_PEM_FILE_TRUST_MANAGER_CERT_NOT_ISSUER("Certificate ''{0}'' is not the issuer for the previous certificate ''{1}'' in the chain."),
+
+
+
+  /**
+   * Certificate ''{0}'' is outside of the validity window.  That certificate is valid from {1} to {2}.
+   */
+  ERR_PEM_FILE_TRUST_MANAGER_CERT_NOT_VALID("Certificate ''{0}'' is outside of the validity window.  That certificate is valid from {1} to {2}."),
+
+
+
+  /**
+   * Unable to trust the presented client certificate chain:  {0}
+   */
+  ERR_PEM_FILE_TRUST_MANAGER_CLIENT_NOT_TRUSTED("Unable to trust the presented client certificate chain:  {0}"),
+
+
+
+  /**
+   * The certificate chain is empty.
+   */
+  ERR_PEM_FILE_TRUST_MANAGER_EMPTY_CHAIN("The certificate chain is empty."),
+
+
+
+  /**
+   * Unable to initialize a PEM file trust manager because target file ''{0}'' does not contain any X.509 certificates.
+   */
+  ERR_PEM_FILE_TRUST_MANAGER_EMPTY_FILE("Unable to initialize a PEM file trust manager because target file ''{0}'' does not contain any X.509 certificates."),
+
+
+
+  /**
+   * Unable to initialize a PEM file trust manager because an error occurred while trying to parse data read from file ''{0}'' as an X.509 certificate:  {1}
+   */
+  ERR_PEM_FILE_TRUST_MANAGER_ERROR_PARSING_CERT("Unable to initialize a PEM file trust manager because an error occurred while trying to parse data read from file ''{0}'' as an X.509 certificate:  {1}"),
+
+
+
+  /**
+   * Unable to initialize a PEM file trust manager because an unexpected error occurred while processing file ''{0}'':  {1}
+   */
+  ERR_PEM_FILE_TRUST_MANAGER_ERROR_PROCESSING_FILE("Unable to initialize a PEM file trust manager because an unexpected error occurred while processing file ''{0}'':  {1}"),
+
+
+
+  /**
+   * Unable to initialize a PEM file trust manager because an error occurred while trying to read from file ''{0}'':  {1}
+   */
+  ERR_PEM_FILE_TRUST_MANAGER_ERROR_READING_FILE("Unable to initialize a PEM file trust manager because an error occurred while trying to read from file ''{0}'':  {1}"),
+
+
+
+  /**
+   * Certificate ''{0}'' nor any of its issuers was found in the PEM file trust store.
+   */
+  ERR_PEM_FILE_TRUST_MANAGER_NOT_TRUSTED("Certificate ''{0}'' nor any of its issuers was found in the PEM file trust store."),
+
+
+
+  /**
+   * Unable to initialize a PEM file trust manager because target file ''{0}'' does not exist.
+   */
+  ERR_PEM_FILE_TRUST_MANAGER_NO_SUCH_FILE("Unable to initialize a PEM file trust manager because target file ''{0}'' does not exist."),
+
+
+
+  /**
+   * Unable to trust the presented client certificate chain:  {0}
+   */
+  ERR_PEM_FILE_TRUST_MANAGER_SERVER_NOT_TRUSTED("Unable to trust the presented client certificate chain:  {0}"),
+
+
+
+  /**
+   * Unable to access the PKCS #11 key store:  {0}
+   */
+  ERR_PKCS11_CANNOT_ACCESS("Unable to access the PKCS #11 key store:  {0}"),
+
+
+
+  /**
+   * Unable to obtain key managers for the PKCS #11 key store:  {0}
+   */
+  ERR_PKCS11_CANNOT_GET_KEY_MANAGERS("Unable to obtain key managers for the PKCS #11 key store:  {0}"),
+
+
+
+  /**
+   * The shutdownInput method is not supported for SSL sockets.
+   */
+  ERR_SET_ENABLED_PROTOCOLS_SOCKET_SHUTDOWN_INPUT("The shutdownInput method is not supported for SSL sockets."),
+
+
+
+  /**
+   * The shutdownOutput method is not supported for SSL sockets.
+   */
+  ERR_SET_ENABLED_PROTOCOLS_SOCKET_SHUTDOWN_OUTPUT("The shutdownOutput method is not supported for SSL sockets."),
+
+
+
+  /**
+   * Sending urgent data is not supported for SSL sockets.
+   */
+  ERR_SET_ENABLED_PROTOCOLS_SOCKET_URGENT_DATA_NOT_SUPPORTED("Sending urgent data is not supported for SSL sockets."),
+
+
+
+  /**
+   * The cipher suite uses anonymous authentication.
+   */
+  ERR_TLS_CIPHER_SUITE_SELECTOR_ANON_AUTH("The cipher suite uses anonymous authentication."),
+
+
+
+  /**
+   * The cipher suite uses a weakened export-grade encryption.
+   */
+  ERR_TLS_CIPHER_SUITE_SELECTOR_EXPORT_ENCRYPTION("The cipher suite uses a weakened export-grade encryption."),
+
+
+
+  /**
+   * ERROR:  An unexpected error occurred while trying to initialize the TLS cipher suite selector:  {0}
+   */
+  ERR_TLS_CIPHER_SUITE_SELECTOR_INIT_ERROR("ERROR:  An unexpected error occurred while trying to initialize the TLS cipher suite selector:  {0}"),
+
+
+
+  /**
+   * The cipher suite uses a legacy SSL protocol.
+   */
+  ERR_TLS_CIPHER_SUITE_SELECTOR_LEGACY_SSL_PROTOCOL("The cipher suite uses a legacy SSL protocol."),
+
+
+
+  /**
+   * The cipher suite uses the non-recommended {0} bulk encryption algorithm.
+   */
+  ERR_TLS_CIPHER_SUITE_SELECTOR_NON_RECOMMENDED_KNOWN_BE_ALG("The cipher suite uses the non-recommended {0} bulk encryption algorithm."),
+
+
+
+  /**
+   * The cipher suite uses the non-recommended {0} message digest algorithm.
+   */
+  ERR_TLS_CIPHER_SUITE_SELECTOR_NON_RECOMMENDED_KNOWN_DIGEST_ALG("The cipher suite uses the non-recommended {0} message digest algorithm."),
+
+
+
+  /**
+   * The cipher suite uses the non-recommended {0} key exchange algorithm.
+   */
+  ERR_TLS_CIPHER_SUITE_SELECTOR_NON_RECOMMENDED_KNOWN_KE_ALG("The cipher suite uses the non-recommended {0} key exchange algorithm."),
+
+
+
+  /**
+   * The cipher suite uses a non-recommended bulk encryption algorithm.
+   */
+  ERR_TLS_CIPHER_SUITE_SELECTOR_NON_RECOMMENDED_UNKNOWN_BE_ALG("The cipher suite uses a non-recommended bulk encryption algorithm."),
+
+
+
+  /**
+   * The cipher suite uses a non-recommended message digest algorithm.
+   */
+  ERR_TLS_CIPHER_SUITE_SELECTOR_NON_RECOMMENDED_UNKNOWN_DIGEST_ALG("The cipher suite uses a non-recommended message digest algorithm."),
+
+
+
+  /**
+   * The cipher suite uses a non-recommended key exchange algorithm.
+   */
+  ERR_TLS_CIPHER_SUITE_SELECTOR_NON_RECOMMENDED_UNKNOWN_KE_ALG("The cipher suite uses a non-recommended key exchange algorithm."),
+
+
+
+  /**
+   * The cipher suite uses a NULL key exchange, authentication, bulk encryption, or message digest algorithm.
+   */
+  ERR_TLS_CIPHER_SUITE_SELECTOR_NULL_COMPONENT("The cipher suite uses a NULL key exchange, authentication, bulk encryption, or message digest algorithm."),
+
+
+
+  /**
+   * The cipher suite relies on a pre-shared key.
+   */
+  ERR_TLS_CIPHER_SUITE_SELECTOR_PSK("The cipher suite relies on a pre-shared key."),
+
+
+
+  /**
+   * The cipher suite uses an unrecognized protocol.
+   */
+  ERR_TLS_CIPHER_SUITE_SELECTOR_UNRECOGNIZED_PROTOCOL("The cipher suite uses an unrecognized protocol."),
+
+
+
+  /**
+   * Unable to obtain trust managers for trust store file ''{0}'' using format ''{1}'':  {2}
+   */
+  ERR_TRUSTSTORE_CANNOT_GET_TRUST_MANAGERS("Unable to obtain trust managers for trust store file ''{0}'' using format ''{1}'':  {2}"),
+
+
+
+  /**
+   * Unable to load trust store ''{0}'' of type ''{1}'':  {2}
+   */
+  ERR_TRUSTSTORE_CANNOT_LOAD("Unable to load trust store ''{0}'' of type ''{1}'':  {2}"),
+
+
+
+  /**
+   * Trust store file ''{0}'' does not exist.
+   */
+  ERR_TRUSTSTORE_NO_SUCH_FILE("Trust store file ''{0}'' does not exist."),
+
+
+
+  /**
+   * Unsupported trust store format ''{0}''.
+   */
+  ERR_TRUSTSTORE_UNSUPPORTED_FORMAT("Unsupported trust store format ''{0}''."),
+
+
+
+  /**
+   * The presented certificate ''{0}'' will not be valid until {1}.
+   */
+  ERR_VALIDITY_TOO_EARLY("The presented certificate ''{0}'' will not be valid until {1}."),
+
+
+
+  /**
+   * The presented certificate ''{0}'' expired on {1}.
+   */
+  ERR_VALIDITY_TOO_LATE("The presented certificate ''{0}'' expired on {1}."),
+
+
+
+  /**
+   * The client presented the following certificate chain:
+   */
+  INFO_PROMPT_CLIENT_HEADING("The client presented the following certificate chain:"),
+
+
+
+  /**
+   * Issuer {0,number,0} Subject: {1}
+   */
+  INFO_PROMPT_ISSUER_SUBJECT("Issuer {0,number,0} Subject: {1}"),
+
+
+
+  /**
+   * Do you wish to trust this certificate?  Enter ''y'' or ''n'':
+   */
+  INFO_PROMPT_MESSAGE("Do you wish to trust this certificate?  Enter ''y'' or ''n'':"),
+
+
+
+  /**
+   * The server presented the following certificate chain:
+   */
+  INFO_PROMPT_SERVER_HEADING("The server presented the following certificate chain:"),
+
+
+
+  /**
+   * SHA-1 Fingerprint: {0}
+   */
+  INFO_PROMPT_SHA1_FINGERPRINT("SHA-1 Fingerprint: {0}"),
+
+
+
+  /**
+   * 256-bit SHA-2 Fingerprint: {0}
+   */
+  INFO_PROMPT_SHA256_FINGERPRINT("256-bit SHA-2 Fingerprint: {0}"),
+
+
+
+  /**
+   * Subject: {0}
+   */
+  INFO_PROMPT_SUBJECT("Subject: {0}"),
+
+
+
+  /**
+   * Valid From: {0}
+   */
+  INFO_PROMPT_VALID_FROM("Valid From: {0}"),
+
+
+
+  /**
+   * Valid Until: {0}
+   */
+  INFO_PROMPT_VALID_TO("Valid Until: {0}"),
+
+
+
+  /**
+   * Provides information about the TLS cipher suites that are supported by the JVM and selects a recommended set of suites for secure communication.
+   */
+  INFO_TLS_CIPHER_SUITE_SELECTOR_TOOL_DESC("Provides information about the TLS cipher suites that are supported by the JVM and selects a recommended set of suites for secure communication."),
+
+
+
+  /**
+   * WARNING:  Issuer certificate ''{0}'' has a basic constraints extension that indicates there should not be any intermediate CA certificates between it and the end entity certificate, but one or more intermediate CA certificates were found ahead of it in the chain.
+   */
+  WARN_PROMPT_PROCESSOR_BC_DISALLOWED_INTERMEDIATE("WARNING:  Issuer certificate ''{0}'' has a basic constraints extension that indicates there should not be any intermediate CA certificates between it and the end entity certificate, but one or more intermediate CA certificates were found ahead of it in the chain."),
+
+
+
+  /**
+   * WARNING:  Issuer certificate ''{0}'' has a basic constraints extension that indicates the certificate should not be trusted as an issuer certificate.
+   */
+  WARN_PROMPT_PROCESSOR_BC_NOT_CA("WARNING:  Issuer certificate ''{0}'' has a basic constraints extension that indicates the certificate should not be trusted as an issuer certificate."),
+
+
+
+  /**
+   * WARNING:  Issuer certificate ''{0}'' has a basic constraints extension that indicates there should be at most {1,number,0} intermediate CA certificate(s) between it and the end entity certificate, but {2,number,0} intermediate CA certificates were found.
+   */
+  WARN_PROMPT_PROCESSOR_BC_TOO_MANY_INTERMEDIATES("WARNING:  Issuer certificate ''{0}'' has a basic constraints extension that indicates there should be at most {1,number,0} intermediate CA certificate(s) between it and the end entity certificate, but {2,number,0} intermediate CA certificates were found."),
+
+
+
+  /**
+   * WARNING:  {0} certificate ''{1}'' has an invalid signature.  This may mean that the certificate has been forged or that it has been altered since it was signed.
+   */
+  WARN_PROMPT_PROCESSOR_CERT_BAD_SIGNATURE("WARNING:  {0} certificate ''{1}'' has an invalid signature.  This may mean that the certificate has been forged or that it has been altered since it was signed."),
+
+
+
+  /**
+   * WARNING:  {0} certificate ''{1}'' expired on {2} ({3} ago).
+   */
+  WARN_PROMPT_PROCESSOR_CERT_EXPIRED("WARNING:  {0} certificate ''{1}'' expired on {2} ({3} ago)."),
+
+
+
+  /**
+   * WARNING:  The certificate is self-signed.
+   */
+  WARN_PROMPT_PROCESSOR_CERT_IS_SELF_SIGNED("WARNING:  The certificate is self-signed."),
+
+
+
+  /**
+   * WARNING:  {0} certificate ''{1}'' will not be valid until {2} ({3} from now).
+   */
+  WARN_PROMPT_PROCESSOR_CERT_NOT_YET_VALID("WARNING:  {0} certificate ''{1}'' will not be valid until {2} ({3} from now)."),
+
+
+
+  /**
+   * WARNING:  The presented certificate chain has certificate ''{0}'' immediately following certificate ''{1}'', but the former certificate is not the issuer for the latter.
+   */
+  WARN_PROMPT_PROCESSOR_CHAIN_ISSUER_MISMATCH("WARNING:  The presented certificate chain has certificate ''{0}'' immediately following certificate ''{1}'', but the former certificate is not the issuer for the latter."),
+
+
+
+  /**
+   * WARNING:  The presented certificate chain is not complete.  It ends with certificate ''{0}'', which is not self-signed.
+   */
+  WARN_PROMPT_PROCESSOR_CHAIN_NOT_COMPLETE("WARNING:  The presented certificate chain is not complete.  It ends with certificate ''{0}'', which is not self-signed."),
+
+
+
+  /**
+   * {0} at {1}
+   */
+  WARN_PROMPT_PROCESSOR_DATE_TIME("{0} at {1}"),
+
+
+
+  /**
+   * WARNING:  Client certificate ''{0}'' has an extended key usage extension that does not include the clientAuth usage.  This certificate is not intended to be used as a TLS client certificate.
+   */
+  WARN_PROMPT_PROCESSOR_EKU_MISSING_CLIENT_AUTH("WARNING:  Client certificate ''{0}'' has an extended key usage extension that does not include the clientAuth usage.  This certificate is not intended to be used as a TLS client certificate."),
+
+
+
+  /**
+   * WARNING:  Server certificate ''{0}'' has an extended key usage extension that does not include the serverAuth usage.  This certificate is not intended to be used as a TLS server certificate.
+   */
+  WARN_PROMPT_PROCESSOR_EKU_MISSING_SERVER_AUTH("WARNING:  Server certificate ''{0}'' has an extended key usage extension that does not include the serverAuth usage.  This certificate is not intended to be used as a TLS server certificate."),
+
+
+
+  /**
+   * WARNING:  Issuer certificate ''{0}'' has a key usage extension that does not include the keyCertSign usage.  This indicates that the certificate should not be trusted as an issuer certificate.
+   */
+  WARN_PROMPT_PROCESSOR_KU_NO_KEY_CERT_SIGN("WARNING:  Issuer certificate ''{0}'' has a key usage extension that does not include the keyCertSign usage.  This indicates that the certificate should not be trusted as an issuer certificate."),
+
+
+
+  /**
+   * Client
+   */
+  WARN_PROMPT_PROCESSOR_LABEL_CLIENT("Client"),
+
+
+
+  /**
+   * Issuer
+   */
+  WARN_PROMPT_PROCESSOR_LABEL_ISSUER("Issuer"),
+
+
+
+  /**
+   * Server
+   */
+  WARN_PROMPT_PROCESSOR_LABEL_SERVER("Server"),
+
+
+
+  /**
+   * WARNING:  Server certificate ''{0}'' appears to be intended for use in a server with one of the following addresses:  {1}.  None of these addresses matches the address used by the client.
+   */
+  WARN_PROMPT_PROCESSOR_MULTIPLE_ADDRESSES_NOT_MATCHED("WARNING:  Server certificate ''{0}'' appears to be intended for use in a server with one of the following addresses:  {1}.  None of these addresses matches the address used by the client."),
+
+
+
+  /**
+   * WARNING:  Issuer certificate ''{0}'' does not have a basic constraints extension.  This certificate was likely not intended to be used as an issuer certificate.
+   */
+  WARN_PROMPT_PROCESSOR_NO_BC_EXTENSION("WARNING:  Issuer certificate ''{0}'' does not have a basic constraints extension.  This certificate was likely not intended to be used as an issuer certificate."),
+
+
+
+  /**
+   * WARNING:  Server certificate ''{0}'' appears to be intended for use in a server with address {1}, which does not match the address used by the client.
+   */
+  WARN_PROMPT_PROCESSOR_SINGLE_ADDRESS_NOT_MATCHED("WARNING:  Server certificate ''{0}'' appears to be intended for use in a server with address {1}, which does not match the address used by the client.");
+
+
+
+  /**
+   * Indicates whether the unit tests are currently running.
+   */
+  private static final boolean IS_WITHIN_UNIT_TESTS =
+       Boolean.getBoolean("com.unboundid.ldap.sdk.RunningUnitTests") ||
+       Boolean.getBoolean("com.unboundid.directory.server.RunningUnitTests");
+
+
+
+  /**
+   * A pre-allocated array of zero objects to use for messages
+   * that do not require any arguments.
+   */
+  private static final Object[] NO_ARGS = new Object[0];
+
+
+
+  /**
+   * The resource bundle that will be used to load the properties file.
+   */
+  private static final ResourceBundle RESOURCE_BUNDLE;
+  static
+  {
+    ResourceBundle rb = null;
+    try
+    {
+      rb = ResourceBundle.getBundle("unboundid-ldapsdk-ssl");
+    } catch (final Exception e) {}
+    RESOURCE_BUNDLE = rb;
+  }
+
+
+
+  /**
+   * The map that will be used to hold the unformatted message strings, indexed by property name.
+   */
+  private static final ConcurrentHashMap<SSLMessages,String> MESSAGE_STRINGS = new ConcurrentHashMap<>(100);
+
+
+
+  /**
+   * The map that will be used to hold the message format objects, indexed by property name.
+   */
+  private static final ConcurrentHashMap<SSLMessages,MessageFormat> MESSAGES = new ConcurrentHashMap<>(100);
+
+
+
+  // The default text for this message
+  private final String defaultText;
+
+
+
+  /**
+   * Creates a new message key.
+   */
+  private SSLMessages(final String defaultText)
+  {
+    this.defaultText = defaultText;
+  }
+
+
+
+  /**
+   * Retrieves a localized version of the message.
+   * This method should only be used for messages that do not take any
+   * arguments.
+   *
+   * @return  A localized version of the message.
+   */
+  public String get()
+  {
+    MessageFormat f = MESSAGES.get(this);
+    if (f == null)
+    {
+      if (RESOURCE_BUNDLE == null)
+      {
+        f = new MessageFormat(defaultText);
+      }
+      else
+      {
+        try
+        {
+          f = new MessageFormat(RESOURCE_BUNDLE.getString(name()));
+        }
+        catch (final Exception e)
+        {
+          f = new MessageFormat(defaultText);
+        }
+      }
+      MESSAGES.putIfAbsent(this, f);
+    }
+
+    final String formattedMessage;
+    synchronized (f)
+    {
+      formattedMessage = f.format(NO_ARGS);
+    }
+
+    if (IS_WITHIN_UNIT_TESTS)
+    {
+      if (formattedMessage.contains("{0}") ||
+          formattedMessage.contains("{0,number,0}") ||
+          formattedMessage.contains("{1}") ||
+          formattedMessage.contains("{1,number,0}") ||
+          formattedMessage.contains("{2}") ||
+          formattedMessage.contains("{2,number,0}") ||
+          formattedMessage.contains("{3}") ||
+          formattedMessage.contains("{3,number,0}") ||
+          formattedMessage.contains("{4}") ||
+          formattedMessage.contains("{4,number,0}") ||
+          formattedMessage.contains("{5}") ||
+          formattedMessage.contains("{5,number,0}") ||
+          formattedMessage.contains("{6}") ||
+          formattedMessage.contains("{6,number,0}") ||
+          formattedMessage.contains("{7}") ||
+          formattedMessage.contains("{7,number,0}") ||
+          formattedMessage.contains("{8}") ||
+          formattedMessage.contains("{8,number,0}") ||
+          formattedMessage.contains("{9}") ||
+          formattedMessage.contains("{9,number,0}") ||
+          formattedMessage.contains("{10}") ||
+          formattedMessage.contains("{10,number,0}"))
+      {
+        throw new IllegalArgumentException(
+             "Message " + getClass().getName() + '.' + name() +
+                  " contains an un-replaced token:  " + formattedMessage);
+      }
+    }
+
+    return formattedMessage;
+  }
+
+
+
+  /**
+   * Retrieves a localized version of the message.
+   *
+   * @param  args  The arguments to use to format the message.
+   *
+   * @return  A localized version of the message.
+   */
+  public String get(final Object... args)
+  {
+    MessageFormat f = MESSAGES.get(this);
+    if (f == null)
+    {
+      if (RESOURCE_BUNDLE == null)
+      {
+        f = new MessageFormat(defaultText);
+      }
+      else
+      {
+        try
+        {
+          f = new MessageFormat(RESOURCE_BUNDLE.getString(name()));
+        }
+        catch (final Exception e)
+        {
+          f = new MessageFormat(defaultText);
+        }
+      }
+      MESSAGES.putIfAbsent(this, f);
+    }
+
+    final String formattedMessage;
+    synchronized (f)
+    {
+      formattedMessage = f.format(args);
+    }
+
+    if (IS_WITHIN_UNIT_TESTS)
+    {
+      if (formattedMessage.contains("{0}") ||
+          formattedMessage.contains("{0,number,0}") ||
+          formattedMessage.contains("{1}") ||
+          formattedMessage.contains("{1,number,0}") ||
+          formattedMessage.contains("{2}") ||
+          formattedMessage.contains("{2,number,0}") ||
+          formattedMessage.contains("{3}") ||
+          formattedMessage.contains("{3,number,0}") ||
+          formattedMessage.contains("{4}") ||
+          formattedMessage.contains("{4,number,0}") ||
+          formattedMessage.contains("{5}") ||
+          formattedMessage.contains("{5,number,0}") ||
+          formattedMessage.contains("{6}") ||
+          formattedMessage.contains("{6,number,0}") ||
+          formattedMessage.contains("{7}") ||
+          formattedMessage.contains("{7,number,0}") ||
+          formattedMessage.contains("{8}") ||
+          formattedMessage.contains("{8,number,0}") ||
+          formattedMessage.contains("{9}") ||
+          formattedMessage.contains("{9,number,0}") ||
+          formattedMessage.contains("{10}") ||
+          formattedMessage.contains("{10,number,0}"))
+      {
+        throw new IllegalArgumentException(
+             "Message " + getClass().getName() + '.' + name() +
+                  " contains an un-replaced token:  " + formattedMessage);
+      }
+    }
+
+    return formattedMessage;
+  }
+
+
+
+  /**
+   * Retrieves a string representation of this message key.
+   *
+   * @return  A string representation of this message key.
+   */
+  @Override()
+  public String toString()
+  {
+    String s = MESSAGE_STRINGS.get(this);
+    if (s == null)
+    {
+      if (RESOURCE_BUNDLE == null)
+      {
+        s = defaultText;
+      }
+      else
+      {
+        try
+        {
+          s = RESOURCE_BUNDLE.getString(name());
+        }
+        catch (final Exception e)
+        {
+          s = defaultText;
+        }
+        MESSAGE_STRINGS.putIfAbsent(this, s);
+      }
+    }
+
+    return s;
+  }
+}
+

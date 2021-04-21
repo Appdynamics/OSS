@@ -1,0 +1,220 @@
+<?xml version="1.0"?>
+<!DOCTYPE module PUBLIC
+    "-//Puppy Crawl//DTD Check Configuration 1.2//EN"
+    "http://www.puppycrawl.com/dtds/configuration_1_2.dtd">
+
+<!--
+ ! Copyright 2007-2021 Ping Identity Corporation
+ ! All Rights Reserved.
+ -->
+<!--
+ ! Copyright 2007-2021 Ping Identity Corporation
+ !
+ ! Licensed under the Apache License, Version 2.0 (the "License");
+ ! you may not use this file except in compliance with the License.
+ ! You may obtain a copy of the License at
+ !
+ !    http://www.apache.org/licenses/LICENSE-2.0
+ !
+ ! Unless required by applicable law or agreed to in writing, software
+ ! distributed under the License is distributed on an "AS IS" BASIS,
+ ! WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ ! See the License for the specific language governing permissions and
+ ! limitations under the License.
+ -->
+<!--
+ ! Copyright (C) 2007-2021 Ping Identity Corporation
+ !
+ ! This program is free software; you can redistribute it and/or modify
+ ! it under the terms of the GNU General Public License (GPLv2 only)
+ ! or the terms of the GNU Lesser General Public License (LGPLv2.1 only)
+ ! as published by the Free Software Foundation.
+ !
+ ! This program is distributed in the hope that it will be useful,
+ ! but WITHOUT ANY WARRANTY; without even the implied warranty of
+ ! MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ ! GNU General Public License for more details.
+ !
+ ! You should have received a copy of the GNU General Public License
+ ! along with this program; if not, see <http://www.gnu.org/licenses>.
+ -->
+
+<module name="Checker">
+  <property name="cacheFile" value=".checkstyle-cache-main" />
+
+
+  <!-- Ensure that there is always a newline at the end of each file. -->
+  <module name="NewlineAtEndOfFile" />
+
+
+  <module name="TreeWalker">
+    <!-- Ensure that all methods have Javadoc documentation. -->
+    <module name="JavadocMethod">
+      <property name="scope"                       value="private" />
+      <property name="allowUndeclaredRTE"          value="false"   />
+      <property name="allowMissingParamTags"       value="false"   />
+      <property name="allowMissingThrowsTags"      value="false"   />
+      <property name="allowMissingReturnTag"       value="false"   />
+      <property name="allowMissingJavadoc"         value="false"   />
+      <property name="allowMissingPropertyJavadoc" value="false"   />
+      <property name="suppressLoadErrors"          value="true"    />
+    </module>
+
+
+    <!-- Ensure that all non-private variables have Javadoc documentation. -->
+    <module name="JavadocVariable">
+      <property name="scope" value="package" />
+    </module>
+
+
+    <!-- Ensure that all Javadoc comments are well-formed. -->
+    <module name="JavadocStyle">
+      <property name="scope"              value="private" />
+      <property name="checkFirstSentence" value="true"    />
+      <property name="checkEmptyJavadoc"  value="false"   />
+      <property name="checkHtml"          value="true"    />
+    </module>
+
+
+    <!-- Ensure that there are no star imports. -->
+    <module name="AvoidStarImport">
+      <property name="allowStaticMemberImports" value="true" />
+    </module>
+
+
+    <!-- Ensure that there are no imports from a "sun.*" package. -->
+    <module name="IllegalImport">
+      <property name="illegalPkgs" value="sun" />
+    </module>
+
+
+    <!-- Ensure that there are no redundant imports. -->
+    <module name="RedundantImport" />
+
+
+    <!-- Ensure that there are no unused imports. -->
+    <module name="UnusedImports" />
+
+
+    <!-- Ensure that there are no lines longer than 80 characters. -->
+    <module name="LineLength">
+      <property name="max" value="80" />
+    </module>
+
+
+    <!-- Ensure that modifiers are provided in the correct order. -->
+    <module name="ModifierOrder" />
+
+
+    <!-- Check to ensure there are no redundant modifiers. -->
+    <module name="RedundantModifier" />
+
+
+    <!-- Check to ensure that all code blocks include curly braces. -->
+    <module name="NeedBraces" />
+
+
+    <!-- Ensure that any class containing an equals method includes an
+         equals(Object) method. -->
+    <module name="CovariantEquals" />
+
+
+    <!-- Ensure that there are no empty statements in the code.  -->
+    <module name="EmptyStatement" />
+
+
+    <!-- Ensure that any class containing an equals method also includes a
+         hashCode method. -->
+    <module name="EqualsHashCode" />
+
+
+    <!-- Ensure that local variables do not hide class variables. -->
+    <module name="HiddenField">
+      <property name="tokens" value="VARIABLE_DEF" />
+    </module>
+
+
+    <!-- Ensure that utility classes do not have a public constructor. -->
+    <module name="HideUtilityClassConstructor" />
+
+
+    <!-- Ensure that checks for boolean values are simple where possible. -->
+    <module name="SimplifyBooleanExpression" />
+
+
+    <!-- Ensure that boolean returns are simple where possible. -->
+    <module name="SimplifyBooleanReturn" />
+
+
+    <!-- Ensure that string literal equality doesn't use "==". -->
+    <module name="StringLiteralEquality" />
+
+
+    <!-- Ensure that an overriding clone method invokes super.clone. -->
+    <module name="SuperClone" />
+
+
+    <!-- Ensure that an overriding finalize method invokes super.finalize. -->
+    <module name="SuperFinalize" />
+
+
+    <!-- Ensure that all classes have a package declaration. -->
+    <module name="PackageDeclaration" />
+
+
+    <!-- Ensure that all package annotations are in package-info.java. -->
+    <module name="PackageAnnotation" />
+
+
+    <!-- Ensure that any switch statement that has a default clause always has
+         the default clause after all other clauses. -->
+    <module name="DefaultComesLast" />
+
+
+    <!-- Ensure that all cases of a switch statement that have any code also
+         have a break, return, or throw and don't fall through to the next
+         case. -->
+    <module name="FallThrough" />
+
+
+    <!-- Ensure that all local fields are declared private unless they are
+         static final. -->
+    <module name="VisibilityModifier" />
+
+
+    <!-- Ensure that classes with only private constructors are final. -->
+    <module name="FinalClass" />
+
+
+    <!-- Ensure that all parameters are final. -->
+    <module name="FinalParameters">
+      <property name="ignorePrimitiveTypes" value="false" />
+      <property name="tokens"
+                value="METHOD_DEF,CTOR_DEF,LITERAL_CATCH,FOR_EACH_CLAUSE" />
+    </module>
+
+
+    <!-- Ensure that all local variables that can be final are final. -->
+    <module name="FinalLocalVariable" />
+
+
+    <!-- Ensure that all exceptions are immutable. -->
+    <module name="MutableException" />
+
+    <!-- Ensure that all long constants are followed by a capital L. -->
+    <module name="UpperEll" />
+
+
+    <!-- Ensure that all method/constructor/catch parameters are final. -->
+    <module name="FinalParameters" />
+
+
+    <!-- Ensure that the @Override annotation is used where appropriate. -->
+    <module name="MissingOverride" />
+
+
+    <!-- Ensure that the @Deprecated annotation and @deprecated javadoc tag are
+         always used together. -->
+    <module name="MissingDeprecated" />
+  </module>
+</module>

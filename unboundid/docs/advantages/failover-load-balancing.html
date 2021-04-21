@@ -1,0 +1,87 @@
+              <div align="right">
+${TARGET="offline"}                <a href="${LDAP_SDK_HOME_URL}" style="font-size: 85%">LDAP SDK Home Page</a>
+${TARGET="offline"}                <br>
+                <a href="${BASE}index.${EXTENSION}" style="font-size: 85%">Product Information</a>
+                <br>
+                <a href="index.${EXTENSION}" style="font-size: 85%">Advantages of the LDAP SDK</a>
+              </div>
+
+              <h2>Support for Failover and Load Balancing</h2>
+
+              <p>
+                The UnboundID LDAP SDK for Java provides a mechanism that can be used to manage
+                 connections across multiple servers.  This can be used to provide basic support
+                 for failover and load balancing, and it can be used for single connections as well
+                 as connection pools (so a single connection pool may contain connections to
+                 multiple servers, effectively balancing the load across those servers).
+              </p>
+
+              <p>
+                The abstract <tt>ServerSet</tt> class defines the basic API used to provide this
+                functionality.  At present, the following implementations are available:
+              </p>
+
+              <ul>
+                <li>
+                  A single server set, which contains a reference to a single server.  It is
+                  primarily used for cases in which a server set may be needed, but only a single
+                  server is to be used.
+                  <br><br>
+                </li>
+
+                <li>
+                  A fewest connections server set, in which each subsequent connection will be
+                  established to the server with the smallest number of established connections.
+                  If a given server isn't available, then it wil be skipped and the server with
+                  the next fewest connections will be used instead.
+                  <br><br>
+                </li>
+
+                <li>
+                  A round robin server set, in which each subsequent connection will be established
+                  to the next server in the specified list.  If a given server isn't available,
+                  then it will be skipped and the server set will move to the next server in the
+                  list.
+                  <br><br>
+                </li>
+
+                <li>
+                  A failover server set, in which all attempts to create a connection will be tried
+                  against the first server in the list, and will only try the second if the first
+                  is unavailable, and only try the third if both the first and second are
+                  unavailable, etc.
+                  <br><br>
+                </li>
+
+                <li>
+                  A fastest connect server set, in which the LDAP SDK will attempt to create
+                  connections to multiple servers concurrently and will use the first one to be
+                  established.
+                  <br><br>
+                </li>
+
+                <li>
+                  A round robin DNS server set, which can handle cases in which a single DNS name
+                  is associated with multiple IP addresses.
+                  <br><br>
+                </li>
+
+                <li>
+                  A DNS SRV record server set, in which the set of available directory servers can
+                  be discovered from DNS through SRV records.
+                  <br><br>
+                </li>
+              </ul>
+
+              <p>
+                Note that the failover server set can also provide failover across server sets, so
+                it is possible to define more complex configurations (e.g., if possible, use
+                round-robin load balancing across servers in the local data center, but if none of
+                them are available then fail over to a round-robin set of servers in a remote data
+                center).
+              </p>
+
+              <p>
+                The server set API is extensible, and developers are free to create their own
+                implementations if none of the existing options is ideal for a given deployment.
+              </p>
