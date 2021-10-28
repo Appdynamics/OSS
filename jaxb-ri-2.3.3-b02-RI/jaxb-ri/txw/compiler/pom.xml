@@ -1,0 +1,112 @@
+<!--
+
+    Copyright (c) 2005, 2019 Oracle and/or its affiliates. All rights reserved.
+
+    This program and the accompanying materials are made available under the
+    terms of the Eclipse Distribution License v. 1.0, which is available at
+    http://www.eclipse.org/org/documents/edl-v10.php.
+
+    SPDX-License-Identifier: BSD-3-Clause
+
+-->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.sun.xml.bind.mvn</groupId>
+        <artifactId>jaxb-txw-parent</artifactId>
+        <version>2.3.3-b02</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+    <groupId>org.glassfish.jaxb</groupId>
+    <artifactId>txwc2</artifactId>
+    <packaging>jar</packaging>
+    <name>TXW2 Compiler</name>
+
+    <description>
+        JAXB schema generator.The *tool* to generate XML schema based on java classes.
+    </description>
+
+    <properties>
+        <spotbugs.exclude>${project.basedir}/exclude-txwc2.xml</spotbugs.exclude>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.sun.xml.bind.external</groupId>
+            <artifactId>rngom</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.jaxb</groupId>
+            <artifactId>txw2</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.jaxb</groupId>
+            <artifactId>codemodel</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.jaxb</groupId>
+            <artifactId>xsom</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.ant</groupId>
+            <artifactId>ant</artifactId>
+            <scope>provided</scope>
+            <optional>true</optional>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>default-compile</id>
+                        <configuration>
+                            <compilerArgs>
+                                <arg>--add-reads</arg>
+                                <arg>com.sun.tools.txw2=ALL-UNNAMED</arg>
+                            </compilerArgs>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>com.sun.tools.txw2.Main</mainClass>
+                        </manifest>
+                        <manifestEntries>
+                            <Implementation-Title>TXW Compiler</Implementation-Title>
+                        </manifestEntries>
+                    </archive>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <configuration>
+                    <additionalJOptions>
+                        <additionalJOption>--add-reads</additionalJOption>
+                        <additionalJOption>com.sun.tools.txw2=ALL-UNNAMED</additionalJOption>
+                    </additionalJOptions>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
+
