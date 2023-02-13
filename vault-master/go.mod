@@ -47,7 +47,7 @@ require (
 	github.com/go-test/deep v1.0.2
 	github.com/gocql/gocql v0.0.0-20190402132108-0e1d5de854df
 	github.com/gogo/protobuf v1.2.1
-	github.com/golang/protobuf v1.3.1
+	github.com/golang/protobuf v1.5.0
 	github.com/google/go-github v17.0.0+incompatible
 	github.com/google/go-querystring v1.0.0 // indirect
 	github.com/gotestyourself/gotestyourself v2.2.0+incompatible // indirect
@@ -92,7 +92,7 @@ require (
 	github.com/jefferai/jsonx v1.0.0
 	github.com/joyent/triton-go v0.0.0-20190112182421-51ffac552869
 	github.com/keybase/go-crypto v0.0.0-20190403132359-d65b6b94177f
-	github.com/kr/pretty v0.1.0
+	github.com/kr/pretty v0.2.1
 	github.com/kr/text v0.1.0
 	github.com/lib/pq v1.1.1
 	github.com/mattn/go-colorable v0.0.9
@@ -105,10 +105,9 @@ require (
 	github.com/mitchellh/reflectwalk v1.0.0
 	github.com/ncw/swift v1.0.47
 	github.com/oklog/run v1.0.0
-	github.com/onsi/ginkgo v1.7.0 // indirect
 	github.com/opencontainers/go-digest v1.0.0-rc1 // indirect
 	github.com/opencontainers/image-spec v1.0.1 // indirect
-	github.com/opencontainers/runc v0.1.1 // indirect
+	github.com/opencontainers/runc v1.1.2 // indirect
 	github.com/ory/dockertest v3.3.4+incompatible
 	github.com/patrickmn/go-cache v2.1.0+incompatible
 	github.com/pkg/errors v0.8.1
@@ -125,7 +124,7 @@ require (
 	go.etcd.io/bbolt v1.3.2
 	go.etcd.io/etcd v0.0.0-20190412021913-f29b1ada1971
 	golang.org/x/crypto v0.0.0-20190513172903-22d7a77e9e5f
-	golang.org/x/net v0.0.0-20190620200207-3b0461eec859
+	golang.org/x/net v0.0.0-20201224014010-6772e930b67b
 	golang.org/x/oauth2 v0.0.0-20190402181905-9f3314589c9a
 	google.golang.org/api v0.5.0
 	google.golang.org/genproto v0.0.0-20190513181449-d00d292a067c
