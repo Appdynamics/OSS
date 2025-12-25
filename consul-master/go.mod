@@ -41,7 +41,6 @@ require (
 	github.com/gogo/protobuf v1.2.1
 	github.com/golang/protobuf v1.3.1
 	github.com/golang/snappy v0.0.0-20180518054509-2e65f85255db // indirect
-	github.com/google/go-cmp v0.2.0 // indirect
 	github.com/google/go-github v17.0.0+incompatible // indirect
 	github.com/google/gofuzz v0.0.0-20170612174753-24818f796faf
 	github.com/gotestyourself/gotestyourself v2.2.0+incompatible // indirect
@@ -104,7 +103,7 @@ require (
 	github.com/stretchr/objx v0.1.1 // indirect
 	github.com/stretchr/testify v1.3.0
 	golang.org/x/crypto v0.0.0-20190325154230-a5d413f7728c
-	golang.org/x/net v0.0.0-20190503192946-f4e77d36d62c
+	golang.org/x/net v0.0.0-20190812203447-cdfb69ac37fc
 	golang.org/x/sync v0.0.0-20190423024810-112230192c58
 	golang.org/x/sys v0.0.0-20190523142557-0e01d883c5c5
 	golang.org/x/time v0.0.0-20180412165947-fbb02b2291d2
@@ -115,6 +114,6 @@ require (
 	gopkg.in/square/go-jose.v2 v2.3.1
 	gotest.tools v2.2.0+incompatible // indirect
 	k8s.io/api v0.0.0-20190325185214-7544f9db76f6
-	k8s.io/apimachinery v0.0.0-20190223001710-c182ff3b9841
+	k8s.io/apimachinery v0.15.7
 	k8s.io/client-go v8.0.0+incompatible
 )
