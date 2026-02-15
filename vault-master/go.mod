@@ -85,7 +85,7 @@ require (
 	github.com/hashicorp/vault-plugin-secrets-kv v0.5.2-0.20190725170141-1c4dac87f383
 	github.com/hashicorp/vault/api v1.0.4
 	github.com/hashicorp/vault/sdk v0.1.13
-	github.com/influxdata/influxdb v0.0.0-20190411212539-d24b7ba8c4c4
+	github.com/influxdata/influxdb v1.7.6
 	github.com/jackc/fake v0.0.0-20150926172116-812a484cc733 // indirect
 	github.com/jackc/pgx v3.3.0+incompatible // indirect
 	github.com/jefferai/isbadcipher v0.0.0-20190226160619-51d2077c035f
@@ -105,7 +105,6 @@ require (
 	github.com/mitchellh/reflectwalk v1.0.0
 	github.com/ncw/swift v1.0.47
 	github.com/oklog/run v1.0.0
-	github.com/onsi/ginkgo v1.7.0 // indirect
 	github.com/opencontainers/go-digest v1.0.0-rc1 // indirect
 	github.com/opencontainers/image-spec v1.0.1 // indirect
 	github.com/opencontainers/runc v0.1.1 // indirect
